@@ -381,52 +381,97 @@
 		<div class="grid md:grid-cols-2 gap-12">
 			<div class="neumorphic p-8 motion-preset-slide-right">
 				<h3 class="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
-				<div class="space-y-4">
-					<div class="flex items-center">
-						<span class="text-primary mr-3">📍</span>
-						<span>123 Education Boulevard, Learning City, LC 12345</span>
+				<div class="space-y-6">
+					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+						<div class="text-2xl text-primary mr-4 floating-element">📍</div>
+						<div>
+							<div class="font-medium text-primary">Location</div>
+							<div class="opacity-80">Comprehensive Educational Center</div>
+						</div>
 					</div>
-					<div class="flex items-center">
-						<span class="text-primary mr-3">📞</span>
-						<span>(555) 123-LEARN</span>
+					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 0.5s;">📞</div>
+						<div>
+							<div class="font-medium text-primary">Phone</div>
+							<div class="opacity-80">+2348036513400</div>
+						</div>
 					</div>
-					<div class="flex items-center">
-						<span class="text-primary mr-3">✉️</span>
-						<span>info@angelwings.edu</span>
+					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 1s;">✉️</div>
+						<div>
+							<div class="font-medium text-primary">Email</div>
+							<div class="opacity-80">angelwingseducation@gmail.com</div>
+						</div>
 					</div>
-					<div class="flex items-center">
-						<span class="text-primary mr-3">🌐</span>
-						<span>www.angelwings.edu</span>
+					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 1.5s;">🕒</div>
+						<div>
+							<div class="font-medium text-primary">School Hours</div>
+							<div class="opacity-80">Monday - Friday: 7:30 AM - 4:00 PM</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			
 			<div class="neumorphic p-8 motion-preset-slide-left">
-				<form class="space-y-4">
-					<div class="form-control">
-						<input type="text" placeholder="Parent/Guardian Name" class="input input-bordered focus:border-primary" />
+				<h3 class="text-2xl font-bold mb-6 text-primary">Get In Touch</h3>
+				<form class="space-y-6">
+					<div class="motion-preset-slide-up" style="animation-delay: 0.2s;">
+						<label class="block text-sm font-medium text-primary mb-2">Parent/Guardian Name</label>
+						<input 
+							type="text" 
+							placeholder="Enter your full name" 
+							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
+						/>
 					</div>
-					<div class="form-control">
-						<input type="email" placeholder="Your Email" class="input input-bordered focus:border-primary" />
+					<div class="motion-preset-slide-up" style="animation-delay: 0.4s;">
+						<label class="block text-sm font-medium text-primary mb-2">Email Address</label>
+						<input 
+							type="email" 
+							placeholder="your.email@example.com" 
+							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
+						/>
 					</div>
-					<div class="form-control">
-						<select class="select select-bordered focus:border-primary">
-							<option disabled selected>Interested Class Level</option>
-							<option>Foundation</option>
-							<option>Pre-Nursery</option>
-							<option>Nursery 1</option>
-							<option>Nursery 2</option>
-							<option>Grade 1</option>
-							<option>Grade 2</option>
-							<option>Grade 3</option>
-							<option>Grade 4</option>
-							<option>Grade 5</option>
+					<div class="motion-preset-slide-up" style="animation-delay: 0.6s;">
+						<label class="block text-sm font-medium text-primary mb-2">Phone Number</label>
+						<input 
+							type="tel" 
+							placeholder="+234 xxx xxx xxxx" 
+							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
+						/>
+					</div>
+					<div class="motion-preset-slide-up" style="animation-delay: 0.8s;">
+						<label class="block text-sm font-medium text-primary mb-2">Interested Class Level</label>
+						<select class="input-custom w-full focus:border-primary focus:ring-primary/30">
+							<option value="" disabled selected>Select a class level</option>
+							<option value="foundation">Foundation</option>
+							<option value="pre-nursery">Pre-Nursery</option>
+							<option value="nursery-1">Nursery 1</option>
+							<option value="nursery-2">Nursery 2</option>
+							<option value="grade-1">Grade 1</option>
+							<option value="grade-2">Grade 2</option>
+							<option value="grade-3">Grade 3</option>
+							<option value="grade-4">Grade 4</option>
+							<option value="grade-5">Grade 5</option>
 						</select>
 					</div>
-					<div class="form-control">
-						<textarea placeholder="Your Message" class="textarea textarea-bordered focus:border-primary h-24"></textarea>
+					<div class="motion-preset-slide-up" style="animation-delay: 1s;">
+						<label class="block text-sm font-medium text-primary mb-2">Your Message</label>
+						<textarea 
+							placeholder="Tell us about your child's educational needs and any questions you have..." 
+							class="input-custom w-full h-32 resize-none focus:border-primary focus:ring-primary/30 placeholder:opacity-60"
+						></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary w-full glow-blue motion-preset-bounce">Send Message</button>
+					<button 
+						type="submit" 
+						class="btn-primary-custom w-full glow-blue motion-preset-bounce motion-delay-1200 text-lg py-4"
+					>
+						<span class="mr-2">📨</span>
+						Send Message
+					</button>
+					<p class="text-xs opacity-70 text-center">
+						We'll get back to you within 24 hours during business days
+					</p>
 				</form>
 			</div>
 		</div>

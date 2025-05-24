@@ -81,9 +81,9 @@
 						<li class="motion-preset-slide-down" style="animation-delay: {index * 100}ms;">
 							<a 
 								href={item.href} 
-								class="block py-2 px-3 rounded-lg transition-all duration-300 
-									   {item.href === '/' ? 'text-primary bg-primary/10 neumorphic-accent' : 'text-slate-700 hover:bg-primary/10 hover:text-primary hover:neumorphic-accent'} 
-									   md:bg-transparent md:p-0 md:hover:text-glow group"
+								class="block py-3 px-4 rounded-xl transition-all duration-300 
+									   {item.href === '/' ? 'text-primary bg-primary/10 neumorphic-sm border-glow' : 'text-slate-700 hover:bg-primary/10 hover:text-primary hover:neumorphic-sm'} 
+									   md:bg-transparent md:p-0 md:hover:text-glow group md:py-2 md:px-3"
 								onclick={closeMobileMenu}
 							>
 								<span class="group-hover:motion-preset-bounce">{item.label}</span>
