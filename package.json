@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "daisyui": "^5.0.37",
-    "flowbite": "^3.1.2",
-    "flowbite-svelte": "^1.4.3",
-    "tailwind-merge": "^3.3.0"
-  }
-}
