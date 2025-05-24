@@ -110,7 +110,7 @@
 <!-- Overview Section -->
 <section id="about" class="py-20 px-4">
 	<div class="container mx-auto max-w-6xl">
-		<div class="grid lg:grid-cols-2 gap-12 items-center">
+		<div class="grid desktop:grid-cols-2 gap-12 items-center">
 			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
 				<h2 class="text-3xl font-bold mb-6 text-primary">About Foundation Class</h2>
 				<p class="text-lg mb-6 opacity-90">
@@ -158,7 +158,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			<!-- Early Literacy Program -->
 			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
 				 style="animation-delay: 100ms;">
@@ -250,7 +250,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each curriculum as subject, index}
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
 					 style="animation-delay: {index * 200}ms;">
@@ -309,22 +309,23 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 gap-12 items-center">
-			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/balloon.jpg" 
-					 alt="Young children celebrating learning achievements with teacher guidance, showing progress charts and creative artwork displayed on classroom walls" 
-					 class="w-full h-80 object-cover rounded-xl" />
+		<div class="grid desktop:grid-cols-2 gap-12 items-center">
+			<div class="motion-preset-slide-right">
+				<img src="/images/beads.jpg" alt="Foundation students engaged in hands-on learning with colorful counting beads and educational materials" class="w-full h-64 object-cover rounded-xl neumorphic" />
 			</div>
 			<Card class="neumorphic p-8 motion-preset-slide-left border-0">
-				<h3 class="text-2xl font-bold mb-6 text-primary">Key Achievements</h3>
-				<List class="space-y-3">
-					{#each achievements as achievement, index}
-						<Li class="flex items-center motion-preset-slide-up" style="animation-delay: {index * 100}ms;">
-							<span class="text-primary mr-3 text-lg">✓</span>
-							<span class="text-lg">{achievement}</span>
-						</Li>
-					{/each}
-				</List>
+				<h3 class="text-2xl font-bold mb-4 text-primary">Our Teaching Philosophy</h3>
+				<p class="mb-4">
+					At the foundation level, we focus on creating a warm, nurturing environment where children feel safe to explore, 
+					question, and discover. Our experienced teachers understand that every child learns differently and adapt 
+					their approach to meet individual needs.
+				</p>
+				<ul class="space-y-2">
+					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Play-based learning approach</li>
+					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Individual attention and support</li>
+					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Safe and encouraging environment</li>
+					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Family involvement and communication</li>
+				</ul>
 			</Card>
 		</div>
 	</div>
@@ -391,7 +392,7 @@
 		<div class="mt-16">
 			<Card class="neumorphic-accent p-8 motion-preset-slide-up border-0">
 				<h3 class="text-2xl font-bold mb-6 text-primary text-center">Additional Features</h3>
-				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+				<div class="grid desktop:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
 					<div class="motion-preset-slide-up" style="animation-delay: 100ms;">
 						<div class="text-3xl mb-2">🚻</div>
 						<h4 class="font-semibold text-primary">Child-Safe Restrooms</h4>

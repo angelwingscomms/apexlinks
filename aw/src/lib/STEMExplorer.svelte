@@ -103,7 +103,7 @@
 		<!-- Tab Content -->
 		<div class="motion-preset-fade-in">
 			{#if activeTab === 'skills'}
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-4">
 					{#each currentArea.skills as skill, index}
 						<div class="neumorphic-sm p-4 motion-preset-slide-up group hover:neumorphic-red transition-all duration-300"
 							 style="animation-delay: {index * 100}ms;">
@@ -113,7 +113,7 @@
 					{/each}
 				</div>
 			{:else if activeTab === 'projects'}
-				<div class="grid md:grid-cols-2 gap-6">
+				<div class="grid desktop:grid-cols-2 gap-6">
 					{#each currentArea.projects as project, index}
 						<div class="neumorphic p-6 motion-preset-slide-up group hover:neumorphic-red transition-all duration-300 cursor-pointer"
 							 style="animation-delay: {index * 150}ms;">
@@ -125,7 +125,7 @@
 					{/each}
 				</div>
 			{:else if activeTab === 'careers'}
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-4">
 					{#each currentArea.careers as career, index}
 						<div class="neumorphic p-4 motion-preset-slide-up group hover:neumorphic-red transition-all duration-300 cursor-pointer"
 							 style="animation-delay: {index * 100}ms;">

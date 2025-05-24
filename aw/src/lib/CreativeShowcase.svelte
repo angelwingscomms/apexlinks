@@ -173,7 +173,7 @@
 		</div>
 		
 		<!-- Project Grid Preview -->
-		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
 			{#each projects as project, index}
 				<button
 					class="neumorphic p-4 cursor-pointer transition-all duration-300 hover:neumorphic-accent motion-preset-slide-up group {index === currentProject ? 'neumorphic-accent' : ''} text-left w-full"

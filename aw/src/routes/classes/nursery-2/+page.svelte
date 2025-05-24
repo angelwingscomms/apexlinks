@@ -146,7 +146,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each curriculum as subject, index}
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
 					 style="animation-delay: {index * 200}ms;">
@@ -174,7 +174,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 gap-12 items-center">
+		<div class="grid desktop:grid-cols-2 gap-12 items-center">
 			<div class="neumorphic-accent p-2 motion-preset-slide-right">
 				<img src="/images/light.jpg" 
 					 alt="Nursery 2 students demonstrating academic readiness with early reading activities, number recognition games, and social interaction" 

@@ -347,7 +347,7 @@
 <!-- Statistics Section -->
 <section class="py-20 px-4 bg-base-200/50">
 	<div class="container mx-auto max-w-4xl">
-		<div class="grid md:grid-cols-4 gap-8 text-center">
+		<div class="grid desktop:grid-cols-4 gap-8 text-center">
 			<Card class="neumorphic p-6 motion-preset-bounce border-0">
 				<div class="text-3xl font-bold text-primary mb-2 motion-preset-typewriter">300+</div>
 				<div class="opacity-90">Students</div>
@@ -378,7 +378,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 gap-12">
+		<div class="grid desktop:grid-cols-2 gap-12">
 			<div class="neumorphic p-8 motion-preset-slide-right">
 				<h3 class="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
 				<div class="space-y-6">
