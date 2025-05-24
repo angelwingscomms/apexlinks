@@ -10,6 +10,7 @@
 		{ href: "#classes", label: "Classes" },
 		{ href: "#programs", label: "Programs" },
 		{ href: "#facilities", label: "Facilities" },
+		{ href: "#location", label: "Location" },
 		{ href: "#contact", label: "Contact" }
 	];
 	

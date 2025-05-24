@@ -368,6 +368,110 @@
 	</div>
 </section>
 
+<!-- Location Section -->
+<section id="location" class="py-20 px-4">
+	<div class="container mx-auto max-w-6xl">
+		<div class="text-center mb-16 motion-preset-fade-in">
+			<h2 class="text-4xl font-bold mb-6 text-glow">Visit Our Campus</h2>
+			<p class="text-xl opacity-90">
+				Located in the heart of Kubwa, our beautiful campus is easily accessible and provides a safe, nurturing environment for learning
+			</p>
+		</div>
+		
+		<div class="grid lg:grid-cols-2 gap-12 items-center">
+			<!-- Location Details -->
+			<div class="motion-preset-slide-right">
+				<Card class="neumorphic p-8 border-0">
+					<h3 class="text-2xl font-bold mb-6 text-primary text-glow">School Address</h3>
+					<div class="space-y-6">
+						<div class="flex items-start neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
+							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue">🏫</div>
+							<div>
+								<div class="font-bold text-lg text-primary mb-2">AngelWings Comprehensive College</div>
+								<div class="text-lg opacity-90 leading-relaxed">
+									End of Maroko, PW, Kubwa<br/>
+									Abuja, Nigeria
+								</div>
+							</div>
+						</div>
+						
+						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
+							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 0.5s;">🗺️</div>
+							<div>
+								<div class="font-medium text-primary mb-1">Area</div>
+								<div class="opacity-90">Kubwa District, Federal Capital Territory</div>
+							</div>
+						</div>
+						
+						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
+							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 1s;">🚌</div>
+							<div>
+								<div class="font-medium text-primary mb-1">Transportation</div>
+								<div class="opacity-90">Easily accessible by public transport and private vehicles</div>
+							</div>
+						</div>
+						
+						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
+							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 1.5s;">🕒</div>
+							<div>
+								<div class="font-medium text-primary mb-1">School Hours</div>
+								<div class="opacity-90">Monday - Friday: 7:30 AM - 4:00 PM</div>
+							</div>
+						</div>
+					</div>
+				</Card>
+			</div>
+			
+			<!-- Interactive Map Placeholder -->
+			<div class="motion-preset-slide-left">
+				<Card class="neumorphic p-8 border-0 h-full">
+					<h3 class="text-2xl font-bold mb-6 text-primary text-glow">Find Us</h3>
+					<div class="relative overflow-hidden rounded-xl neumorphic-inset group">
+						<!-- Map Placeholder -->
+						<div class="w-full h-80 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative overflow-hidden">
+							<div class="absolute inset-0 bg-gradient-to-t from-base-100/30 to-transparent"></div>
+							<div class="text-center z-10">
+								<div class="text-6xl mb-4 floating-element text-primary glow-blue">📍</div>
+								<div class="text-xl font-bold text-primary mb-2 text-glow">Interactive Map</div>
+								<div class="opacity-80 text-sm">
+									Click to open in Google Maps<br/>
+									End of Maroko, PW, Kubwa, Abuja
+								</div>
+							</div>
+							<!-- Floating background elements -->
+							<div class="absolute top-4 left-4 w-16 h-16 neumorphic-accent rounded-full opacity-30 floating-element"></div>
+							<div class="absolute bottom-6 right-6 w-12 h-12 neumorphic rounded-full opacity-40 drifting-element" style="animation-delay: 2s;"></div>
+							<div class="absolute top-1/2 left-1/4 w-8 h-8 neumorphic-accent rounded-full opacity-25 floating-element" style="animation-delay: 4s;"></div>
+						</div>
+						
+						<!-- Action Button -->
+						<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-primary/10 backdrop-blur-sm">
+							<button class="btn-primary-custom glow-blue motion-preset-bounce">
+								<span class="mr-2">🗺️</span>
+								Open in Maps
+							</button>
+						</div>
+					</div>
+					
+					<!-- Additional Info -->
+					<div class="mt-6 grid grid-cols-2 gap-4">
+						<div class="text-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+							<div class="text-2xl mb-2 text-primary floating-element">🚗</div>
+							<div class="text-sm font-medium text-primary">Parking</div>
+							<div class="text-xs opacity-80">Available</div>
+						</div>
+						<div class="text-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+							<div class="text-2xl mb-2 text-primary floating-element" style="animation-delay: 0.5s;">🔒</div>
+							<div class="text-sm font-medium text-primary">Security</div>
+							<div class="text-xs opacity-80">24/7 Secured</div>
+						</div>
+					</div>
+				</Card>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-4">
 	<div class="container mx-auto max-w-4xl">
@@ -386,7 +490,8 @@
 						<div class="text-2xl text-primary mr-4 floating-element">📍</div>
 						<div>
 							<div class="font-medium text-primary">Location</div>
-							<div class="opacity-80">Comprehensive Educational Center</div>
+							<div class="opacity-80">End of Maroko, PW, Kubwa</div>
+							<div class="opacity-80">Abuja, Nigeria</div>
 						</div>
 					</div>
 					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
@@ -485,11 +590,13 @@
 		<a href="#classes" class="link link-hover">Classes</a>
 		<a href="#programs" class="link link-hover">Programs</a>
 		<a href="#facilities" class="link link-hover">Facilities</a>
+		<a href="#location" class="link link-hover">Location</a>
 		<a href="#contact" class="link link-hover">Contact</a>
 	</div>
 	<div>
 		<p class="text-glow">Copyright © 2024 - AngelWings Comprehensive College</p>
 		<p class="opacity-70">Where young minds take flight through exceptional education</p>
+		<p class="opacity-60 text-sm mt-2">End of Maroko, PW, Kubwa, Abuja, Nigeria</p>
 	</div>
 </footer>
 
