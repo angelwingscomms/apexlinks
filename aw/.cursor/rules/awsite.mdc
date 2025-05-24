@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+isomorphic styles throughout using tailwind and daisyui
