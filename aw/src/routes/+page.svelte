@@ -444,10 +444,10 @@
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-4">
-			<a href="#" class="text-2xl hover:text-primary transition-colors">📘</a>
-			<a href="#" class="text-2xl hover:text-primary transition-colors">🐦</a>
-			<a href="#" class="text-2xl hover:text-primary transition-colors">📷</a>
-			<a href="#" class="text-2xl hover:text-primary transition-colors">💼</a>
+			<a href="https://facebook.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="text-2xl hover:text-primary transition-colors">📘</a>
+			<a href="https://twitter.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" class="text-2xl hover:text-primary transition-colors">🐦</a>
+			<a href="https://instagram.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="text-2xl hover:text-primary transition-colors">📷</a>
+			<a href="https://linkedin.com/company/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Connect with us on LinkedIn" class="text-2xl hover:text-primary transition-colors">💼</a>
 		</div>
 	</div>
 	<div>

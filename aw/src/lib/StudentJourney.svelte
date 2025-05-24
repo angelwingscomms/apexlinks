@@ -158,6 +158,7 @@
 				<button
 					class="w-3 h-3 rounded-full transition-all duration-300 {index === activeStep ? 'bg-primary glow-blue' : 'bg-base-300 hover:bg-primary/50'}"
 					onclick={() => selectStep(index)}
+					aria-label="View {step.title} phase for {step.grade}"
 				></button>
 			{/each}
 		</div>

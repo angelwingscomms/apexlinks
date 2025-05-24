@@ -128,8 +128,8 @@
 				</div>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
-				<img src="/images/placeholder-nursery2.jpg" 
-					 alt="Nursery 2 classroom with structured learning areas, alphabet displays, number charts, and children engaged in focused educational activities" 
+				<img src="/images/fire.jpg" 
+					 alt="Nursery 2 classroom with learning stations, advanced toys, educational materials, and students engaged in pre-academic activities" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
 		</div>
@@ -176,8 +176,8 @@
 		
 		<div class="grid md:grid-cols-2 gap-12 items-center">
 			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/placeholder-nursery2-achievements.jpg" 
-					 alt="Nursery 2 students confidently participating in classroom activities, showing readiness for Grade 1 with improved focus and academic skills" 
+				<img src="/images/light.jpg" 
+					 alt="Nursery 2 students demonstrating academic readiness with early reading activities, number recognition games, and social interaction" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
 			<Card class="neumorphic p-8 motion-preset-slide-left border-0">
@@ -202,13 +202,13 @@
 			<h2 class="text-3xl font-bold mb-6 text-glow">Prepare Your Child for Success</h2>
 			<p class="text-xl mb-8 opacity-90">
 				Nursery 2 provides the essential foundation your child needs for a smooth transition to formal education. 
-				Schedule a visit to see how we prepare children for their academic journey ahead.
+				Visit us to see our balanced approach to academic readiness in action.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button href="/contact" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
 					Schedule a Visit
 				</Button>
-				<Button href="/apply" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
 					Apply Now
 				</Button>
 			</div>

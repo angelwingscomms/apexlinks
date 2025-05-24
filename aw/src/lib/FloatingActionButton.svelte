@@ -61,6 +61,7 @@
 	<button
 		class="btn btn-circle btn-primary btn-lg glow-red shadow-2xl motion-preset-bounce hover:motion-preset-pulse"
 		onclick={toggleMenu}
+		aria-label={isOpen ? 'Close action menu' : 'Open quick actions menu'}
 	>
 		<span class="text-2xl transition-transform duration-300 {isOpen ? 'rotate-45' : ''}">
 			{isOpen ? '✕' : '🚀'}
@@ -70,8 +71,10 @@
 
 <!-- Backdrop -->
 {#if isOpen}
-	<div 
-		class="fixed inset-0 bg-black/20 z-40 motion-preset-fade-in"
+	<button 
+		class="fixed inset-0 bg-black/20 z-40 motion-preset-fade-in cursor-default"
 		onclick={() => isOpen = false}
-	></div>
+		onkeydown={(e) => e.key === 'Escape' && (isOpen = false)}
+		aria-label="Close action menu"
+	></button>
 {/if} 

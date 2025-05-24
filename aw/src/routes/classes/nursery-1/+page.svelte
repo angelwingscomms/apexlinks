@@ -128,7 +128,7 @@
 				</div>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
-				<img src="/images/placeholder-nursery1.jpg" 
+				<img src="/images/balloon.jpg" 
 					 alt="Nursery 1 classroom with learning centers, interactive displays, child-sized furniture, and students engaged in structured creative activities" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
@@ -176,7 +176,7 @@
 		
 		<div class="grid md:grid-cols-2 gap-12 items-center">
 			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/placeholder-nursery1-achievements.jpg" 
+				<img src="/images/beads.jpg" 
 					 alt="Children in Nursery 1 proudly showing their learning progress, reading simple books, and working on creative projects together" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
@@ -205,10 +205,10 @@
 				Visit us to see how we make learning fun and engaging for young minds.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button href="/contact" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
 					Schedule a Visit
 				</Button>
-				<Button href="/apply" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
 					Apply Now
 				</Button>
 			</div>

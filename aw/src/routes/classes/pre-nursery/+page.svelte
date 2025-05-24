@@ -128,7 +128,7 @@
 				</div>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
-				<img src="/images/placeholder-prenursery.jpg" 
+				<img src="/images/light.jpg" 
 					 alt="Pre-nursery classroom with soft play areas, age-appropriate toys, comfortable reading corner, and caring teacher interacting with toddlers" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
@@ -176,7 +176,7 @@
 		
 		<div class="grid md:grid-cols-2 gap-12 items-center">
 			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/placeholder-prenursery-achievements.jpg" 
+				<img src="/images/beads.jpg" 
 					 alt="Happy toddlers engaged in group activities, showing improved social skills and communication with peers and teachers" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
@@ -205,10 +205,10 @@
 				Schedule a visit to see how we nurture your child's natural curiosity and growth.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button href="/contact" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
 					Schedule a Visit
 				</Button>
-				<Button href="/apply" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
 					Apply Now
 				</Button>
 			</div>

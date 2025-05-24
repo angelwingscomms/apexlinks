@@ -144,6 +144,7 @@
 				<button 
 					class="btn btn-circle btn-primary glow-blue motion-preset-bounce"
 					onclick={prevProject}
+					aria-label="Previous project"
 				>
 					❮
 				</button>
@@ -153,6 +154,7 @@
 				<button 
 					class="btn btn-circle btn-primary glow-blue motion-preset-bounce"
 					onclick={nextProject}
+					aria-label="Next project"
 				>
 					❯
 				</button>
@@ -165,6 +167,7 @@
 				<button
 					class="w-4 h-4 rounded-full transition-all duration-300 {index === currentProject ? 'bg-primary glow-blue' : 'bg-base-300 hover:bg-primary/50'}"
 					onclick={() => selectProject(index)}
+					aria-label="View project {index + 1}: {project.title}"
 				></button>
 			{/each}
 		</div>
@@ -172,10 +175,11 @@
 		<!-- Project Grid Preview -->
 		<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
 			{#each projects as project, index}
-				<div 
-					class="neumorphic p-4 cursor-pointer transition-all duration-300 hover:neumorphic-accent motion-preset-slide-up group {index === currentProject ? 'neumorphic-accent' : ''}"
+				<button
+					class="neumorphic p-4 cursor-pointer transition-all duration-300 hover:neumorphic-accent motion-preset-slide-up group {index === currentProject ? 'neumorphic-accent' : ''} text-left w-full"
 					style="animation-delay: {index * 200}ms;"
 					onclick={() => selectProject(index)}
+					aria-label="Select project: {project.title} by {project.student}"
 				>
 					<img 
 						src={project.image} 
@@ -185,7 +189,7 @@
 					<h4 class="font-bold text-sm mb-1 group-hover:text-glow transition-all">{project.title}</h4>
 					<p class="text-xs opacity-70">{project.student}</p>
 					<span class="text-xs text-primary">{project.category}</span>
-				</div>
+				</button>
 			{/each}
 		</div>
 	</div>

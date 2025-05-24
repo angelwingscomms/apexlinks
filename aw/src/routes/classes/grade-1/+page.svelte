@@ -33,7 +33,7 @@
 				We're preparing detailed information about our Grade 1 program. 
 				Contact us for more information about this class level.
 			</p>
-			<img src="/images/placeholder-grade1.jpg" 
+			<img src="/images/fire.jpg" 
 				 alt="Grade 1 classroom with beginning readers, math manipulatives, writing centers, and students starting their formal education journey" 
 				 class="w-full h-64 object-cover rounded-xl mb-6" />
 		</Card>

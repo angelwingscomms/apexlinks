@@ -156,8 +156,8 @@
 				</div>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
-				<img src="/images/placeholder-grade5.jpg" 
-					 alt="Advanced Grade 5 classroom with technology stations, collaborative workspaces, student research projects, and interactive learning displays" 
+				<img src="/images/light.jpg" 
+					 alt="Grade 5 classroom featuring advanced learning environments with technology integration, collaborative spaces, and leadership development areas" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
 		</div>
@@ -256,22 +256,25 @@
 		</div>
 		
 		<div class="grid md:grid-cols-2 gap-12 items-center">
-			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/placeholder-grade5-graduation.jpg" 
-					 alt="Grade 5 graduation ceremony with proud students in caps and gowns, celebrating their achievements and readiness for secondary education" 
+			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
+				<h3 class="text-2xl font-bold mb-6 text-primary">Elementary Graduation</h3>
+				<p class="text-lg mb-6 opacity-90">
+					Our Grade 5 graduation ceremony celebrates the accomplishments of our students as they 
+					complete their elementary education. This milestone event recognizes their academic 
+					achievements and personal growth, preparing them for the next chapter in their 
+					educational journey.
+				</p>
+				<p class="text-lg opacity-90">
+					Students participate in special projects, performances, and reflective activities leading up 
+					to graduation, allowing them to showcase their development throughout their years at 
+					AngelWings Comprehensive College.
+				</p>
+			</Card>
+			<div class="neumorphic-accent p-2 motion-preset-slide-left">
+				<img src="/images/logo.jpg" 
+					 alt="Grade 5 graduation ceremony with students in caps and gowns, proud parents, celebration decorations, and ceremonial diplomas" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
-			<Card class="neumorphic p-8 motion-preset-slide-left border-0">
-				<h3 class="text-2xl font-bold mb-6 text-primary">Graduate Achievements</h3>
-				<List class="space-y-3">
-					{#each achievements as achievement, index}
-						<Li class="flex items-center motion-preset-slide-up" style="animation-delay: {index * 100}ms;">
-							<span class="text-primary mr-3 text-lg">✓</span>
-							<span class="text-lg">{achievement}</span>
-						</Li>
-					{/each}
-				</List>
-			</Card>
 		</div>
 	</div>
 </section>
@@ -286,10 +289,10 @@
 				education and beyond. Schedule a visit to see our advanced programs in action.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button href="/contact" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
 					Schedule a Visit
 				</Button>
-				<Button href="/apply" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
 					Apply Now
 				</Button>
 			</div>

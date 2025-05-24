@@ -88,8 +88,8 @@
 				Building Essential Early Learning Skills Through Play-Based Discovery
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center motion-preset-slide-up motion-delay-1000">
-				<Button href="#curriculum" class="btn-primary-custom glow-blue motion-preset-bounce motion-delay-1200" size="lg">
-					Explore Curriculum
+				<Button href="#programs" class="btn-primary-custom glow-blue motion-preset-bounce motion-delay-1200" size="lg">
+					Explore Programs
 				</Button>
 				<Button href="#contact" class="btn-outline-custom border-glow motion-preset-bounce motion-delay-1400" size="lg">
 					Schedule Visit
@@ -108,7 +108,7 @@
 </section>
 
 <!-- Overview Section -->
-<section class="py-20 px-4">
+<section id="about" class="py-20 px-4">
 	<div class="container mx-auto max-w-6xl">
 		<div class="grid lg:grid-cols-2 gap-12 items-center">
 			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
@@ -138,10 +138,104 @@
 				</div>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
-				<img src="/images/placeholder-foundation.jpg" 
+				<img src="/images/light.jpg" 
 					 alt="Foundation classroom with colorful learning materials, small tables and chairs, educational toys, and bright natural lighting creating a warm learning environment" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
+		</div>
+	</div>
+</section>
+
+<section id="classes"></section>
+
+<!-- Programs Section -->
+<section id="programs" class="py-20 px-4">
+	<div class="container mx-auto max-w-6xl">
+		<div class="text-center mb-16 motion-preset-fade-in">
+			<h2 class="text-4xl font-bold mb-6 text-glow">Foundation Programs</h2>
+			<p class="text-xl opacity-90">
+				Specialized programs designed to support your child's development journey
+			</p>
+		</div>
+		
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<!-- Early Literacy Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 100ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">📖</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Early Literacy</h3>
+				<p class="opacity-90 mb-4">Building strong reading foundations through phonics, storytelling, and interactive reading activities.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Letter Recognition</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Phonics Games</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Story Time</Badge>
+				</div>
+			</Card>
+
+			<!-- Math Readiness Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 200ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">🧮</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Math Readiness</h3>
+				<p class="opacity-90 mb-4">Developing number sense and mathematical thinking through hands-on exploration and play.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Number Games</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Shape Discovery</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Pattern Making</Badge>
+				</div>
+			</Card>
+
+			<!-- Social Development Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 300ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">👥</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Social Skills</h3>
+				<p class="opacity-90 mb-4">Fostering emotional intelligence, cooperation, and friendship skills in a supportive environment.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Circle Time</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Sharing Activities</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Emotion Games</Badge>
+				</div>
+			</Card>
+
+			<!-- Creative Arts Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 400ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">🎨</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Creative Arts</h3>
+				<p class="opacity-90 mb-4">Encouraging self-expression and creativity through various artistic mediums and music.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Art Projects</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Music & Movement</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Drama Play</Badge>
+				</div>
+			</Card>
+
+			<!-- Nature Discovery Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 500ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">🌿</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Nature Discovery</h3>
+				<p class="opacity-90 mb-4">Connecting children with nature through outdoor exploration and environmental awareness.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Garden Time</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Weather Watch</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Animal Friends</Badge>
+				</div>
+			</Card>
+
+			<!-- Motor Skills Program -->
+			<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+				 style="animation-delay: 600ms;">
+				<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">🏃</div>
+				<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Motor Development</h3>
+				<p class="opacity-90 mb-4">Building strength, coordination, and fine motor skills through purposeful movement activities.</p>
+				<div class="space-y-2">
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Playground Fun</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Fine Motor Tasks</Badge>
+					<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">Balance Games</Badge>
+				</div>
+			</Card>
 		</div>
 	</div>
 </section>
@@ -217,7 +311,7 @@
 		
 		<div class="grid md:grid-cols-2 gap-12 items-center">
 			<div class="neumorphic-accent p-2 motion-preset-slide-right">
-				<img src="/images/placeholder-achievements.jpg" 
+				<img src="/images/balloon.jpg" 
 					 alt="Young children celebrating learning achievements with teacher guidance, showing progress charts and creative artwork displayed on classroom walls" 
 					 class="w-full h-80 object-cover rounded-xl" />
 			</div>
@@ -236,8 +330,96 @@
 	</div>
 </section>
 
+<!-- Foundation Facilities Section -->
+<section id="facilities" class="py-20 px-4">
+	<div class="container mx-auto max-w-6xl">
+		<div class="text-center mb-16 motion-preset-fade-in">
+			<h2 class="text-4xl font-bold mb-6 text-glow">Foundation Learning Spaces</h2>
+			<p class="text-xl opacity-90">
+				Safe, engaging environments designed specifically for early learners
+			</p>
+		</div>
+		
+		<div class="grid lg:grid-cols-3 gap-8">
+			<!-- Classroom -->
+			<Card class="neumorphic overflow-hidden motion-preset-slide-up group hover:neumorphic-accent transition-all duration-500 border-0"
+				 style="animation-delay: 100ms;">
+				<div class="relative overflow-hidden">
+					<img src="/images/light.jpg" 
+						 alt="Bright, colorful Foundation classroom with age-appropriate furniture, learning centers, and abundant natural light creating a warm learning environment" 
+						 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+					<div class="absolute inset-0 bg-gradient-to-t from-base-100/80 to-transparent"></div>
+				</div>
+				<div class="p-6">
+					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Foundation Classroom</h3>
+					<p class="opacity-90">Thoughtfully designed spaces with child-sized furniture, learning centers, and hands-on materials to encourage exploration and discovery.</p>
+				</div>
+			</Card>
+
+			<!-- Indoor Play Area -->
+			<Card class="neumorphic overflow-hidden motion-preset-slide-up group hover:neumorphic-accent transition-all duration-500 border-0"
+				 style="animation-delay: 200ms;">
+				<div class="relative overflow-hidden">
+					<img src="/images/beads.jpg" 
+						 alt="Safe indoor play area with soft play equipment, building blocks, puzzles, and creative play materials for motor skill development" 
+						 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+					<div class="absolute inset-0 bg-gradient-to-t from-base-100/80 to-transparent"></div>
+				</div>
+				<div class="p-6">
+					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Indoor Play Space</h3>
+					<p class="opacity-90">Safe, spacious areas for active play featuring age-appropriate equipment to develop gross motor skills and encourage physical activity.</p>
+				</div>
+			</Card>
+
+			<!-- Reading Corner -->
+			<Card class="neumorphic overflow-hidden motion-preset-slide-up group hover:neumorphic-accent transition-all duration-500 border-0"
+				 style="animation-delay: 300ms;">
+				<div class="relative overflow-hidden">
+					<img src="/images/fire.jpg" 
+						 alt="Cozy reading corner with soft cushions, colorful picture books, and warm lighting designed to foster early literacy and love of stories" 
+						 class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+					<div class="absolute inset-0 bg-gradient-to-t from-base-100/80 to-transparent"></div>
+				</div>
+				<div class="p-6">
+					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">Story & Reading Corner</h3>
+					<p class="opacity-90">Cozy spaces filled with picture books and comfortable seating to nurture early literacy skills and imagination through storytelling.</p>
+				</div>
+			</Card>
+		</div>
+
+		<!-- Additional Facilities Features -->
+		<div class="mt-16">
+			<Card class="neumorphic-accent p-8 motion-preset-slide-up border-0">
+				<h3 class="text-2xl font-bold mb-6 text-primary text-center">Additional Features</h3>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+					<div class="motion-preset-slide-up" style="animation-delay: 100ms;">
+						<div class="text-3xl mb-2">🚻</div>
+						<h4 class="font-semibold text-primary">Child-Safe Restrooms</h4>
+						<p class="text-sm opacity-80">Age-appropriate facilities with safety features</p>
+					</div>
+					<div class="motion-preset-slide-up" style="animation-delay: 200ms;">
+						<div class="text-3xl mb-2">🍎</div>
+						<h4 class="font-semibold text-primary">Snack Area</h4>
+						<p class="text-sm opacity-80">Clean dining space for healthy snacks and meals</p>
+					</div>
+					<div class="motion-preset-slide-up" style="animation-delay: 300ms;">
+						<div class="text-3xl mb-2">💤</div>
+						<h4 class="font-semibold text-primary">Rest Area</h4>
+						<p class="text-sm opacity-80">Quiet space for rest and quiet activities</p>
+					</div>
+					<div class="motion-preset-slide-up" style="animation-delay: 400ms;">
+						<div class="text-3xl mb-2">🌳</div>
+						<h4 class="font-semibold text-primary">Outdoor Access</h4>
+						<p class="text-sm opacity-80">Direct access to safe outdoor play areas</p>
+					</div>
+				</div>
+			</Card>
+		</div>
+	</div>
+</section>
+
 <!-- Call to Action Section -->
-<section class="py-20 px-4">
+<section id="contact" class="py-20 px-4">
 	<div class="container mx-auto max-w-4xl text-center">
 		<Card class="neumorphic-accent p-12 motion-preset-slide-up border-0">
 			<h2 class="text-3xl font-bold mb-6 text-glow">Ready to Begin Your Child's Journey?</h2>
@@ -246,10 +428,10 @@
 				Contact us today to schedule a visit and see our nurturing environment in action.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<Button href="/contact" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-primary-custom glow-blue motion-preset-bounce" size="lg">
 					Schedule a Visit
 				</Button>
-				<Button href="/apply" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
+				<Button href="/" class="btn-outline-custom border-glow motion-preset-bounce" size="lg">
 					Apply Now
 				</Button>
 			</div>
