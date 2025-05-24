@@ -1,0 +1,32 @@
+[
+  {
+    "filename": "balloon.jpg",
+    "resolution": "1000x450",
+    "size_bytes": 56553,
+    "mime_type": "image/jpeg"
+  },
+  {
+    "filename": "fire.jpg",
+    "resolution": "780x1040",
+    "size_bytes": 80748,
+    "mime_type": "image/jpeg"
+  },
+  {
+    "filename": "light.jpg",
+    "resolution": "780x1040",
+    "size_bytes": 76003,
+    "mime_type": "image/jpeg"
+  },
+  {
+    "filename": "beads.jpg",
+    "resolution": "1040x780",
+    "size_bytes": 81650,
+    "mime_type": "image/jpeg"
+  },
+  {
+    "filename": "logo.jpg",
+    "resolution": "1080x1034",
+    "size_bytes": 84519,
+    "mime_type": "image/jpeg"
+  }
+]

@@ -1,38 +1,252 @@
-# sv
+# AngelWings Comprehensive College Website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A stunning, interactive website for AngelWings Comprehensive College - where creativity meets STEM education. Built with SvelteKit, Tailwind CSS, DaisyUI, and featuring beautiful neumorphic design with cyberpunk aesthetics.
 
-## Creating a project
+## 🚀 Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Design & Aesthetics
+- **Neumorphic Design**: Beautiful soft UI elements with depth and dimension
+- **Cyberpunk Theme**: Dark theme with red glowing accents and futuristic feel
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Custom Animations**: Smooth animations using Tailwind CSS Motion (Rombo)
 
-```bash
-# create a new project in the current directory
-npx sv create
+### Interactive Components
+- **Particle Background**: Animated particle system with connecting lines
+- **STEM Explorer**: Interactive component to explore different STEM fields
+- **Creative Showcase**: Rotating carousel of student projects and achievements
+- **Student Journey Timeline**: Interactive timeline showing educational progression
+- **Floating Action Button**: Quick access to applications and contact
 
-# create a new project in my-app
-npx sv create my-app
+### Content Sections
+- **Hero Section**: Compelling introduction with animated elements
+- **About Section**: School philosophy and educational approach
+- **STEM Programs**: Interactive exploration of 6 STEM areas
+- **Facilities**: Showcase of world-class learning environments
+- **Student Projects**: Real student innovations and achievements
+- **Educational Journey**: Timeline from discovery to innovation
+- **Statistics**: Key metrics and achievements
+- **Contact Form**: Interactive contact form with program selection
+
+## 🛠 Technology Stack
+
+- **Framework**: SvelteKit 2.0 (Static Site Generation)
+- **Styling**: Tailwind CSS 4.0
+- **UI Components**: DaisyUI 5.0
+- **Animations**: Tailwind CSS Motion (Rombo)
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Package Manager**: npm
+
+## 📦 Dependencies
+
+### Core Dependencies
+- `svelte`: ^5.0.0
+- `@sveltejs/kit`: ^2.16.0
+- `tailwindcss`: ^4.0.0
+- `daisyui`: ^5.0.37
+- `tailwindcss-motion`: ^1.1.0
+- `axios`: ^1.9.0
+
+### Development Dependencies
+- `@sveltejs/adapter-static`: ^3.0.8
+- `@tailwindcss/forms`: ^0.5.9
+- `@tailwindcss/typography`: ^0.5.15
+- `typescript`: ^5.0.0
+- `vite`: ^6.2.6
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary**: Red (#ef4444) - Used for accents and highlights
+- **Secondary**: Dark Gray (#1f2937) - Supporting elements
+- **Background**: Dark (#0f0f0f, #1a1a1a, #252525) - Layered backgrounds
+- **Accent**: Light Red (#f87171) - Interactive elements
+
+### Custom Utilities
+- `.neumorphic`: Standard neumorphic shadow effect
+- `.neumorphic-red`: Neumorphic with red glow
+- `.neumorphic-inset`: Inset neumorphic effect
+- `.text-glow`: Red text glow effect
+- `.border-glow`: Red border glow effect
+
+### Animations
+- `animate-float`: Floating animation for hero elements
+- `animate-glow`: Pulsing glow effect
+- `animate-pulse-red`: Red pulsing animation
+- Motion presets from Tailwind CSS Motion
+
+## 🏗 Project Structure
+
+```
+aw/
+├── src/
+│   ├── lib/
+│   │   ├── STEMExplorer.svelte          # Interactive STEM field explorer
+│   │   ├── ParticleBackground.svelte     # Animated particle system
+│   │   ├── CreativeShowcase.svelte      # Student project carousel
+│   │   ├── StudentJourney.svelte        # Educational timeline
+│   │   └── FloatingActionButton.svelte  # Quick action menu
+│   ├── routes/
+│   │   ├── +layout.svelte               # Main layout with theme
+│   │   └── +page.svelte                 # Homepage with all sections
+│   ├── app.css                          # Global styles and utilities
+│   └── app.html                         # HTML template
+├── static/
+│   └── images/                          # Project images
+├── tailwind.config.js                   # Tailwind configuration
+└── package.json                         # Dependencies and scripts
 ```
 
-## Developing
+## 🚀 Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-```bash
-npm run dev
+### Installation
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd aw
+   ```
 
-## Building
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-To create a production version of your app:
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Navigate to `http://localhost:5173`
+
+### Build for Production
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+The static site will be generated in the `build/` directory.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## 🎯 Educational Focus
+
+AngelWings Comprehensive College emphasizes:
+
+### STEM Areas Covered
+1. **Computer Science** - Programming, AI, Software Development
+2. **Engineering** - Mechanical, Electrical, Civil, Robotics
+3. **Mathematics** - Pure Math, Applied Math, Statistics
+4. **Physics** - Quantum Mechanics, Astrophysics, Applied Physics
+5. **Chemistry** - Organic, Biochemistry, Materials Science
+6. **Biology** - Genetics, Biotechnology, Environmental Science
+
+### Educational Philosophy
+- **Creativity First**: Encouraging creative problem-solving
+- **Hands-on Learning**: Project-based education
+- **Individual Discovery**: Helping students find their passion
+- **Real-world Applications**: Connecting theory to practice
+
+## 🌟 Key Features Showcase
+
+### Interactive STEM Explorer
+- Click on any STEM area to explore in detail
+- Tabbed interface showing skills, projects, and careers
+- Smooth animations and transitions
+- Comprehensive information for each field
+
+### Student Project Carousel
+- Auto-rotating showcase of real student innovations
+- Detailed project information with technologies used
+- Achievement highlights and recognition
+- Interactive navigation controls
+
+### Educational Journey Timeline
+- Four-phase progression from discovery to innovation
+- Interactive timeline with progress indicators
+- Detailed activities for each educational phase
+- Auto-advancing with manual controls
+
+### Particle Animation System
+- Canvas-based particle system
+- Dynamic connections between particles
+- Performance-optimized rendering
+- Responsive to screen size
+
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints:
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px  
+- **Desktop**: 1024px+
+- **Large Desktop**: 1280px+
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- High contrast color scheme
+- Screen reader friendly
+
+## 🔧 Customization
+
+### Modifying Colors
+Edit `tailwind.config.js` to change the color scheme:
+
+```javascript
+colors: {
+  primary: '#ef4444',    // Change primary color
+  secondary: '#1f2937',  // Change secondary color
+  // ... other colors
+}
+```
+
+### Adding New Animations
+Add custom animations in `tailwind.config.js`:
+
+```javascript
+animation: {
+  'custom-animation': 'custom-keyframes 2s ease-in-out infinite',
+}
+```
+
+### Modifying Content
+- Edit STEM areas in `+page.svelte`
+- Update student projects in `CreativeShowcase.svelte`
+- Modify journey steps in `StudentJourney.svelte`
+
+## 🚀 Deployment
+
+### Static Hosting (Recommended)
+The site is configured for static generation and can be deployed to:
+- Vercel
+- Netlify
+- GitHub Pages
+- Any static hosting service
+
+### Build Command
+```bash
+npm run build
+```
+
+## 📄 License
+
+This project is created for AngelWings Comprehensive College. All rights reserved.
+
+## 🤝 Contributing
+
+This is a custom website for AngelWings Comprehensive College. For modifications or updates, please contact the development team.
+
+## 📞 Support
+
+For technical support or questions about the website:
+- Email: tech@angelwings.edu
+- Phone: (555) 123-STEM
+
+---
+
+**Built with ❤️ for AngelWings Comprehensive College - Inspiring creativity through STEM education**

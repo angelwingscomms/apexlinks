@@ -1,9 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: true
----
-144 is the backend
-
-All SvelteKit sites (all folders in repo besides .cursor and 144) are static sveltekit sites. has no server routes, no server/page load functions, everything happens directly in the browser. http w axios, always. tailwind and daisyui always for all styles. for the backend, use existing conventions. theme is always dark, no light theme. primary color is red, main colors are red and black. the site should always have the look and feel of a dark cyberpunk/futuristic dashboard with red glowing accents, red borders on cards/panels, and red highlights throughout the interface
-

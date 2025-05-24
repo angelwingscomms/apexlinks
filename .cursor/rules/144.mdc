@@ -1,0 +1,8 @@
+---
+description: 
+globs: 144/*
+alwaysApply: false
+---
+These rules cover the subdir 144, a Rust server using the warp framework, which serves as a backend for all sveltekit sites in the project
+
+it uses qdrant to store all data

@@ -1,0 +1,58 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+These rules cover the backend subdir and every sveltekit static site subdir
+
+144 is the backend for all the sites
+
+Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
+
+always a lot of neumorphic styles throughout using tailwind and daisyui
+always use a lotta animations and transitions using rombo for tailwind (tailwindcss-motion)
+dreamy ethereal styles
+
+create with a lot of freedom, and if you have any idea for anything that will go well with an image that doesn't exist, create the ui for the image, with the dimensions so it's like a placeholder in the ui, and make the alt of the placeholder a prompt for an image to be created with AI, and also tell me every image to be created in your response
+
+All SvelteKit sites (all folders in repo besides .cursor and 144) are static sveltekit sites. has no server routes, no server/page load functions, everything happens directly in the browser. http w axios, always. tailwind and daisyui always for all styles. for the backend, use existing conventions.
+
+## CRITICAL: Tailwind CSS v4 Configuration
+All SvelteKit sites in this repo use Tailwind CSS v4 with specific configuration requirements:
+
+**NEVER create tailwind.config.js** - v4 is incompatible with v3 config files
+
+**Required v4 setup:**
+- Use `@import 'tailwindcss';` in app.css
+- Configure theme using `@theme { }` directive in CSS files
+- Define custom utilities in `@layer utilities { }`
+- Define DaisyUI-compatible components in `@layer components { }`
+
+**Theme configuration format:**
+```css
+@theme {
+  --color-primary: #value;
+  --shadow-neumorphic: box-shadow values;
+  --animate-custom: keyframe-name duration ease infinite;
+}
+```
+
+**Custom utilities must use direct CSS properties, not Tailwind classes:**
+```css
+@layer utilities {
+  .neumorphic {
+    box-shadow: var(--shadow-neumorphic);
+    border-radius: 1.5rem;
+    background: linear-gradient(...);
+  }
+}
+```
+
+**DaisyUI v4 compatibility:**
+- DaisyUI components need manual recreation using v4 syntax
+- Use component classes in `@layer components { }` section
+- Maintain DaisyUI naming conventions for consistency
+
+## Task Management
+When doing every task in the root todo file or a subdir's todo file, do the tasks one by one, removing tasks as they are completed, if all tasks in todo were done, do not delete the todo file.
+
