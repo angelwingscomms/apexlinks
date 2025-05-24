@@ -48,11 +48,11 @@
 			</a>
 			
 			<!-- Mobile menu button and CTA container -->
-			<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+			<div class="flex desktop:order-2 space-x-3 desktop:space-x-0 rtl:space-x-reverse">
 				<!-- CTA Button -->
 				<button 
 					type="button" 
-					class="btn-primary-custom glow-blue motion-preset-bounce hidden md:block"
+					class="btn-primary-custom glow-blue motion-preset-bounce hidden desktop:block"
 					onclick={handleCTA}
 				>
 					Apply Now
@@ -61,7 +61,7 @@
 				<!-- Mobile Menu Toggle -->
 				<button 
 					type="button" 
-					class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden neumorphic-sm hover:neumorphic-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
+					class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg desktop:hidden neumorphic-sm hover:neumorphic-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
 					aria-controls="navbar-sticky" 
 					aria-expanded={mobileMenuOpen}
 					onclick={toggleMobileMenu}
@@ -75,15 +75,15 @@
 			</div>
 			
 			<!-- Navigation Menu -->
-			<div class="items-center justify-between {mobileMenuOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-				<ul class="flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg neumorphic-inset md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent">
+			<div class="items-center justify-between {mobileMenuOpen ? 'block' : 'hidden'} w-full desktop:flex desktop:w-auto desktop:order-1" id="navbar-sticky">
+				<ul class="flex flex-col p-4 desktop:p-0 mt-4 font-medium rounded-lg neumorphic-inset desktop:space-x-8 rtl:space-x-reverse desktop:flex-row desktop:mt-0 desktop:border-0 desktop:bg-transparent">
 					{#each navigationItems as item, index}
 						<li class="motion-preset-slide-down" style="animation-delay: {index * 100}ms;">
 							<a 
 								href={item.href} 
 								class="block py-3 px-4 rounded-xl transition-all duration-300 
 									   {item.href === '/' ? 'text-primary bg-primary/10 neumorphic-sm border-glow' : 'text-slate-700 hover:bg-primary/10 hover:text-primary hover:neumorphic-sm'} 
-									   md:bg-transparent md:p-0 md:hover:text-glow group md:py-2 md:px-3"
+									   desktop:bg-transparent desktop:p-0 desktop:hover:text-glow group desktop:py-2 desktop:px-3"
 								onclick={closeMobileMenu}
 							>
 								<span class="group-hover:motion-preset-bounce">{item.label}</span>
@@ -92,7 +92,7 @@
 					{/each}
 					
 					<!-- Mobile CTA Button -->
-					<li class="md:hidden mt-4">
+					<li class="desktop:hidden mt-4">
 						<button 
 							class="w-full btn-primary-custom glow-blue motion-preset-bounce"
 							onclick={handleCTA}

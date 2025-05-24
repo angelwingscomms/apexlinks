@@ -18,6 +18,9 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
   
+  /* Custom Breakpoints */
+  --breakpoint-desktop: 66.375rem; /* 1062px */
+  
   /* Custom Shadows for neumorphic design */
   --shadow-neumorphic: 20px 20px 60px rgba(59, 130, 246, 0.15), -20px -20px 60px rgba(255, 255, 255, 0.9);
   --shadow-neumorphic-inset: inset 20px 20px 60px rgba(59, 130, 246, 0.1), inset -20px -20px 60px rgba(255, 255, 255, 0.95);
@@ -128,6 +131,49 @@
   
   .drifting-element {
     animation: var(--animate-drift);
+  }
+
+  /* Custom responsive utilities with 1062px breakpoint */
+  @media (min-width: 66.375rem) { /* 1062px */
+    .desktop\:block { display: block; }
+    .desktop\:hidden { display: none; }
+    .desktop\:flex { display: flex; }
+    .desktop\:w-auto { width: auto; }
+    .desktop\:order-1 { order: 1; }
+    .desktop\:order-2 { order: 2; }
+    .desktop\:flex-row { flex-direction: row; }
+    .desktop\:bg-transparent { background-color: transparent; }
+    .desktop\:p-0 { padding: 0; }
+    .desktop\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .desktop\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .desktop\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .desktop\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(2rem * var(--tw-space-x-reverse));
+      margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+    }
+    .desktop\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
+      --tw-space-x-reverse: 0;
+      margin-right: calc(0px * var(--tw-space-x-reverse));
+      margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+    }
+    .desktop\:mt-0 { margin-top: 0; }
+    .desktop\:border-0 { border-width: 0; }
+    .desktop\:py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .desktop\:px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .desktop\:hover\:text-glow:hover {
+      text-shadow: 0 0 15px rgba(14, 165, 233, 0.7), 0 0 30px rgba(14, 165, 233, 0.4);
+    }
+  }
+
+  @media (max-width: 66.374rem) { /* Below 1062px */
+    .mobile\:block { display: block; }
+    .mobile\:hidden { display: none; }
+    .mobile\:flex { display: flex; }
+    .mobile\:inline-flex { display: inline-flex; }
+    .mobile\:w-full { width: 100%; }
+    .mobile\:mt-4 { margin-top: 1rem; }
+    .mobile\:p-4 { padding: 1rem; }
   }
 }
 

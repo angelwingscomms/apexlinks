@@ -202,7 +202,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 gap-12 items-center">
+		<div class="grid desktop:grid-cols-2 gap-12 items-center">
 			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
 				<h3 class="text-2xl font-bold mb-4 text-primary">Our Philosophy</h3>
 				<p class="mb-4">
@@ -234,7 +234,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each schoolClasses as schoolClass, index}
 				<Card href={schoolClass.link} class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group cursor-pointer border-0"
 					 style="animation-delay: {index * 200}ms;">
@@ -262,7 +262,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each academicPrograms as program, index}
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group cursor-pointer border-0"
 					 style="animation-delay: {index * 200}ms;">
@@ -291,7 +291,7 @@
 		</div>
 		
 		<Card class="neumorphic-accent p-8 motion-preset-slide-up border-0">
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+			<div class="grid desktop:grid-cols-2 lg:grid-cols-4 gap-4">
 				{#each extracurriculars as activity, index}
 					<Badge class="neumorphic-sm p-4 text-center hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
 						 style="animation-delay: {index * 100}ms;">
@@ -486,14 +486,6 @@
 		<a href="#programs" class="link link-hover">Programs</a>
 		<a href="#facilities" class="link link-hover">Facilities</a>
 		<a href="#contact" class="link link-hover">Contact</a>
-	</div>
-	<div>
-		<div class="grid grid-flow-col gap-4">
-			<a href="https://facebook.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="text-2xl hover:text-primary transition-colors">📘</a>
-			<a href="https://twitter.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter" class="text-2xl hover:text-primary transition-colors">🐦</a>
-			<a href="https://instagram.com/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="text-2xl hover:text-primary transition-colors">📷</a>
-			<a href="https://linkedin.com/company/angelwingsschool" target="_blank" rel="noopener noreferrer" aria-label="Connect with us on LinkedIn" class="text-2xl hover:text-primary transition-colors">💼</a>
-		</div>
 	</div>
 	<div>
 		<p class="text-glow">Copyright © 2024 - AngelWings Comprehensive College</p>
