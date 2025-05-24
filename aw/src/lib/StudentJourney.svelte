@@ -6,36 +6,36 @@
 	
 	const journeySteps = [
 		{
-			grade: "Grades 6-8",
-			title: "Foundation Phase",
-			description: "Students discover their interests through diverse academic explorations, creative projects, and character-building activities.",
-			activities: ["Academic Exploration", "Creative Arts Projects", "Leadership Development", "Community Service"],
+			grade: "Foundation & Pre-Nursery",
+			title: "Discovery Phase",
+			description: "Our youngest learners begin their educational journey with play-based learning, sensory exploration, and foundational skills development in a nurturing environment.",
+			activities: ["Play-Based Learning", "Sensory Exploration", "Motor Skills Development", "Social Interaction"],
 			icon: "🌱",
-			color: "from-blue-500 to-cyan-500"
+			color: "from-blue-400 to-sky-400"
 		},
 		{
-			grade: "Grades 9-10",
+			grade: "Nursery 1 & 2",
 			title: "Growth Phase",
-			description: "Deep dive into chosen academic areas with specialized courses, mentorship programs, and real-world applications.",
-			activities: ["Advanced Coursework", "Peer Mentorship", "Independent Projects", "Career Exploration"],
+			description: "Students develop language skills, creativity, and basic academic foundations while exploring robotics, coding, and chess in age-appropriate ways.",
+			activities: ["Language Development", "Creative Arts", "Basic Chess Concepts", "Introduction to Robotics"],
 			icon: "🌿",
-			color: "from-green-500 to-emerald-500"
+			color: "from-green-400 to-emerald-400"
 		},
 		{
-			grade: "Grades 11-12",
+			grade: "Grade 1 & 2",
+			title: "Foundation Phase",
+			description: "Building strong academic foundations with structured learning while introducing AI-powered tools and advanced problem-solving through robotics and coding.",
+			activities: ["Reading & Writing", "Mathematical Thinking", "AI-Assisted Learning", "Basic Programming"],
+			icon: "🧠",
+			color: "from-purple-400 to-violet-400"
+		},
+		{
+			grade: "Grade 3, 4 & 5",
 			title: "Excellence Phase",
-			description: "Students lead their own initiatives, participate in competitions, and prepare for university or career paths.",
-			activities: ["Student Leadership", "Academic Competitions", "College Preparation", "Portfolio Development"],
+			description: "Students master core subjects while becoming proficient in AI use across various domains, advanced chess strategies, and creating sophisticated robotics projects.",
+			activities: ["Advanced AI Proficiency", "Competitive Chess", "Complex Robotics", "Software Creation"],
 			icon: "🌟",
-			color: "from-purple-500 to-violet-500"
-		},
-		{
-			grade: "Beyond",
-			title: "Impact Phase",
-			description: "Alumni continue to excel in their chosen fields, often returning as mentors and community leaders.",
-			activities: ["University Success", "Career Achievement", "Community Leadership", "Alumni Mentoring"],
-			icon: "🎓",
-			color: "from-orange-500 to-red-500"
+			color: "from-amber-400 to-orange-400"
 		}
 	];
 	
