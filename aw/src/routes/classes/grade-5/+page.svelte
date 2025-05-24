@@ -174,16 +174,16 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each curriculum as subject, index}
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
-					 style="animation-delay: {index * 200}ms;">
-					<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">{subject.icon}</div>
+					 style="animation-delay: {index * 150}ms;">
+					<div class="text-4xl mb-4 motion-preset-bounce motion-delay-500">{subject.icon}</div>
 					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">{subject.subject}</h3>
 					<p class="opacity-90 mb-4">{subject.description}</p>
 					<div class="space-y-2">
 						{#each subject.activities as activity}
-							<Badge class="mr-2 mb-2 bg-primary/10 text-primary border-primary/20">{activity}</Badge>
+							<Badge class="neumorphic-sm px-3 py-1 text-xs">{activity}</Badge>
 						{/each}
 					</div>
 				</Card>
@@ -202,11 +202,11 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each extracurriculars as activity, index}
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
-					 style="animation-delay: {index * 200}ms;">
-					<div class="text-5xl mb-4 motion-preset-bounce motion-delay-500">{activity.icon}</div>
+					 style="animation-delay: {index * 150}ms;">
+					<div class="text-4xl mb-4 motion-preset-bounce motion-delay-500">{activity.icon}</div>
 					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">{activity.name}</h3>
 					<p class="opacity-90">{activity.description}</p>
 				</Card>
@@ -225,20 +225,18 @@
 			</p>
 		</div>
 		
-		<div class="grid lg:grid-cols-3 gap-8">
+		<div class="grid desktop:grid-cols-2 lg:grid-cols-3 gap-8">
 			{#each preparationAreas as area, index}
-				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
-					 style="animation-delay: {index * 300}ms;">
-					<h3 class="text-xl font-bold mb-4 text-primary group-hover:text-glow transition-all">{area.title}</h3>
-					<p class="opacity-90 mb-4">{area.description}</p>
-					<List class="space-y-2">
+				<Card class="neumorphic p-6 hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
+					 style="animation-delay: {index * 150}ms;">
+					<div class="text-3xl mb-4 motion-preset-bounce motion-delay-500">{area.icon}</div>
+					<h3 class="text-lg font-bold mb-3 text-primary group-hover:text-glow transition-all">{area.title}</h3>
+					<p class="text-sm opacity-90 mb-4">{area.description}</p>
+					<div class="space-y-2">
 						{#each area.skills as skill}
-							<Li class="flex items-center">
-								<span class="text-primary mr-2">✓</span>
-								<span>{skill}</span>
-							</Li>
+							<Badge class="neumorphic-sm px-3 py-1 text-xs">{skill}</Badge>
 						{/each}
-					</List>
+					</div>
 				</Card>
 			{/each}
 		</div>
@@ -255,7 +253,7 @@
 			</p>
 		</div>
 		
-		<div class="grid md:grid-cols-2 gap-12 items-center">
+		<div class="grid desktop:grid-cols-2 gap-12 items-center">
 			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
 				<h3 class="text-2xl font-bold mb-6 text-primary">Elementary Graduation</h3>
 				<p class="text-lg mb-6 opacity-90">
