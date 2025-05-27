@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
 
-always a lot of neumorphic styles throughout using tailwind and daisyui
+always a lot of neumorphic styles throughout using tailwind and flowbite
 always use a lotta animations and transitions using rombo for tailwind (tailwindcss-motion)
 dreamy ethereal styles
 
@@ -35,7 +35,7 @@ This project uses Tailwind CSS v4 which has a DIFFERENT configuration approach t
 
 **v3 vs v4 compatibility:**
 - v3 config files (tailwind.config.js) are INCOMPATIBLE with v4
-- DaisyUI components need to be recreated in v4 syntax
+- Flowbite components need to be recreated in v4 syntax
 - Custom utilities must use direct CSS properties, not Tailwind classes
 
 ## Current Theme: Ambient Dreamy Sky

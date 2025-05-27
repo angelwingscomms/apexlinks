@@ -1,6 +1,6 @@
 # AngelWings Comprehensive College Website
 
-A stunning, interactive website for AngelWings Comprehensive College - where creativity meets STEM education. Built with SvelteKit, Tailwind CSS, DaisyUI, and featuring beautiful neumorphic design with cyberpunk aesthetics.
+A stunning, interactive website for AngelWings Comprehensive College - where creativity meets STEM education. Built with SvelteKit, Tailwind CSS, Flowbite, and featuring beautiful neumorphic design with cyberpunk aesthetics.
 
 ## 🚀 Features
 
@@ -31,7 +31,7 @@ A stunning, interactive website for AngelWings Comprehensive College - where cre
 
 - **Framework**: SvelteKit 2.0 (Static Site Generation)
 - **Styling**: Tailwind CSS 4.0
-- **UI Components**: DaisyUI 5.0
+- **UI Components**: Flowbite 5.0
 - **Animations**: Tailwind CSS Motion (Rombo)
 - **Language**: TypeScript
 - **Build Tool**: Vite
@@ -43,7 +43,7 @@ A stunning, interactive website for AngelWings Comprehensive College - where cre
 - `svelte`: ^5.0.0
 - `@sveltejs/kit`: ^2.16.0
 - `tailwindcss`: ^4.0.0
-- `daisyui`: ^5.0.37
+- `flowbite`: ^5.0.37
 - `tailwindcss-motion`: ^1.1.0
 - `axios`: ^1.9.0
 

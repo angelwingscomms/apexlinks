@@ -9,13 +9,13 @@ These rules cover the backend subdir and every sveltekit static site subdir
 
 Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
 
-always a lot of neumorphic styles throughout using tailwind and daisyui
+always a lot of neumorphic styles throughout using tailwind and flowbite
 always use a lotta animations and transitions using rombo for tailwind (tailwindcss-motion)
 dreamy ethereal styles
 
 create with a lot of freedom, and if you have any idea for anything that will go well with an image that doesn't exist, create the ui for the image, with the dimensions so it's like a placeholder in the ui, and make the alt of the placeholder a prompt for an image to be created with AI, and also tell me every image to be created in your response
 
-All SvelteKit sites (all folders in repo besides .cursor and 144) are static sveltekit sites. has no server routes, no server/page load functions, everything happens directly in the browser. http w axios, always. tailwind and daisyui always for all styles. for the backend, use existing conventions.
+All SvelteKit sites (all folders in repo besides .cursor and 144) are static sveltekit sites. has no server routes, no server/page load functions, everything happens directly in the browser. http w axios, always. tailwind and flowbite always for all styles. for the backend, use existing conventions.
 
 ## CRITICAL: Tailwind CSS v4 Configuration
 All SvelteKit sites in this repo use Tailwind CSS v4 with specific configuration requirements:
@@ -26,7 +26,7 @@ All SvelteKit sites in this repo use Tailwind CSS v4 with specific configuration
 - Use `@import 'tailwindcss';` in app.css
 - Configure theme using `@theme { }` directive in CSS files
 - Define custom utilities in `@layer utilities { }`
-- Define DaisyUI-compatible components in `@layer components { }`
+- Define Flowbite-compatible components in `@layer components { }`
 
 **Theme configuration format:**
 ```css
@@ -48,10 +48,10 @@ All SvelteKit sites in this repo use Tailwind CSS v4 with specific configuration
 }
 ```
 
-**DaisyUI v4 compatibility:**
-- DaisyUI components need manual recreation using v4 syntax
+**Flowbite v4 compatibility:**
+- Flowbite components need manual recreation using v4 syntax
 - Use component classes in `@layer components { }` section
-- Maintain DaisyUI naming conventions for consistency
+- Maintain Flowbite naming conventions for consistency
 
 ## Task Management
 When doing every task in the root todo file or a subdir's todo file, do the tasks one by one, removing tasks as they are completed, if all tasks in todo were done, do not delete the todo file.

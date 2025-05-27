@@ -22,7 +22,7 @@ RedMoon is an Omegle-style anonymous chat application that uses AI-powered match
 
 ### Frontend (redmoon/)
 - **Framework**: SvelteKit
-- **Styling**: Tailwind CSS + DaisyUI
+- **Styling**: Tailwind CSS + Flowbite
 - **HTTP Client**: Axios
 - **Theme**: Dark cyberpunk with red accents
 
