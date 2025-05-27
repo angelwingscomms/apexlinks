@@ -194,7 +194,7 @@
 <section id="about" class="py-20 px-4">
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Nurturing Tomorrow's Leaders</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow">Nurturing Tomorrow's <span class="text-secondary">Leaders</span></h2>
 			<p class="text-xl opacity-90 max-w-3xl mx-auto">
 				At AngelWings Comprehensive College, we believe every student has unique gifts waiting to be discovered. 
 				Our mission is to provide a supportive, inspiring environment where young learners can explore their interests, 
@@ -204,17 +204,17 @@
 		
 		<div class="grid desktop:grid-cols-2 gap-12 items-center">
 			<Card class="neumorphic p-8 motion-preset-slide-right border-0">
-				<h3 class="text-2xl font-bold mb-4 text-primary">Our Philosophy</h3>
+				<h3 class="text-2xl font-bold mb-4 text-secondary">Our Philosophy</h3>
 				<p class="mb-4">
 					We embrace a holistic approach to primary and secondary education that values academic excellence, creative expression, 
 					and character development. Our dedicated faculty creates personalized learning experiences that 
 					help each young student thrive in their own unique way.
 				</p>
 				<ul class="space-y-2">
-					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Age-appropriate learning paths</li>
-					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Creative expression opportunities</li>
-					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Character and values development</li>
-					<li class="flex items-center"><span class="text-primary mr-2">✓</span> Community engagement</li>
+					<li class="flex items-center"><span class="text-secondary mr-2">✓</span> Age-appropriate learning paths</li>
+					<li class="flex items-center"><span class="text-secondary mr-2">✓</span> Creative expression opportunities</li>
+					<li class="flex items-center"><span class="text-secondary mr-2">✓</span> Character and values development</li>
+					<li class="flex items-center"><span class="text-secondary mr-2">✓</span> Community engagement</li>
 				</ul>
 			</Card>
 			<div class="neumorphic-accent p-2 motion-preset-slide-left">
@@ -228,7 +228,7 @@
 <section id="classes" class="py-20 px-4 bg-base-200/50">
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Our School Classes</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow">Our <span class="text-secondary">School Classes</span></h2>
 			<p class="text-xl opacity-90">
 				From foundation to grade 5, we provide age-appropriate education for every stage of development
 			</p>
@@ -239,7 +239,7 @@
 				<Card href={schoolClass.link} class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group cursor-pointer border-0"
 					 style="animation-delay: {index * 200}ms;">
 					<div class="text-4xl mb-4 motion-preset-bounce motion-delay-500">{schoolClass.icon}</div>
-					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">{schoolClass.title}</h3>
+					<h3 class="text-xl font-bold mb-3 text-secondary group-hover:text-glow transition-all">{schoolClass.title}</h3>
 					<p class="opacity-90">{schoolClass.description}</p>
 					<div class="mt-4">
 						<div class="w-full h-2 bg-base-300 rounded-full overflow-hidden">
@@ -256,7 +256,7 @@
 <section id="programs" class="py-20 px-4">
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Academic Programs</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow"><span class="text-secondary">Academic</span> Programs</h2>
 			<p class="text-xl opacity-90">
 				Discover your passion through our comprehensive range of academic programs
 			</p>
@@ -267,7 +267,7 @@
 				<Card class="card-custom hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group cursor-pointer border-0"
 					 style="animation-delay: {index * 200}ms;">
 					<div class="text-4xl mb-4 motion-preset-bounce motion-delay-500">{program.icon}</div>
-					<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">{program.title}</h3>
+					<h3 class="text-xl font-bold mb-3 text-secondary group-hover:text-glow transition-all">{program.title}</h3>
 					<p class="opacity-90">{program.description}</p>
 					<div class="mt-4">
 						<div class="w-full h-2 bg-base-300 rounded-full overflow-hidden">
@@ -284,7 +284,7 @@
 <section class="py-20 px-4 bg-base-200/50">
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Beyond the Classroom</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow">Beyond the <span class="text-secondary">Classroom</span></h2>
 			<p class="text-xl opacity-90 mb-8">
 				Explore your interests and develop new skills through our diverse extracurricular activities
 			</p>
@@ -295,7 +295,7 @@
 				{#each extracurriculars as activity, index}
 					<Badge class="neumorphic-sm p-4 text-center hover:neumorphic-accent transition-all duration-300 motion-preset-slide-up group border-0"
 						 style="animation-delay: {index * 100}ms;">
-						<span class="text-primary group-hover:text-glow transition-all font-medium">{activity}</span>
+						<span class="text-secondary group-hover:text-glow transition-all font-medium">{activity}</span>
 					</Badge>
 				{/each}
 			</div>
@@ -304,6 +304,10 @@
 					From traditional activities to modern technology like robotics and AI-powered software development, 
 					we're preparing students for the future while nurturing their current interests.
 				</p>
+				<a href="/clubs" class="btn-primary-custom glow-blue motion-preset-bounce mt-4 inline-flex items-center">
+					<span class="mr-2">🎯</span>
+					Explore All Clubs
+				</a>
 			</div>
 		</Card>
 	</div>
@@ -313,7 +317,7 @@
 <section id="facilities" class="py-20 px-4">
 	<div class="container mx-auto max-w-6xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Learning Environment</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow"><span class="text-secondary">Learning</span> Environment</h2>
 			<p class="text-xl opacity-90">
 				Our beautiful campus provides the perfect environment for young minds to learn and grow
 			</p>
@@ -329,7 +333,7 @@
 						<div class="absolute inset-0 bg-gradient-to-t from-base-100/80 to-transparent"></div>
 					</div>
 					<div class="p-6">
-						<h3 class="text-xl font-bold mb-3 text-primary group-hover:text-glow transition-all">{facility.title}</h3>
+						<h3 class="text-xl font-bold mb-3 text-secondary group-hover:text-glow transition-all">{facility.title}</h3>
 						<p class="opacity-90">{facility.description}</p>
 					</div>
 				</Card>
@@ -343,30 +347,6 @@
 
 <!-- Student Journey Section -->
 <StudentJourney />
-
-<!-- Statistics Section -->
-<section class="py-20 px-4 bg-base-200/50">
-	<div class="container mx-auto max-w-4xl">
-		<div class="grid desktop:grid-cols-4 gap-8 text-center">
-			<Card class="neumorphic p-6 motion-preset-bounce border-0">
-				<div class="text-3xl font-bold text-primary mb-2 motion-preset-typewriter">300+</div>
-				<div class="opacity-90">Students</div>
-			</Card>
-			<Card class="neumorphic p-6 motion-preset-bounce motion-delay-200 border-0">
-				<div class="text-3xl font-bold text-primary mb-2 motion-preset-typewriter motion-delay-500">30+</div>
-				<div class="opacity-90">Expert Teachers</div>
-			</Card>
-			<Card class="neumorphic p-6 motion-preset-bounce motion-delay-400 border-0">
-				<div class="text-3xl font-bold text-primary mb-2 motion-preset-typewriter motion-delay-1000">9</div>
-				<div class="opacity-90">Grade Levels</div>
-			</Card>
-			<Card class="neumorphic p-6 motion-preset-bounce motion-delay-600 border-0">
-				<div class="text-3xl font-bold text-primary mb-2 motion-preset-typewriter motion-delay-1500">100%</div>
-				<div class="opacity-90">Success Rate</div>
-			</Card>
-		</div>
-	</div>
-</section>
 
 <!-- Location Section -->
 <section id="location" class="py-20 px-4">
@@ -382,12 +362,12 @@
 			<!-- Location Details -->
 			<div class="motion-preset-slide-right">
 				<Card class="neumorphic p-8 border-0">
-					<h3 class="text-2xl font-bold mb-6 text-primary text-glow">School Address</h3>
+					<h3 class="text-2xl font-bold mb-6 text-secondary text-glow">School Address</h3>
 					<div class="space-y-6">
 						<div class="flex items-start neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
-							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue">🏫</div>
+							<div class="text-3xl text-secondary mr-4 floating-element group-hover:glow-blue">🏫</div>
 							<div>
-								<div class="font-bold text-lg text-primary mb-2">AngelWings Comprehensive College</div>
+								<div class="font-bold text-lg text-secondary mb-2">AngelWings Comprehensive College</div>
 								<div class="text-lg opacity-90 leading-relaxed">
 									End of Maroko, PW, Kubwa<br/>
 									Abuja, Nigeria
@@ -396,45 +376,29 @@
 						</div>
 						
 						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
-							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 0.5s;">🗺️</div>
+							<div class="text-3xl text-secondary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 0.5s;">🕒</div>
 							<div>
-								<div class="font-medium text-primary mb-1">Area</div>
-								<div class="opacity-90">Kubwa District, Federal Capital Territory</div>
-							</div>
-						</div>
-						
-						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
-							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 1s;">🚌</div>
-							<div>
-								<div class="font-medium text-primary mb-1">Transportation</div>
-								<div class="opacity-90">Easily accessible by public transport and private vehicles</div>
-							</div>
-						</div>
-						
-						<div class="flex items-center neumorphic-sm p-6 hover:neumorphic-accent transition-all duration-300 group">
-							<div class="text-3xl text-primary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 1.5s;">🕒</div>
-							<div>
-								<div class="font-medium text-primary mb-1">School Hours</div>
-								<div class="opacity-90">Monday - Friday: 7:30 AM - 4:00 PM</div>
+								<div class="font-medium text-secondary mb-1">School Hours</div>
+								<div class="opacity-90">Monday - Friday: 8:00 AM - 3:00 PM</div>
 							</div>
 						</div>
 					</div>
 				</Card>
 			</div>
 			
-			<!-- Interactive Map Placeholder -->
+			<!-- Interactive Map -->
 			<div class="motion-preset-slide-left">
 				<Card class="neumorphic p-8 border-0 h-full">
-					<h3 class="text-2xl font-bold mb-6 text-primary text-glow">Find Us</h3>
-					<div class="relative overflow-hidden rounded-xl neumorphic-inset group">
+					<h3 class="text-2xl font-bold mb-6 text-secondary text-glow">Find Us</h3>
+					<a href="https://maps.google.com/?q=End+of+Maroko,+PW,+Kubwa,+Abuja,+Nigeria" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden rounded-xl neumorphic-inset group cursor-pointer">
 						<!-- Map Placeholder -->
-						<div class="w-full h-80 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative overflow-hidden">
+						<div class="w-full h-80 bg-gradient-to-br from-secondary/20 to-primary/20 flex items-center justify-center relative overflow-hidden">
 							<div class="absolute inset-0 bg-gradient-to-t from-base-100/30 to-transparent"></div>
 							<div class="text-center z-10">
-								<div class="text-6xl mb-4 floating-element text-primary glow-blue">📍</div>
-								<div class="text-xl font-bold text-primary mb-2 text-glow">Interactive Map</div>
+								<div class="text-6xl mb-4 floating-element text-secondary glow-blue">📍</div>
+								<div class="text-xl font-bold text-secondary mb-2 text-glow">Open in Google Maps</div>
 								<div class="opacity-80 text-sm">
-									Click to open in Google Maps<br/>
+									Click to get directions<br/>
 									End of Maroko, PW, Kubwa, Abuja
 								</div>
 							</div>
@@ -444,26 +408,21 @@
 							<div class="absolute top-1/2 left-1/4 w-8 h-8 neumorphic-accent rounded-full opacity-25 floating-element" style="animation-delay: 4s;"></div>
 						</div>
 						
-						<!-- Action Button -->
-						<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-primary/10 backdrop-blur-sm">
-							<button class="btn-primary-custom glow-blue motion-preset-bounce">
+						<!-- Hover Action -->
+						<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-secondary/10 backdrop-blur-sm">
+							<div class="btn-primary-custom glow-blue motion-preset-bounce">
 								<span class="mr-2">🗺️</span>
-								Open in Maps
-							</button>
+								Get Directions
+							</div>
 						</div>
-					</div>
+					</a>
 					
-					<!-- Additional Info -->
-					<div class="mt-6 grid grid-cols-2 gap-4">
-						<div class="text-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-							<div class="text-2xl mb-2 text-primary floating-element">🚗</div>
-							<div class="text-sm font-medium text-primary">Parking</div>
-							<div class="text-xs opacity-80">Available</div>
-						</div>
-						<div class="text-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-							<div class="text-2xl mb-2 text-primary floating-element" style="animation-delay: 0.5s;">🔒</div>
-							<div class="text-sm font-medium text-primary">Security</div>
-							<div class="text-xs opacity-80">24/7 Secured</div>
+					<!-- Campus Info -->
+					<div class="mt-6 text-center">
+						<div class="neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
+							<div class="text-2xl mb-2 text-secondary floating-element">🔒</div>
+							<div class="text-sm font-medium text-secondary">Secure Campus</div>
+							<div class="text-xs opacity-80">24/7 Safety & Security</div>
 						</div>
 					</div>
 				</Card>
@@ -476,109 +435,47 @@
 <section id="contact" class="py-20 px-4">
 	<div class="container mx-auto max-w-4xl">
 		<div class="text-center mb-16 motion-preset-fade-in">
-			<h2 class="text-4xl font-bold mb-6 text-glow">Join Our School Community</h2>
+			<h2 class="text-4xl font-bold mb-6 text-glow">Join Our <span class="text-secondary">School Community</span></h2>
 			<p class="text-xl opacity-90">
 				Ready to begin your child's educational journey with us? Get in touch today!
 			</p>
 		</div>
 		
-		<div class="grid desktop:grid-cols-2 gap-12">
-			<div class="neumorphic p-8 motion-preset-slide-right">
-				<h3 class="text-2xl font-bold mb-6 text-primary">Contact Information</h3>
+		<div class="max-w-2xl mx-auto">
+			<Card class="neumorphic p-8 motion-preset-slide-up border-0">
+				<h3 class="text-2xl font-bold mb-6 text-secondary">Contact Information</h3>
 				<div class="space-y-6">
 					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-						<div class="text-2xl text-primary mr-4 floating-element">📍</div>
+						<div class="text-2xl text-secondary mr-4 floating-element">📍</div>
 						<div>
-							<div class="font-medium text-primary">Location</div>
+							<div class="font-medium text-secondary">Location</div>
 							<div class="opacity-80">End of Maroko, PW, Kubwa</div>
 							<div class="opacity-80">Abuja, Nigeria</div>
 						</div>
 					</div>
-					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 0.5s;">📞</div>
+					<a href="tel:+2348036513400" class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300 group">
+						<div class="text-2xl text-secondary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 0.5s;">📞</div>
 						<div>
-							<div class="font-medium text-primary">Phone</div>
-							<div class="opacity-80">+2348036513400</div>
+							<div class="font-medium text-secondary">Phone</div>
+							<div class="opacity-80 group-hover:text-secondary transition-colors">+2348036513400</div>
 						</div>
-					</div>
-					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 1s;">✉️</div>
+					</a>
+					<a href="mailto:angelwingseducation@gmail.com" class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300 group">
+						<div class="text-2xl text-secondary mr-4 floating-element group-hover:glow-blue" style="animation-delay: 1s;">✉️</div>
 						<div>
-							<div class="font-medium text-primary">Email</div>
-							<div class="opacity-80">angelwingseducation@gmail.com</div>
+							<div class="font-medium text-secondary">Email</div>
+							<div class="opacity-80 group-hover:text-secondary transition-colors">angelwingseducation@gmail.com</div>
 						</div>
-					</div>
+					</a>
 					<div class="flex items-center neumorphic-sm p-4 hover:neumorphic-accent transition-all duration-300">
-						<div class="text-2xl text-primary mr-4 floating-element" style="animation-delay: 1.5s;">🕒</div>
+						<div class="text-2xl text-secondary mr-4 floating-element" style="animation-delay: 1.5s;">🕒</div>
 						<div>
-							<div class="font-medium text-primary">School Hours</div>
-							<div class="opacity-80">Monday - Friday: 7:30 AM - 4:00 PM</div>
+							<div class="font-medium text-secondary">School Hours</div>
+							<div class="opacity-80">Monday - Friday: 8:00 AM - 3:00 PM</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="neumorphic p-8 motion-preset-slide-left">
-				<h3 class="text-2xl font-bold mb-6 text-primary">Get In Touch</h3>
-				<form class="space-y-6">
-					<div class="motion-preset-slide-up" style="animation-delay: 0.2s;">
-						<label class="block text-sm font-medium text-primary mb-2">Parent/Guardian Name</label>
-						<input 
-							type="text" 
-							placeholder="Enter your full name" 
-							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
-						/>
-					</div>
-					<div class="motion-preset-slide-up" style="animation-delay: 0.4s;">
-						<label class="block text-sm font-medium text-primary mb-2">Email Address</label>
-						<input 
-							type="email" 
-							placeholder="your.email@example.com" 
-							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
-						/>
-					</div>
-					<div class="motion-preset-slide-up" style="animation-delay: 0.6s;">
-						<label class="block text-sm font-medium text-primary mb-2">Phone Number</label>
-						<input 
-							type="tel" 
-							placeholder="+234 xxx xxx xxxx" 
-							class="input-custom w-full focus:border-primary focus:ring-primary/30 placeholder:opacity-60" 
-						/>
-					</div>
-					<div class="motion-preset-slide-up" style="animation-delay: 0.8s;">
-						<label class="block text-sm font-medium text-primary mb-2">Interested Class Level</label>
-						<select class="input-custom w-full focus:border-primary focus:ring-primary/30">
-							<option value="" disabled selected>Select a class level</option>
-							<option value="foundation">Foundation</option>
-							<option value="pre-nursery">Pre-Nursery</option>
-							<option value="nursery-1">Nursery 1</option>
-							<option value="nursery-2">Nursery 2</option>
-							<option value="grade-1">Grade 1</option>
-							<option value="grade-2">Grade 2</option>
-							<option value="grade-3">Grade 3</option>
-							<option value="grade-4">Grade 4</option>
-							<option value="grade-5">Grade 5</option>
-						</select>
-					</div>
-					<div class="motion-preset-slide-up" style="animation-delay: 1s;">
-						<label class="block text-sm font-medium text-primary mb-2">Your Message</label>
-						<textarea 
-							placeholder="Tell us about your child's educational needs and any questions you have..." 
-							class="input-custom w-full h-32 resize-none focus:border-primary focus:ring-primary/30 placeholder:opacity-60"
-						></textarea>
-					</div>
-					<button 
-						type="submit" 
-						class="btn-primary-custom w-full glow-blue motion-preset-bounce motion-delay-1200 text-lg py-4"
-					>
-						<span class="mr-2">📨</span>
-						Send Message
-					</button>
-					<p class="text-xs opacity-70 text-center">
-						We'll get back to you within 24 hours during business days
-					</p>
-				</form>
-			</div>
+			</Card>
 		</div>
 	</div>
 </section>

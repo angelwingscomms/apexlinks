@@ -3,6 +3,782 @@ description:
 globs: 144/*
 alwaysApply: false
 ---
-These rules cover the subdir 144, a Rust server using the warp framework, which serves as a backend for all sveltekit sites in the project
+# 144 Backend Server Rules
 
-it uses qdrant to store all data
+Rust server using warp framework serving as backend for all SvelteKit sites.
+
+## Core Architecture
+
+- **Framework**: Warp web framework with async/await
+- **Database**: Qdrant vector database for all data storage
+- **Multitenancy**: Differentiate data using `s` field in payloads
+- **Identifiers**: UUID v7 for unique identifiers via `util::id()`
+- **Background Tasks**: Use `tokio::task::spawn` for async operations
+- **Server Startup**: Use `shuttle run` to start the server
+- **Deployment Platform**: Shuttle.rs for hosting
+
+## Error Handling
+
+### Always use AppError
+
+```rust
+use crate::util::{AppError, AppResult};
+
+// For external errors
+.map_err(|e| AppError::new("context description", e))?
+
+// For plain string errors  
+.ok_or_else(|| AppError::new_plain("descriptive error message"))?
+```
+
+### Standard Error Response Pattern
+
+```rust
+pub async fn route_handler(request: RequestType) -> impl Reply {
+    f(request).await.map_or_else(
+        |e| {
+            log::error!("{:#?}", e);
+            warp::reply::with_status(
+                warp::reply::json(&"An error occured on our side".to_string()),
+                warp::http::StatusCode::INTERNAL_SERVER_ERROR,
+            )
+        },
+        |v| warp::reply::with_status(warp::reply::json(&v), warp::http::StatusCode::OK),
+    )
+}
+```
+
+### Route Handler Pattern
+
+```rust
+// Public handler function (r = route)
+pub async fn r(request: RequestType) -> impl Reply {
+    f(request).await.map_or_else(
+        |e| {
+            log::error!("{:#?}", e);
+            warp::reply::with_status(
+                warp::reply::json(&"An error occured on our side".to_string()),
+                warp::http::StatusCode::INTERNAL_SERVER_ERROR,
+            )
+        },
+        |v| warp::reply::with_status(warp::reply::json(&v), warp::http::StatusCode::OK),
+    )
+}
+
+// Internal business logic function (f = function)
+async fn f(request: RequestType) -> AppResult<ResponseType> {
+    // Implementation using ? operator for error propagation
+}
+```
+
+### Alternative Infallible Pattern
+
+For routes that handle errors internally and always return a response:
+
+```rust
+pub async fn handler(request: RequestType) -> Result<impl Reply, Infallible> {
+    match process_request(request).await {
+        Ok(response) => Ok(warp::reply::json(&response)),
+        Err(e) => {
+            log::error!("Error: {}", e);
+            Ok(warp::reply::json(&json!({"error": e.to_string(), "status": "error", "code": 500})))
+        }
+    }
+}
+```
+
+### Error Context Best Practices
+
+- **Descriptive Context**: Always provide meaningful context when converting errors
+- **Error Chaining**: Use `AppError::new()` to wrap external errors with context
+- **Early Returns**: Use `?` operator for clean error propagation
+- **Logging**: Log errors with `log::error!("{:#?}", e)` for full error chain visibility
+
+## Embeddings
+
+### Google Gemini Embedding Format
+
+```bash
+curl -X POST \
+  "https://generativelanguage.googleapis.com/v1beta/models/embedding-001:embedContent?key=$GOOGLE" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "models/embedding-001",
+    "content": {
+      "parts": [
+        { "text": "Your text here" }
+      ]
+    }
+  }'
+```
+
+### Usage in Code
+
+```rust
+use crate::util::embed;
+
+let vector = embed(text_content).await?;
+```
+
+## Qdrant Integration
+
+- **Collections**: Use semantic collection names (`i`, `r`, etc.)
+- **Points**: Include `s` field for multitenancy
+- **Vectors**: Generate via `embed()` utility function
+- **Queries**: Use `qdrant_post()`, `qdrant_put()`, and `qdrant_get()` from `util::qdrant`
+
+### Example Point Structure
+
+```rust
+#[derive(serde::Serialize)]
+pub struct DataPoint {
+    pub t: String,           // text content
+    pub d: String,           // date (RFC3339)
+    pub s: String,           // sort/tenant identifier
+    pub i: Option<String>,   // optional parent id
+}
+```
+
+### Qdrant Error Handling
+
+```rust
+// Always provide context for Qdrant operations
+qdrant_put(&path, body)
+    .await
+    .map_err(|e| AppError::new("failed to upsert points", e))?;
+```
+
+## Secrets Management
+
+- **Storage**: Use Shuttle SecretStore for environment variables
+- **Access Pattern**: `SECRETS.lock().await.get("KEY_NAME")`
+- **Keys**: Store API keys, database URLs, sensitive configuration
+
+```rust
+let api_key = SECRETS
+    .lock()
+    .await
+    .get("GEMINI_API_KEY")
+    .ok_or_else(|| AppError::new_plain("GEMINI_API_KEY not found in secrets"))?;
+```
+
+## Code Organization
+
+### Module Structure
+
+- `src/util/`: Shared functionality (qdrant, embed, groq, password)
+- `src/routes/`: API endpoints organized by feature
+- `src/constants.rs`: Global constants and static values
+- `src/main.rs`: Application entry point and route configuration
+
+### Route Organization
+
+```rust
+// routes/feature/mod.rs - feature module
+pub mod action1;
+pub mod action2;
+
+// routes/feature/action.rs - specific actions
+use warp::Filter;
+
+pub fn routes() -> impl Filter<Extract = (impl warp::Reply,), Error = warp::Rejection> + Clone {
+    route1()
+        .or(route2())
+}
+```
+
+### Filter-based Route Pattern
+
+```rust
+pub fn route() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    warp::path("endpoint")
+        .and(warp::post())
+        .and(warp::body::json())
+        .and_then(handler)
+}
+
+async fn handler(req: RequestType) -> Result<impl Reply, Rejection> {
+    // Implementation
+}
+```
+
+### Handler Naming Convention
+
+- `r` - Public route handler function
+- `f` - Internal business logic function
+- Keep handler functions concise and focused
+
+## Logging Best Practices
+
+- **Error Logging**: Always log errors with `log::error!("{:#?}", e)`
+- **Info Logging**: Use `log::info!()` for important operations
+- **Debug Context**: Include operation context in error messages
+- **Structured Logging**: Log with consistent format for easier debugging
+
+## Performance Guidelines
+
+- **Async Operations**: Use `.await?` pattern consistently
+- **Background Tasks**: Spawn long-running operations with `tokio::task::spawn`
+- **Connection Pooling**: Reuse HTTP clients where possible
+- **Vector Operations**: Batch Qdrant operations when feasible
+- **Avoid Blocking**: Never use blocking operations in async contexts
+
+## Security Practices
+
+- **Input Validation**: Validate all request parameters
+- **Secret Handling**: Never log or expose secrets
+- **CORS**: Configure appropriately for frontend origins
+- **Error Messages**: Don't expose internal details to clients
+- **Rate Limiting**: Consider implementing rate limits for public endpoints
+
+## Testing Patterns
+
+- **Unit Tests**: Test business logic functions separately
+- **Integration Tests**: Test full request/response cycles
+- **Mock External Services**: Use test doubles for Qdrant/APIs
+- **Error Cases**: Test error handling paths explicitly
+
+## Type Safety Patterns
+
+- **Request/Response Types**: Define clear structs for all API contracts
+- **Serialization**: Use `#[derive(serde::Serialize, serde::Deserialize)]`
+- **Validation**: Validate at type boundaries
+- **Option Handling**: Use combinators over manual matching where possible
+
+## Async Best Practices
+
+- **Cancellation Safety**: Ensure operations are cancellation-safe
+- **Timeout Handling**: Add timeouts to external service calls
+- **Resource Cleanup**: Use RAII patterns for resource management
+- **Error Recovery**: Implement retry logic for transient failures
+
+## Common Patterns
+
+### Date/Time Handling
+```rust
+use chrono::Utc;
+
+// Always use RFC3339 format for dates
+let date = Utc::now().to_rfc3339();
+```
+
+### UUID Generation
+```rust
+use crate::util::id;
+
+// Generate unique identifiers
+let unique_id = id(); // Returns UUID v7 string
+```
+
+### JSON Responses
+```rust
+// Success response
+Ok(warp::reply::json(&response_data))
+
+// Error response with status
+warp::reply::with_status(
+    warp::reply::json(&error_data),
+    warp::http::StatusCode::BAD_REQUEST,
+)
+```
+
+## Additional Patterns and Conventions
+
+### WebSocket Handling
+
+```rust
+use futures_util::{SinkExt, StreamExt};
+use lazy_static::lazy_static;
+
+lazy_static! {
+    static ref CONNECTIONS: Arc<Mutex<HashMap<String, Arc<Mutex<SplitSink<WebSocket, Message>>>>>> = 
+        Arc::new(Mutex::new(HashMap::new()));
+}
+
+// Split WebSocket into sender/receiver
+let (ws_sender, mut ws_receiver) = websocket.split();
+
+// Store sender for later use
+let sender_arc = Arc::new(Mutex::new(ws_sender));
+connections.insert(connection_id.clone(), sender_arc.clone());
+```
+
+### Lazy Static Pattern
+
+```rust
+use once_cell::sync::Lazy;
+use lazy_static::lazy_static;
+
+// For global state management
+pub static SECRETS: Lazy<Mutex<SecretStore>> = 
+    Lazy::new(|| Mutex::new(SecretStore::new(std::collections::BTreeMap::new())));
+
+// For in-memory stores
+lazy_static! {
+    static ref SIGNAL_STORE: Arc<Mutex<HashMap<String, Vec<SignalData>>>> = 
+        Arc::new(Mutex::new(HashMap::new()));
+}
+```
+
+### Collection Naming Convention
+
+- Single-letter collection names for core data: `i` (items), `r` (real), `a` (add)
+- Descriptive names for feature-specific collections: `bible_verses`, `users`, `chat`
+- Define collection names as constants in `constants.rs`
+
+### Password Handling with Argon2
+
+```rust
+use argon2::{self, Config};
+
+fn hash_password(password: &str, salt: &[u8]) -> String {
+    let config = Config::default();
+    argon2::hash_encoded(password.as_bytes(), salt, &config).unwrap()
+}
+
+fn verify_password(hash: &str, password: &str) -> bool {
+    argon2::verify_encoded(hash, password.as_bytes()).unwrap_or(false)
+}
+```
+
+### Batch Processing Pattern
+
+```rust
+// Process large datasets in chunks
+const BATCH_SIZE: usize = 10;  // Adjust based on operation
+for chunk in items.chunks(BATCH_SIZE) {
+    // Process batch
+    process_batch(chunk).await?;
+    
+    // Rate limiting between batches
+    tokio::time::sleep(Duration::from_secs(1)).await;
+}
+```
+
+### State Persistence for Long-Running Operations
+
+```rust
+#[derive(Debug, Serialize, Deserialize)]
+pub struct OperationState {
+    pub last_processed: String,
+    pub total_items: usize,
+    pub processed_items: usize,
+    pub timestamp: String,
+}
+
+// Save state to JSON file for resumability
+let state_json = serde_json::to_string_pretty(&state)?;
+tokio::fs::write("operation_state.json", state_json).await?;
+
+// Resume from saved state
+if let Ok(file) = File::open("operation_state.json") {
+    let reader = BufReader::new(file);
+    let state: OperationState = serde_json::from_reader(reader)?;
+    // Resume from state.last_processed
+}
+```
+
+### File-based Data Sources
+
+```rust
+use std::fs::File;
+use std::io::BufReader;
+
+// Efficient reading of large JSON files
+let file = File::open("data.json")?;
+let reader = BufReader::new(file);
+let data: Vec<DataType> = serde_json::from_reader(reader)?;
+```
+
+### WebRTC Signaling Pattern
+
+```rust
+// In-memory storage with automatic cleanup
+static SIGNAL_STORE: Lazy<Arc<Mutex<HashMap<String, Vec<SignalData>>>>> = 
+    Lazy::new(|| Arc::new(Mutex::new(HashMap::new())));
+
+// Cleanup task for old signals
+task::spawn(async {
+    loop {
+        cleanup_old_signals().await;
+        tokio::time::sleep(Duration::from_secs(600)).await; // Every 10 minutes
+    }
+});
+
+// Cap signals per user to prevent DOS
+const MAX_SIGNALS_PER_USER: usize = 50;
+```
+
+### Route Module Organization
+
+```rust
+// In routes/feature/mod.rs
+pub mod action1;
+pub mod action2;
+
+pub fn routes() -> impl Filter<Extract = (impl warp::Reply,), Error = warp::Rejection> + Clone {
+    action1::route()
+        .or(action2::route())
+        .or(action3::route())
+}
+```
+
+## Enhanced Security Practices
+
+### API Key Security
+
+```rust
+// CRITICAL: Never commit Secrets.toml to version control
+// Add to .gitignore:
+// Secrets.toml
+// *.key
+// *.pem
+
+// Validate API keys before use
+async fn get_validated_api_key(key_name: &str) -> AppResult<String> {
+    let key = SECRETS
+        .lock()
+        .await
+        .get(key_name)
+        .ok_or_else(|| AppError::new_plain(&format!("{} not configured", key_name)))?;
+    
+    // Basic validation
+    if key.is_empty() {
+        return Err(AppError::new_plain(&format!("Invalid {} format", key_name)));
+    }
+    
+    Ok(key)
+}
+```
+
+### Input Validation and Sanitization
+
+```rust
+// Validate request size
+.and(warp::body::content_length_limit(1024 * 1024)) // 1MB limit
+
+// Sanitize text inputs
+pub fn sanitize_input(input: &str) -> String {
+    input
+        .chars()
+        .filter(|c| c.is_alphanumeric() || c.is_whitespace() || ".,!?-'\"".contains(*c))
+        .take(10000)  // Maximum length
+        .collect()
+}
+
+// Validate collection names against whitelist
+const ALLOWED_COLLECTIONS: &[&str] = &["i", "r", "a", "bible_verses", "users", "chat"];
+
+fn validate_collection(name: &str) -> AppResult<()> {
+    if !ALLOWED_COLLECTIONS.contains(&name) {
+        return Err(AppError::new_plain("Invalid collection name"));
+    }
+    Ok(())
+}
+```
+
+### Rate Limiting Implementation
+
+```rust
+use std::collections::HashMap;
+use std::time::{Duration, Instant};
+
+lazy_static! {
+    static ref RATE_LIMITER: Mutex<HashMap<String, (u32, Instant)>> = 
+        Mutex::new(HashMap::new());
+}
+
+const MAX_REQUESTS_PER_MINUTE: u32 = 60;
+
+async fn check_rate_limit(client_id: &str) -> AppResult<()> {
+    let mut limiter = RATE_LIMITER.lock().await;
+    let now = Instant::now();
+    
+    match limiter.get_mut(client_id) {
+        Some((count, last_reset)) => {
+            if now.duration_since(*last_reset) > Duration::from_secs(60) {
+                *count = 1;
+                *last_reset = now;
+            } else if *count >= MAX_REQUESTS_PER_MINUTE {
+                return Err(AppError::new_plain("Rate limit exceeded"));
+            } else {
+                *count += 1;
+            }
+        }
+        None => {
+            limiter.insert(client_id.to_string(), (1, now));
+        }
+    }
+    Ok(())
+}
+```
+
+### Enhanced CORS Configuration
+
+```rust
+// Production CORS configuration
+let cors = warp::cors()
+    .allow_origins(vec![
+        "https://yourdomain.com",
+        "https://app.yourdomain.com"
+    ])
+    .allow_methods(vec!["GET", "POST", "PUT", "DELETE"])
+    .allow_headers(vec!["Content-Type", "Authorization"])
+    .allow_credentials(true)
+    .max_age(3600);
+```
+
+### Authentication Middleware
+
+```rust
+use warp::{Filter, Rejection};
+
+pub fn with_auth() -> impl Filter<Extract = (String,), Error = Rejection> + Clone {
+    warp::header::<String>("authorization")
+        .and_then(|token: String| async move {
+            verify_token(&token)
+                .await
+                .map_err(|_| warp::reject::custom(AuthError))
+        })
+}
+
+// Apply to protected routes
+let protected_route = warp::path("protected")
+    .and(with_auth())
+    .and_then(handler);
+```
+
+### Security Headers
+
+```rust
+// Add security headers to all responses
+pub fn with_security_headers<T: Reply>(reply: T) -> impl Reply {
+    warp::reply::with_header(reply, "X-Content-Type-Options", "nosniff")
+        .with_header("X-Frame-Options", "DENY")
+        .with_header("X-XSS-Protection", "1; mode=block")
+        .with_header("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
+        .with_header("Content-Security-Policy", "default-src 'self'")
+}
+```
+
+### Secure Multitenancy
+
+```rust
+// Always enforce tenant isolation in queries
+pub struct TenantContext {
+    tenant_id: String,
+    user_id: String,
+    permissions: Vec<String>,
+}
+
+impl TenantContext {
+    pub fn filter(&self) -> serde_json::Value {
+        json!({
+            "must": [
+                {
+                    "key": "s",
+                    "match": { "value": &self.tenant_id }
+                }
+            ]
+        })
+    }
+}
+```
+
+### Timeout Protection
+
+```rust
+use tokio::time::timeout;
+
+// Wrap long-running operations
+let result = timeout(
+    Duration::from_secs(30),
+    long_running_operation()
+).await
+.map_err(|_| AppError::new_plain("Operation timed out"))?;
+```
+
+### Audit Logging
+
+```rust
+// Log security-relevant events
+pub async fn audit_log(
+    event_type: &str,
+    user_id: Option<&str>,
+    resource: &str,
+    action: &str,
+    success: bool
+) {
+    let log_entry = json!({
+        "timestamp": chrono::Utc::now().to_rfc3339(),
+        "event_type": event_type,
+        "user_id": user_id.unwrap_or("anonymous"),
+        "resource": resource,
+        "action": action,
+        "success": success
+    });
+    
+    log::info!("AUDIT: {}", log_entry);
+    
+    // Optionally store in Qdrant audit collection
+    let _ = qdrant_put(
+        &qdrant_path("collections/audit/points").await.unwrap_or_default(),
+        json!({
+            "points": [{
+                "id": id(),
+                "payload": log_entry
+            }]
+        }),
+    ).await;
+}
+```
+
+### WebSocket Security
+
+```rust
+// Connection limits
+const MAX_CONNECTIONS_PER_IP: usize = 10;
+const MAX_MESSAGE_SIZE: usize = 64 * 1024; // 64KB
+const CONNECTION_TIMEOUT: Duration = Duration::from_secs(300); // 5 minutes
+
+// Message validation
+pub fn validate_ws_message(msg: &Message) -> AppResult<()> {
+    if msg.as_bytes().len() > MAX_MESSAGE_SIZE {
+        return Err(AppError::new_plain("Message too large"));
+    }
+    
+    // Additional validation based on message type
+    if let Ok(text) = msg.to_str() {
+        let parsed: serde_json::Value = serde_json::from_str(text)
+            .map_err(|_| AppError::new_plain("Invalid message format"))?;
+        
+        // Validate required fields
+        if parsed["type"].is_null() {
+            return Err(AppError::new_plain("Missing message type"));
+        }
+    }
+    
+    Ok(())
+}
+```
+
+### Constant-Time Comparisons
+
+```rust
+use subtle::ConstantTimeEq;
+
+// For sensitive comparisons (tokens, passwords, etc.)
+fn secure_compare(a: &str, b: &str) -> bool {
+    a.as_bytes().ct_eq(b.as_bytes()).into()
+}
+```
+
+### Background Task Error Handling
+
+```rust
+// Structured background task spawning
+pub fn spawn_monitored_task<F>(name: &'static str, future: F)
+where
+    F: Future<Output = Result<(), AppError>> + Send + 'static,
+{
+    tokio::spawn(async move {
+        match future.await {
+            Ok(()) => log::info!("Background task '{}' completed successfully", name),
+            Err(e) => {
+                log::error!("Background task '{}' failed: {:#?}", name, e);
+                // Optionally implement retry logic or alerting
+            }
+        }
+    });
+}
+```
+
+### Qdrant-Specific Security
+
+```rust
+// Validate Qdrant filters to prevent injection
+pub fn validate_qdrant_filter(filter: &serde_json::Value) -> AppResult<()> {
+    // Recursively validate filter structure
+    match filter {
+        Value::Object(map) => {
+            for (key, value) in map {
+                // Whitelist allowed filter keys
+                const ALLOWED_KEYS: &[&str] = &[
+                    "must", "should", "must_not", "key", "match", 
+                    "range", "geo_radius", "values", "value"
+                ];
+                
+                if !ALLOWED_KEYS.contains(&key.as_str()) {
+                    return Err(AppError::new_plain(&format!("Invalid filter key: {}", key)));
+                }
+                
+                validate_qdrant_filter(value)?;
+            }
+        }
+        Value::Array(arr) => {
+            for item in arr {
+                validate_qdrant_filter(item)?;
+            }
+        }
+        Value::String(s) => {
+            // Check for injection patterns
+            if s.contains("$") || s.contains("\\") || s.len() > 1000 {
+                return Err(AppError::new_plain("Suspicious filter value detected"));
+            }
+        }
+        _ => {}
+    }
+    
+    Ok(())
+}
+
+// Batch operations with proper error handling
+pub async fn batch_upsert_points(
+    collection: &str,
+    points: Vec<serde_json::Value>,
+    batch_size: usize
+) -> AppResult<()> {
+    validate_collection(collection)?;
+    
+    for (i, chunk) in points.chunks(batch_size).enumerate() {
+        let result = qdrant_put(
+            &qdrant_path(&format!("collections/{}/points?wait=true", collection)).await?,
+            json!({
+                "points": chunk,
+                "ordering": "weak"  // For better performance
+            }),
+        )
+        .await;
+        
+        if let Err(e) = result {
+            log::error!("Batch {} failed: {:#?}", i, e);
+            return Err(AppError::new(&format!("Failed to upsert batch {}", i), e));
+        }
+        
+        // Rate limiting between batches
+        if i < points.len() / batch_size - 1 {
+            tokio::time::sleep(Duration::from_millis(100)).await;
+        }
+    }
+    
+    Ok(())
+}
+```
+
+## Production Deployment Checklist
+
+1. **Environment Variables**: Never commit `Secrets.toml` to version control
+2. **HTTPS Only**: Configure TLS certificates for all endpoints
+3. **Rate Limiting**: Implement on all public endpoints
+4. **Monitoring**: Set up logging aggregation and alerts
+5. **Backups**: Regular Qdrant snapshots
+6. **Access Control**: Implement proper authentication and authorization
+7. **Input Validation**: Sanitize and validate all user inputs
+8. **Error Handling**: Never expose internal error details to clients
+9. **Audit Logging**: Track all data modifications and access attempts
+10. **Performance**: Monitor and optimize slow queries
+11. **Security Headers**: Apply to all HTTP responses
+12. **Connection Limits**: Implement for WebSockets and concurrent requests
+13. **Timeout Protection**: Add to all external service calls
+14. **Dependency Updates**: Regularly update all dependencies for security patches
+15. **Secret Rotation**: Implement regular rotation of API keys and credentials
