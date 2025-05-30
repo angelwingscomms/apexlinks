@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline - RedMoon</title>
+  <style>
+    :root {
+      --color-primary: #ef4444;
+      --color-accent: #f97316;
+      --color-bg: #fef2f2;
+      --color-text: #0f172a;
+      --color-muted: #64748b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      line-height: 1.6;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .container {
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 40px rgba(239, 68, 68, 0.25);
+      padding: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+    }
+    
+    .retry-btn {
+      background-color: rgba(239, 68, 68, 0.85);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+    }
+    
+    .retry-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35);
+    }
+    
+    .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      padding: 1rem;
+    }
+    
+    .icon svg {
+      width: 100%;
+      height: 100%;
+      color: var(--color-primary);
+    }
+    
+    .blob {
+      position: fixed;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.4;
+    }
+    
+    .blob-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--color-primary);
+      top: 10%;
+      left: 10%;
+    }
+    
+    .blob-2 {
+      width: 250px;
+      height: 250px;
+      background: var(--color-accent);
+      bottom: 10%;
+      right: 10%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+      </svg>
+    </div>
+    <h1>You're Offline</h1>
+    <p>RedMoon has saved some content for offline viewing.</p>
+    <p>Please check your internet connection and try again.</p>
+    <button class="retry-btn" onclick="window.location.reload()">Try Again</button>
+  </div>
+  
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  
+  <script>
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+</html> 

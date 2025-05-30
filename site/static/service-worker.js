@@ -1,10 +1,11 @@
-const CACHE_NAME = 'apexlinks-v1';
+const CACHE_NAME = 'redmoon-v2';
 const STATIC_ASSETS = [
   '/',
   '/app.css',
   '/app.js',
   '/favicon.png',
   '/manifest.json',
+  '/offline.html',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png'
 ];
@@ -41,6 +42,16 @@ self.addEventListener('activate', (event) => {
         );
       })
       .then(() => {
+        // Send update message to clients
+        self.clients.matchAll().then((clients) => {
+          clients.forEach((client) => {
+            client.postMessage({
+              type: 'APP_UPDATED',
+              version: CACHE_NAME
+            });
+          });
+        });
+        
         return self.clients.claim();
       })
   );
@@ -97,7 +108,7 @@ self.addEventListener('fetch', (event) => {
           .catch(() => {
             // If both cache and network fail, serve offline page for navigation requests
             if (event.request.mode === 'navigate') {
-              return caches.match('/');
+              return caches.match('/offline.html');
             }
             return new Response('Network error occurred', {
               status: 408,
@@ -137,5 +148,12 @@ self.addEventListener('notificationclick', (event) => {
     event.waitUntil(
       clients.openWindow(event.notification.data.url)
     );
+  }
+});
+
+// Listen for messages from clients
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
   }
 }); 

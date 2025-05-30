@@ -13,16 +13,16 @@
 
 <div>
   {#if !$isAuthenticated}
-    <div class="card-neumorphic text-center py-12">
+    <div class="card-glass text-center py-12">
       <h2 class="text-2xl font-semibold dreamy-text mb-4">Login Required</h2>
       <p class="text-gray-600 mb-6">You need to be logged in to view your profile.</p>
       <a href="/" class="btn-primary">Back to Home</a>
     </div>
   {:else if $currentUser}
-    <div class="card-neumorphic">
+    <div class="card-glass">
       <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
         <!-- Profile Image -->
-        <div class="neumorphic-inset h-40 w-40 rounded-full overflow-hidden flex items-center justify-center">
+        <div class="glass-sm h-40 w-40 rounded-full overflow-hidden flex items-center justify-center">
           {#if $currentUser.picture}
             <img src={$currentUser.picture} alt={$currentUser.name} class="h-full w-full object-cover" />
           {:else}
@@ -45,21 +45,21 @@
           {/if}
           
           {#if $currentUser.description}
-            <div class="mt-4 neumorphic-inset p-4 rounded-lg">
+            <div class="mt-4 glass-sm p-4 rounded-lg">
               <p class="text-gray-700">{$currentUser.description}</p>
             </div>
           {/if}
           
           <div class="mt-6 grid grid-cols-2 gap-4">
             {#if $currentUser.age}
-              <div class="neumorphic-inset p-3 rounded-lg">
+              <div class="glass-sm p-3 rounded-lg">
                 <span class="text-sm font-medium text-gray-500">Age</span>
                 <p class="text-gray-800 font-medium">{$currentUser.age} years</p>
               </div>
             {/if}
             
             {#if $currentUser.gender}
-              <div class="neumorphic-inset p-3 rounded-lg">
+              <div class="glass-sm p-3 rounded-lg">
                 <span class="text-sm font-medium text-gray-500">Gender</span>
                 <p class="text-gray-800 font-medium">{$currentUser.gender}</p>
               </div>
@@ -70,7 +70,7 @@
       
       <!-- Action Buttons -->
       <div class="mt-8 flex justify-end gap-3">
-        <a href="/users" class="neumorphic-button px-4 py-2 text-sm text-gray-600">
+        <a href="/users" class="glass-button px-4 py-2 text-sm text-gray-600">
           Find Users
         </a>
         
@@ -82,17 +82,17 @@
     
     <!-- User's Zone Information -->
     {#if $currentUser.zone_id}
-      <div class="card-neumorphic mt-8">
+      <div class="card-glass mt-8">
         <h2 class="text-xl font-semibold dreamy-text mb-4">Your Zone</h2>
         <p class="text-gray-700 mb-4">You are currently in zone: <span class="font-semibold">{$currentUser.zone_id}</span></p>
         <div class="flex justify-end">
-          <a href="/zones" class="neumorphic-button px-4 py-2 text-sm text-gray-600">
+          <a href="/zones" class="glass-button px-4 py-2 text-sm text-gray-600">
             Explore Zones
           </a>
         </div>
       </div>
     {:else}
-      <div class="card-neumorphic mt-8">
+      <div class="card-glass mt-8">
         <h2 class="text-xl font-semibold dreamy-text mb-4">Join a Zone</h2>
         <p class="text-gray-700 mb-4">You haven't joined any zone yet. Zones help you connect with like-minded people in specific communities.</p>
         <div class="flex justify-end">

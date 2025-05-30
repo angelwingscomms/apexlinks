@@ -48,7 +48,7 @@
   }
 </script>
 
-<div class="card-neumorphic">
+<div class="card-glass">
   <h2 class="text-xl font-semibold dreamy-text mb-6">Edit Your Profile</h2>
   
   <form on:submit|preventDefault={handleSubmit}>
@@ -59,7 +59,7 @@
         id="username"
         bind:value={username}
         type="text"
-        class="input-neumorphic w-full"
+        class="input-glass w-full"
         placeholder="Your username"
       />
     </div>
@@ -70,7 +70,7 @@
       <textarea
         id="description"
         bind:value={description}
-        class="input-neumorphic w-full h-32"
+        class="input-glass w-full h-32"
         placeholder="Tell us about yourself"
       ></textarea>
     </div>
@@ -85,7 +85,7 @@
           type="number"
           min="13"
           max="120"
-          class="input-neumorphic w-full"
+          class="input-glass w-full"
           placeholder="Your age"
         />
       </div>
@@ -96,7 +96,7 @@
         <select
           id="gender"
           bind:value={gender}
-          class="input-neumorphic w-full"
+          class="input-glass w-full"
         >
           {#each genderOptions as option}
             <option value={option.value}>{option.label}</option>
@@ -110,7 +110,7 @@
       <button
         type="button"
         on:click={handleCancel}
-        class="neumorphic-button px-4 py-2 text-sm text-gray-600"
+        class="glass-button px-4 py-2 text-sm text-gray-600"
         disabled={loading}
       >
         Cancel

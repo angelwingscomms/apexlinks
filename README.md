@@ -7,7 +7,7 @@ RedMoon is an Omegle-style anonymous chat application that uses AI-powered match
 - **AI-Powered Matching**: Uses Gemini embeddings to match users based on semantic similarity of their descriptions
 - **Real-time Chat**: WebSocket-based real-time messaging
 - **Anonymous**: No registration required, users are matched anonymously
-- **Dark Cyberpunk Theme**: Beautiful dark UI with red accents and cyberpunk aesthetics
+- **Glassmorphic Design**: Beautiful modern UI with frosted glass effects and subtle transparency
 - **Interest-based Filtering**: Users can specify interests for better matching
 - **Age Range Preferences**: Optional age range filtering
 
@@ -22,9 +22,9 @@ RedMoon is an Omegle-style anonymous chat application that uses AI-powered match
 
 ### Frontend (redmoon/)
 - **Framework**: SvelteKit
-- **Styling**: Tailwind CSS + Flowbite
+- **Styling**: Tailwind CSS v4 + Flowbite with Glassmorphic design
 - **HTTP Client**: Axios
-- **Theme**: Dark cyberpunk with red accents
+- **Theme**: Modern glassmorphic UI with blur effects and subtle transparency
 
 ## Setup
 

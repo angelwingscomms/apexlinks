@@ -1,0 +1,90 @@
+# AngelWings Comprehensive College Website Design Rules
+
+## Design Philosophy
+Always think like a professional creative designer that works in a professional high-end design studio that does work for Fortune 500 companies like Apple and Nike.
+
+## Visual Style
+- **Elegant Glassmorphism**: Refined glass-like UI elements with sophisticated blur effects
+- **Premium Gold Aesthetics**: Create a luxurious, upscale feeling with warm gold tones
+- **Transitions & Animations**: Use Rombo for Tailwind (tailwindcss-motion) for subtle, refined transitions
+- **Color Scheme**: Gold backgrounds with deep blue accents for sophistication
+
+## Color Palette - AngelWings Elegant Gold Theme
+- **Primary**: Deep Blue (#3238A6)
+- **Secondary**: Bright Blue (#049DD9)
+- **Tertiary**: Light Blue (#04B2D9)
+- **Accent**: Gold/Amber (#D9933D)
+- **Background Layers**:
+  - Base: Cream/Gold (#fbf7f0)
+  - Surface: Soft Gold (#f7f2e6)
+  - Elevated: Warm Gold (#efe8d6)
+
+## UI Elements
+
+### Glassmorphism Components
+- Use refined blur effects (14px) 
+- Moderate opacity backgrounds (0.65-0.75)
+- Subtle border highlights (0.4-0.5 opacity)
+- Gold shadows with blue accents
+- Rounded corners (1.25rem)
+
+### Button Styles
+- Primary buttons: Deep blue with subtle transparency
+- Secondary buttons: Bright blue with elegant appearance
+- Gold buttons: Amber/gold for CTAs and important actions
+- Outline buttons: Delicate blue borders with minimal fill
+
+### Card Styles
+- Light glassmorphic backgrounds (0.75 opacity)
+- Subtle elevation on hover
+- Refined transitions with minimal movement
+- Clean borders with subtle shadows
+
+### Navigation
+- Light glassmorphic navbar with sophisticated transparency
+- Subtle blue indicators for active state
+- Smooth transitions between states
+
+## Animation Guidelines
+- Use gentle gold glow effects
+- Implement subtle floating animations (minimal movement)
+- Add golden gradient backgrounds with slow, elegant shifting
+- Use restrained animations that enhance rather than distract
+
+## Typography
+- Dark text on light backgrounds for readability and elegance
+- Blue accents for headings and important text
+- Gold highlights for special content
+- Use premium fonts with appropriate letter spacing and line height
+
+## Image Treatment
+- Create/request sophisticated imagery with gold tones
+- Apply subtle shadow effects to image borders
+- Use elegant glassmorphic overlays for text on images
+- Implement refined parallax effects where appropriate
+
+## Tailwind CSS v4 Configuration
+- **NEVER create tailwind.config.js** - v4 is incompatible with v3 config files
+- Configure theme using `@theme {}` directive in app.css
+- Define custom utilities in `@layer utilities {}`
+- Define components in `@layer components {}`
+
+## Implementation Notes
+- Use `@import 'tailwindcss'` in CSS files
+- Custom color variables through CSS custom properties
+- Define all animations in keyframes section
+- Maintain consistent premium feel throughout
+
+## Educational Content
+Ensure the site effectively communicates the school's educational focus:
+- Extracurriculars (robotics, chess, coding)
+- Classes from foundation through grade 5
+- AI proficiency across various domains
+- Creative approach to STEM education
+
+## Imagery Requirements
+All imagery should reinforce the elegant gold theme:
+- Warm, sophisticated backgrounds with subtle texture
+- Educational scenes with blue and gold color grading
+- Premium, high-end learning environments
+- Professional, polished educational imagery 

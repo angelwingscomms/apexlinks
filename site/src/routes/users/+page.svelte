@@ -57,7 +57,7 @@
   <h1 class="text-4xl font-bold dreamy-text mb-8">Find Users</h1>
   
   {#if !$isAuthenticated}
-    <div class="card-neumorphic text-center py-12">
+    <div class="card-glass text-center py-12">
       <h2 class="text-2xl font-semibold dreamy-text mb-4">Login Required</h2>
       <p class="text-gray-600 mb-6">You need to be logged in to search for users.</p>
       <a href="/" class="btn-primary">Back to Home</a>
@@ -74,12 +74,12 @@
       {#if loading}
         <div class="flex justify-center py-12">
           <div class="animate-pulse text-center">
-            <div class="neumorphic h-16 w-16 rounded-full mx-auto mb-4"></div>
+            <div class="glass h-16 w-16 rounded-full mx-auto mb-4"></div>
             <p class="text-gray-600">Searching for users...</p>
           </div>
         </div>
       {:else if error}
-        <div class="card-neumorphic bg-red-50 text-center py-6">
+        <div class="card-glass bg-red-50 text-center py-6">
           <p class="text-red-600">{error}</p>
           <button 
             class="btn-primary mt-4" 
@@ -89,12 +89,12 @@
           </button>
         </div>
       {:else if users.length === 0 && searchPerformed}
-        <div class="card-neumorphic text-center py-8">
+        <div class="card-glass text-center py-8">
           <h3 class="text-xl font-semibold dreamy-text mb-2">No Users Found</h3>
           <p class="text-gray-600">Try adjusting your search criteria.</p>
         </div>
       {:else if users.length === 0}
-        <div class="card-neumorphic text-center py-8">
+        <div class="card-glass text-center py-8">
           <h3 class="text-xl font-semibold dreamy-text mb-2">Start Searching</h3>
           <p class="text-gray-600">Use the search form above to find users.</p>
         </div>

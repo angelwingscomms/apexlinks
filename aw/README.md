@@ -1,14 +1,14 @@
 # AngelWings Comprehensive College Website
 
-A stunning, interactive website for AngelWings Comprehensive College - where creativity meets STEM education. Built with SvelteKit, Tailwind CSS, Flowbite, and featuring beautiful neumorphic design with cyberpunk aesthetics.
+A stunning, interactive website for AngelWings Comprehensive College - where creativity meets STEM education. Built with SvelteKit, Tailwind CSS v4, Flowbite, and featuring an elegant gold design with sophisticated glassmorphism effects.
 
 ## 🚀 Features
 
 ### Design & Aesthetics
-- **Neumorphic Design**: Beautiful soft UI elements with depth and dimension
-- **Cyberpunk Theme**: Dark theme with red glowing accents and futuristic feel
+- **Elegant Glassmorphism**: Refined glass-like UI elements on warm gold backgrounds
+- **Premium Gold Theme**: Sophisticated cream/gold palette with deep blue accents creating a luxurious feel
 - **Responsive Layout**: Fully responsive design that works on all devices
-- **Custom Animations**: Smooth animations using Tailwind CSS Motion (Rombo)
+- **Custom Animations**: Subtle, refined animations using Tailwind CSS Motion (Rombo)
 
 ### Interactive Components
 - **Particle Background**: Animated particle system with connecting lines
@@ -57,22 +57,28 @@ A stunning, interactive website for AngelWings Comprehensive College - where cre
 ## 🎨 Design System
 
 ### Color Palette
-- **Primary**: Red (#ef4444) - Used for accents and highlights
-- **Secondary**: Dark Gray (#1f2937) - Supporting elements
-- **Background**: Dark (#0f0f0f, #1a1a1a, #252525) - Layered backgrounds
-- **Accent**: Light Red (#f87171) - Interactive elements
+- **Primary**: Deep Blue (#3238A6) - Used for main elements and emphasis
+- **Secondary**: Bright Blue (#049DD9) - Supporting elements
+- **Tertiary**: Light Blue (#04B2D9) - Accent elements and highlights
+- **Accent**: Gold/Amber (#D9933D) - Call to action and important elements
+- **Background**: Warm Golds (#fbf7f0, #f7f2e6, #efe8d6) - Layered backgrounds
 
 ### Custom Utilities
-- `.neumorphic`: Standard neumorphic shadow effect
-- `.neumorphic-red`: Neumorphic with red glow
-- `.neumorphic-inset`: Inset neumorphic effect
-- `.text-glow`: Red text glow effect
-- `.border-glow`: Red border glow effect
+- `.glass`: Standard glassmorphic effect (white on gold)
+- `.glass-blue`: Blue-tinted glassmorphism
+- `.glass-gold`: Gold-tinted glassmorphism
+- `.glass-lg`: Large glassmorphic elements
+- `.golden-bg`: Warm gold background
+- `.golden-gradient`: Animated gold gradient background
+- `.glow-gold`: Gold glow effect
+- `.border-glow-blue`: Blue border glow effect
+- `.border-glow-gold`: Gold border glow effect
 
 ### Animations
-- `animate-float`: Floating animation for hero elements
-- `animate-glow`: Pulsing glow effect
-- `animate-pulse-red`: Red pulsing animation
+- `animate-golden-shift`: Shifting gold background gradients
+- `animate-glow`: Gold/blue alternating glow effect
+- `animate-pulse-blue`: Blue pulsing animation
+- `animate-pulse-gold`: Gold pulsing animation
 - Motion presets from Tailwind CSS Motion
 
 ## 🏗 Project Structure
@@ -93,7 +99,6 @@ aw/
 │   └── app.html                         # HTML template
 ├── static/
 │   └── images/                          # Project images
-├── tailwind.config.js                   # Tailwind configuration
 └── package.json                         # Dependencies and scripts
 ```
 
@@ -195,22 +200,26 @@ The website is fully responsive with breakpoints:
 ## 🔧 Customization
 
 ### Modifying Colors
-Edit `tailwind.config.js` to change the color scheme:
+Edit the `@theme` section in `app.css` to change the color scheme:
 
-```javascript
-colors: {
-  primary: '#ef4444',    // Change primary color
-  secondary: '#1f2937',  // Change secondary color
-  // ... other colors
+```css
+@theme {
+  --color-primary: #3238A6;    /* Change primary color */
+  --color-secondary: #049DD9;  /* Change secondary color */
+  /* ... other colors */
 }
 ```
 
 ### Adding New Animations
-Add custom animations in `tailwind.config.js`:
+Add custom animations in the `@theme` section in `app.css`:
 
-```javascript
-animation: {
-  'custom-animation': 'custom-keyframes 2s ease-in-out infinite',
+```css
+@theme {
+  /* ... */
+  @keyframes custom-animation {
+    0% { /* properties */ }
+    100% { /* properties */ }
+  }
 }
 ```
 
@@ -249,4 +258,4 @@ For technical support or questions about the website:
 
 ---
 
-**Built with ❤️ for AngelWings Comprehensive College - Inspiring creativity through STEM education**
+**Built with ❤️ for AngelWings Comprehensive College - Inspiring creativity through premium education**

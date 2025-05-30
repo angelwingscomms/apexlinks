@@ -1,0 +1,59 @@
+# Glassmorphic Design Update Todo
+
+## Overview
+We've updated our design approach from neumorphic to glassmorphic for all SvelteKit sites. This todo file contains instructions for completing the transition.
+
+## CSS Changes Already Made
+- Updated app.css files with new glassmorphic design variables
+- Replaced neumorphic utility classes with glass equivalents
+- Updated component classes in CSS
+
+## Component Updates Needed
+The following class replacements should be made across all components:
+
+| Old (Neumorphic) | New (Glassmorphic) |
+|------------------|-------------------|
+| .neumorphic | .glass |
+| .neumorphic-inset | .glass-sm |
+| .neumorphic-sm | .glass-sm |
+| .neumorphic-accent | .glass-accent |
+| .neumorphic-button | .glass-button |
+| .card-neumorphic | .card-glass |
+| .input-neumorphic | .input-glass |
+
+## Files Already Updated
+- aw/src/app.css
+- site/src/app.css
+- site/src/lib/components/UserCard.svelte
+- site/src/lib/components/ProfileEditForm.svelte
+- site/src/lib/components/Navbar.svelte
+- README.md
+
+## Files To Update
+Use the grep search results to identify all components that use neumorphic classes and update them:
+
+### High Priority
+- site/src/lib/components/SimilarityDisplay.svelte
+- site/src/lib/components/UserSearchForm.svelte
+- site/src/routes/profile/+page.svelte
+- site/src/routes/users/+page.svelte
+- site/src/routes/profile/edit/+page.svelte
+- site/src/routes/users/[id]/+page.svelte
+- site/src/routes/+page.svelte
+- aw/src/lib/FloatingActionButton.svelte
+
+### Secondary Priority
+- site/src/routes/zones/+page.svelte
+- site/src/routes/auth/callback/+page.svelte
+- aw/src/routes/classes/grade-1/+page.svelte
+- aw/src/routes/classes/grade-2/+page.svelte
+- aw/src/routes/classes/grade-3/+page.svelte
+- aw/src/routes/classes/nursery-2/+page.svelte
+- aw/src/routes/clubs/robotics/+page.svelte
+
+## Design Guidelines for Glassmorphic Style
+- Use light backgrounds with transparency (rgba(255, 255, 255, 0.15) to rgba(255, 255, 255, 0.3))
+- Apply backdrop-filter: blur(15px) to create the frosted glass effect
+- Use subtle borders (1px solid rgba(255, 255, 255, 0.2))
+- Apply subtle shadows for depth (0 8px 32px rgba(14, 165, 233, 0.2))
+- Maintain rounded corners (border-radius: 1.5rem for cards, 1rem for smaller elements) 

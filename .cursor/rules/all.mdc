@@ -10,8 +10,7 @@ These rules cover the backend subdir and every sveltekit static site subdir
 Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
 
 always a lot of neumorphic styles throughout using tailwind and flowbite
-always use a lotta animations and transitions using rombo for tailwind (tailwindcss-motion)
-dreamy ethereal styles
+always use transitions for all navigation and actions, using rombo for tailwind (tailwindcss-motion)
 
 create with a lot of freedom, and if you have any idea for anything that will go well with an image that doesn't exist, create the ui for the image, with the dimensions so it's like a placeholder in the ui, and make the alt of the placeholder a prompt for an image to be created with AI, and also tell me every image to be created in your response
 
@@ -56,3 +55,10 @@ All SvelteKit sites in this repo use Tailwind CSS v4 with specific configuration
 ## Task Management
 When doing every task in the root todo file or a subdir's todo file, do the tasks one by one, removing tasks as they are completed, if all tasks in todo were done, do not delete the todo file.
 
+never ever run `cargo build`, `shuttle run` or any command that may directly or indirectly trigger a rust build
+
+ALWAYS run `git add .; git commit -m "<commit_message>"; git push` after every turn.
+
+ALWAYS use code golf style, Write the shortest working solution possible, minimizing characters and code.
+
+ALWAYS write failing tests before coding anything

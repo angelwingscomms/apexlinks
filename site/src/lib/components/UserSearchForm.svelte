@@ -59,7 +59,7 @@
   }
 </script>
 
-<div class="neumorphic p-6 mb-8">
+<div class="glass p-6 mb-8">
   <h2 class="text-xl font-semibold dreamy-text mb-4">Find Users</h2>
   
   <form on:submit|preventDefault={handleSubmit}>
@@ -71,7 +71,7 @@
         bind:value={query}
         type="text"
         placeholder="Search by name, username, or description"
-        class="input-neumorphic w-full"
+        class="input-glass w-full"
       />
     </div>
     
@@ -86,7 +86,7 @@
             min="13"
             max="120"
             placeholder="Min"
-            class="input-neumorphic w-full"
+            class="input-glass w-full"
           />
           <span class="text-gray-500">to</span>
           <input
@@ -95,7 +95,7 @@
             min="13"
             max="120"
             placeholder="Max"
-            class="input-neumorphic w-full"
+            class="input-glass w-full"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@
         <select
           id="gender-filter"
           bind:value={gender}
-          class="input-neumorphic w-full"
+          class="input-glass w-full"
         >
           {#each genderOptions as option}
             <option value={option.value}>{option.label}</option>
@@ -120,7 +120,7 @@
       <button
         type="button"
         on:click={resetForm}
-        class="neumorphic-button px-4 py-2 text-sm text-gray-600"
+        class="glass-button px-4 py-2 text-sm text-gray-600"
         disabled={loading}
       >
         Reset

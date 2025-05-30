@@ -3,48 +3,63 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --color-primary: #0ea5e9;
-  --color-secondary: #1e3a8a;
-  --color-accent: #f59e0b;
-  --color-light: #f0f9ff;
-  --color-lighter: #e0f2fe;
-  --color-lightest: #bae6fd;
+  --color-primary: #ef4444;
+  --color-secondary: #b91c1c;
+  --color-accent: #f97316;
+  --color-light: #fef2f2;
+  --color-lighter: #fee2e2;
+  --color-lightest: #fecaca;
   --color-dark: #0f172a;
-  --shadow-neumorphic: 15px 15px 30px rgba(14, 165, 233, 0.1), -15px -15px 30px rgba(255, 255, 255, 0.8);
-  --shadow-neumorphic-inset: inset 5px 5px 10px rgba(14, 165, 233, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.8);
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse: pulse 3s ease-in-out infinite;
-  --animate-glow: glow 2s ease-in-out infinite;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+  --glass-shadow: 0 12px 40px rgba(239, 68, 68, 0.25);
+  --glass-shadow-sm: 0 8px 24px rgba(239, 68, 68, 0.20);
+  --glass-shadow-lg: 0 16px 56px rgba(239, 68, 68, 0.30);
 }
 
 @layer utilities {
-  .neumorphic {
-    box-shadow: var(--shadow-neumorphic);
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
     border-radius: 1.5rem;
-    background: linear-gradient(145deg, var(--color-lighter), var(--color-lightest));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
   }
   
-  .neumorphic-inset {
-    box-shadow: var(--shadow-neumorphic-inset);
-    border-radius: 1.5rem;
-    background: var(--color-light);
-  }
-  
-  .neumorphic-button {
-    box-shadow: var(--shadow-neumorphic);
+  .glass-sm {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
     border-radius: 1rem;
-    background: linear-gradient(145deg, var(--color-lighter), var(--color-light));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-sm);
+  }
+  
+  .glass-lg {
+    background: var(--glass-bg);
+    backdrop-filter: blur(calc(var(--glass-blur) * 1.2));
+    border-radius: 1.5rem;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-lg);
+  }
+  
+  .glass-button {
+    background: rgba(239, 68, 68, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    box-shadow: var(--glass-shadow-sm);
     transition: all 0.3s ease;
   }
   
-  .neumorphic-button:hover {
-    box-shadow: var(--shadow-neumorphic-inset);
-    transform: translateY(2px);
+  .glass-button:hover {
+    background: rgba(239, 68, 68, 0.25);
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow);
   }
   
   .dreamy-text {
     color: var(--color-primary);
-    text-shadow: 0 0 5px rgba(14, 165, 233, 0.3);
   }
   
   .dreamy-bg {
@@ -52,63 +67,60 @@
   }
   
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
     border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--glass-shadow);
   }
 }
 
 @layer components {
   .btn-primary {
-    background-color: var(--color-primary);
+    background-color: rgba(239, 68, 68, 0.85);
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35);
   }
   
-  .input-neumorphic {
-    background-color: var(--color-light);
-    border: none;
-    box-shadow: var(--shadow-neumorphic-inset);
+  .input-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
     border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.75rem 1.25rem;
     transition: all 0.3s ease;
   }
   
-  .input-neumorphic:focus {
+  .input-glass:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3), var(--shadow-neumorphic-inset);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
   }
   
-  .card-neumorphic {
-    background: linear-gradient(145deg, var(--color-lighter), var(--color-light));
+  .card-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
     border-radius: 1.5rem;
-    box-shadow: var(--shadow-neumorphic);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--glass-shadow);
     padding: 1.5rem;
     transition: all 0.3s ease;
   }
   
-  .card-neumorphic:hover {
+  .card-glass:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.1), 0 10px 10px -5px rgba(14, 165, 233, 0.04);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
+    box-shadow: var(--glass-shadow-lg);
   }
 }
 
@@ -123,9 +135,9 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
   }
 }

@@ -7,8 +7,8 @@
   import { currentUser, isAuthenticated } from '$lib/stores/userStore';
   import SimilarityDisplay from '$lib/components/SimilarityDisplay.svelte';
   
-  // Get user ID from route params
-  const userId = $page.params.id;
+  // Get user ID from query params
+  const userId = $page.url.searchParams.get('i');
   
   // State variables
   let user = $state<User | null>(null);
@@ -24,6 +24,12 @@
   onMount(async () => {
     loading = true;
     error = null;
+    
+    if (!userId) {
+      error = 'No user ID provided.';
+      loading = false;
+      return;
+    }
     
     try {
       user = await userService.getUserById(userId);
@@ -62,12 +68,12 @@
   {#if loading}
     <div class="flex justify-center py-16">
       <div class="animate-pulse text-center">
-        <div class="neumorphic h-24 w-24 rounded-full mx-auto mb-4"></div>
+        <div class="glass h-24 w-24 rounded-full mx-auto mb-4"></div>
         <p class="text-gray-600">Loading profile...</p>
       </div>
     </div>
   {:else if error}
-    <div class="card-neumorphic bg-red-50 text-center py-10">
+    <div class="card-glass bg-red-50 text-center py-10">
       <p class="text-red-600">{error}</p>
       <a href="/users" class="btn-primary mt-6">Back to Users</a>
     </div>
@@ -75,10 +81,10 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- User Profile Card -->
       <div class="md:col-span-2">
-        <div class="card-neumorphic">
+        <div class="card-glass">
           <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
             <!-- Profile Image -->
-            <div class="neumorphic-inset h-40 w-40 rounded-full overflow-hidden flex items-center justify-center">
+            <div class="glass-sm h-40 w-40 rounded-full overflow-hidden flex items-center justify-center">
               {#if user.picture}
                 <img src={user.picture} alt={user.name} class="h-full w-full object-cover" />
               {:else}
@@ -97,21 +103,21 @@
               {/if}
               
               {#if user.description}
-                <div class="mt-4 neumorphic-inset p-4 rounded-lg">
+                <div class="mt-4 glass-sm p-4 rounded-lg">
                   <p class="text-gray-700">{user.description}</p>
                 </div>
               {/if}
               
               <div class="mt-6 grid grid-cols-2 gap-4">
                 {#if user.age}
-                  <div class="neumorphic-inset p-3 rounded-lg">
+                  <div class="glass-sm p-3 rounded-lg">
                     <span class="text-sm font-medium text-gray-500">Age</span>
                     <p class="text-gray-800 font-medium">{user.age} years</p>
                   </div>
                 {/if}
                 
                 {#if user.gender}
-                  <div class="neumorphic-inset p-3 rounded-lg">
+                  <div class="glass-sm p-3 rounded-lg">
                     <span class="text-sm font-medium text-gray-500">Gender</span>
                     <p class="text-gray-800 font-medium">{user.gender}</p>
                   </div>
@@ -122,7 +128,7 @@
           
           <!-- Action Buttons -->
           <div class="mt-8 flex justify-end gap-3">
-            <a href="/users" class="neumorphic-button px-4 py-2 text-sm text-gray-600">
+            <a href="/users" class="glass-button px-4 py-2 text-sm text-gray-600">
               Back to Users
             </a>
             
@@ -141,21 +147,21 @@
           {#if similarity}
             <SimilarityDisplay similarity={similarity} loading={similarityLoading} />
           {:else if similarityLoading}
-            <div class="card-neumorphic">
+            <div class="card-glass">
               <h3 class="text-xl font-semibold dreamy-text mb-4">Compatibility Analysis</h3>
               <div class="flex justify-center py-6">
                 <div class="animate-pulse text-center">
-                  <div class="neumorphic h-16 w-16 rounded-full mx-auto mb-4"></div>
+                  <div class="glass h-16 w-16 rounded-full mx-auto mb-4"></div>
                   <p class="text-gray-600">Calculating compatibility...</p>
                 </div>
               </div>
             </div>
           {:else if similarityError}
-            <div class="card-neumorphic bg-red-50">
+            <div class="card-glass bg-red-50">
               <h3 class="text-xl font-semibold dreamy-text mb-4">Compatibility Analysis</h3>
               <p class="text-red-600 mb-4">{similarityError}</p>
               <button 
-                class="neumorphic-button px-4 py-2 text-sm text-gray-600 w-full" 
+                class="glass-button px-4 py-2 text-sm text-gray-600 w-full" 
                 on:click={loadSimilarity}
               >
                 Try Again
@@ -163,12 +169,12 @@
             </div>
           {/if}
         {:else if $isAuthenticated && $currentUser && userId === $currentUser.id}
-          <div class="card-neumorphic">
+          <div class="card-glass">
             <h3 class="text-xl font-semibold dreamy-text mb-4">Your Profile</h3>
             <p class="text-gray-600">This is your own profile. Explore other users to see compatibility.</p>
           </div>
         {:else}
-          <div class="card-neumorphic">
+          <div class="card-glass">
             <h3 class="text-xl font-semibold dreamy-text mb-4">Login Required</h3>
             <p class="text-gray-600 mb-4">Login to see compatibility with this user.</p>
             <a href="/" class="btn-primary block text-center">Back to Home</a>
@@ -177,4 +183,4 @@
       </div>
     </div>
   {/if}
-</div> 
+</div>
