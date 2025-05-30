@@ -47,10 +47,23 @@ const userService = {
    */
   getUserById: async (userId: string): Promise<User | null> => {
     try {
-      // Assuming there's an endpoint to get user by ID
-      // This might need to be implemented on the backend
       const response = await axios.get(`${API_URL}/user/${userId}`);
-      return response.data || null;
+      
+      // Convert the API response to our User type format
+      if (response.data) {
+        return {
+          id: response.data.id,
+          name: response.data.name || '',
+          email: response.data.email,
+          description: response.data.description,
+          username: response.data.username,
+          picture: response.data.picture,
+          age: response.data.age,
+          gender: response.data.gender,
+          zone_id: response.data.zone_id
+        };
+      }
+      return null;
     } catch (error) {
       console.error('Error fetching user:', error);
       throw error;
