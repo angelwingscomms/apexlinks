@@ -58,6 +58,32 @@
     gap: 0.25rem;
     color: #f59e0b;
   }
+  
+  .dropdown {
+    background: linear-gradient(135deg, #23272f 0%, #18181b 100%);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-neumorphic);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    appearance: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    outline: none;
+  }
+  .dropdown:focus {
+    box-shadow: 0 0 0 2px #f59e0b, var(--shadow-neumorphic);
+    border-color: #f59e0b;
+  }
+  .dropdown-arrow {
+    pointer-events: none;
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1.25rem;
+  }
 }
 
 html, body {
