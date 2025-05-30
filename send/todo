@@ -1,0 +1,10 @@
+• Dark-only UI, black→white dreamy gradients, sleek, pill buttons, sans-serif.  
+• Use existing backend:  
+  – Google OAuth redirect /auth/google (token persisted).  
+  – Service search GET /api/services?type=<service>.  
+• Screens  
+  1. Home – logo, slogan “SendMe, get fast reliable vehicles services”, service dropdown, “Search Near Me” button, “More details about the site”, footer (Services | Contact | More).  
+  2. Search Results – list cards (thumb, name, ★ rating, Request).  
+  3. Service Detail – hero image, name, ★ rating, description, Request.  
+  4. Car Profile (not mocked) – hero image, name, profile fields (year, model, specs) styled like other pages.  
+• Responsive, semantic, minimal markup.

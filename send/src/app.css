@@ -1,3 +1,48 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+  --color-primary: #fff;
+  --color-secondary: #666;
+  --color-accent: #aaa;
+  --shadow-neumorphic: 15px 15px 30px rgba(0, 0, 0, 0.3), -15px -15px 30px rgba(40, 40, 40, 0.1);
+}
+
+@layer utilities {
+  .gradient-dark {
+    background: linear-gradient(135deg, #111 0%, #333 100%);
+  }
+  
+  .gradient-pill {
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+  }
+  
+  .neumorphic {
+    box-shadow: var(--shadow-neumorphic);
+    border-radius: 1.5rem;
+    background: linear-gradient(145deg, #222, #181818);
+  }
+  
+  .pill {
+    border-radius: 9999px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply pill py-2 px-6 text-white gradient-pill transition-all duration-300;
+  }
+  
+  .card {
+    @apply neumorphic p-4 text-white;
+  }
+  
+  .rating {
+    @apply flex gap-1 text-yellow-400;
+  }
+}
+
+html, body {
+  @apply bg-black text-white min-h-screen;
+}

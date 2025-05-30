@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+1. No light mode, no flat tones, no tech-stack chatter.  
+2. Code-golf mindset: smallest valid code; modular components.  
+3. Style via CSS gradients & soft glows; keep palette grayscale.  
+4. Fetch real data from backend routes; no hard-coded placeholders.  
+5. Implement Google OAuth with single click → /auth/google, store token, include in API calls.  
+6. Infer Car Profile UI from established patterns; reuse card & button components.  
+7. Maintain clear hierarchy, generous spacing; aria labels for accessibility.
