@@ -28,18 +28,17 @@
 	</h1>
 	
 	<div class="neumorphic p-6 w-full max-w-md mb-8">
-		<div class="mb-4 relative">
+		<div class="mb-4">
 			<label for="service-select" class="block mb-2 text-sm">Select Service</label>
 			<select 
 				id="service-select"
 				bind:value={selectedService}
-				class="dropdown w-full pr-10"
+				class="select-flowbite"
 			>
 				{#each services as service}
 					<option value={service.value}>{service.label}</option>
 				{/each}
 			</select>
-			<span class="dropdown-arrow">▼</span>
 		</div>
 		
 		<button on:click={handleSearch} class="btn w-full">
