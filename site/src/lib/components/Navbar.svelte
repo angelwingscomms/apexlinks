@@ -45,6 +45,7 @@
       <a href="/" class={`dreamy-text font-medium ${$page.url.pathname === '/' ? 'border-b-2 border-primary' : ''}`}>Home</a>
       <a href="/users" class={`dreamy-text font-medium ${$page.url.pathname === '/users' ? 'border-b-2 border-primary' : ''}`}>Find Users</a>
       {#if $isAuthenticated}
+        <a href="/chat" class={`dreamy-text font-medium ${$page.url.pathname === '/chat' ? 'border-b-2 border-primary' : ''}`}>Chat</a>
         <a href="/profile" class={`dreamy-text font-medium ${$page.url.pathname === '/profile' ? 'border-b-2 border-primary' : ''}`}>My Profile</a>
       {/if}
     </div>
@@ -53,6 +54,14 @@
     <div>
       {#if $isAuthenticated && $currentUser}
         <div class="flex items-center space-x-4">
+          <!-- Chat Notification Badge (add real-time notification indicator here later) -->
+          <a href="/chat" class="relative glass-button px-3 py-2 text-gray-700">
+            <span class="text-lg">💬</span>
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs h-5 w-5 flex items-center justify-center rounded-full">
+              <!-- Add notification count here -->
+            </span>
+          </a>
+          
           <div class="glass-sm flex items-center px-3 py-2">
             <img src={$currentUser.picture} alt="Profile" class="w-8 h-8 rounded-full mr-2" />
             <span class="text-sm font-medium text-gray-700">{$currentUser.name}</span>

@@ -10,6 +10,8 @@ export interface UserSearchParams {
   limit?: number;
   age?: number;
   gender?: string;
+  minAge?: number;
+  maxAge?: number;
 }
 
 export interface UserSearchResult {
@@ -34,7 +36,26 @@ const userService = {
    */
   searchUsers: async (params: UserSearchParams): Promise<UserSearchResult[]> => {
     try {
-      const response = await axios.post(`${API_URL}/user/search`, params);
+      // Convert minAge and maxAge to a format the API understands
+      const apiParams: Record<string, any> = { ...params };
+      
+      // Handle age filters
+      if (params.minAge !== undefined || params.maxAge !== undefined) {
+        const ageFilters = [];
+        if (params.minAge !== undefined) {
+          ageFilters.push(`>=${params.minAge}`);
+        }
+        if (params.maxAge !== undefined) {
+          ageFilters.push(`<=${params.maxAge}`);
+        }
+        apiParams.age_filter = ageFilters.join(',');
+        
+        // Remove the individual min/max fields before sending
+        delete apiParams.minAge;
+        delete apiParams.maxAge;
+      }
+      
+      const response = await axios.post(`${API_URL}/user/search`, apiParams);
       return response.data.users || [];
     } catch (error) {
       console.error('Error searching users:', error);

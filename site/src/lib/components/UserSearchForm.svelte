@@ -36,15 +36,14 @@
       params.gender = gender;
     }
     
-    if (minAge !== null || maxAge !== null) {
-      const ageFilter: string[] = [];
-      if (minAge !== null) {
-        ageFilter.push(`>=${minAge}`);
-      }
-      if (maxAge !== null) {
-        ageFilter.push(`<=${maxAge}`);
-      }
-      params.age = parseInt(ageFilter.join(','));
+    // Use minAge if it's set
+    if (minAge !== null) {
+      params.minAge = minAge;
+    }
+    
+    // Use maxAge if it's set
+    if (maxAge !== null) {
+      params.maxAge = maxAge;
     }
     
     dispatch('search', params);
