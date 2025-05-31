@@ -62,3 +62,6 @@ ALWAYS run `git add .; git commit -m "<commit_message>"; git push` after every t
 ALWAYS use code golf style, Write the shortest working solution possible, minimizing characters and code.
 
 ALWAYS write failing tests before coding anything
+
+For resource detail pages, use route '/<resource>/i?i=<ID>'; on load, read 'i' from query and fetch resource from server client-side
+

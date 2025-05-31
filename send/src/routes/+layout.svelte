@@ -2,6 +2,8 @@
 	import '../app.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { handleAuthCallback } from '$lib/api';
+	import { onMount } from 'svelte';
 
 	let { children } = $props();
 	
@@ -14,6 +16,11 @@
 		activeTab = path === '/' ? 'home' : 
 			path.startsWith('/contact') ? 'contact' : 
 			path.startsWith('/more') ? 'more' : 'home';
+	});
+	
+	onMount(() => {
+		// Handle Google OAuth callback if present
+		handleAuthCallback();
 	});
 </script>
 
