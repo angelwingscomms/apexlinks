@@ -9,7 +9,7 @@
 	
 	// Get current path for active tab
 	let path = '';
-	let activeTab = 'home';
+	let activeTab = $state('home');
 	
 	$effect(() => {
 		path = window.location.pathname;

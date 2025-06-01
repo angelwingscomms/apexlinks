@@ -3,9 +3,12 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const config = {
 	preprocess: vitePreprocess(),
-	kit: { adapter: adapter({
-		strict: false
-	}) }
+	kit: { 
+		adapter: adapter({
+			strict: false,
+			fallback: 'index.html'
+		}) 
+	}
 };
 
 export default config;

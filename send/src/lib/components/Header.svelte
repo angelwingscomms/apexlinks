@@ -40,12 +40,12 @@
           type="text"
           placeholder="Search services..."
           bind:value={searchQuery}
-          on:keydown={handleSearch}
+          onkeydown={handleSearch}
           class="w-full bg-gradient-dark text-primary p-2 rounded-full neumorphic"
           aria-label="Search services"
         />
         <button 
-          on:click={handleSearch}
+          onclick={handleSearch}
           class="absolute right-2 top-1/2 transform -translate-y-1/2"
           aria-label="Submit search"
         >
@@ -80,7 +80,7 @@
         More
       </a>
       <button 
-        on:click={handleAuth}
+        onclick={handleAuth}
         class="pill gradient-pill text-primary text-sm motion-safe:hover:scale-105"
       >
         {authenticated ? 'Sign Out' : 'Sign In'}

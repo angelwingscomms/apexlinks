@@ -118,7 +118,7 @@
 						</div>
 					</div>
 					
-					<button on:click={handleRequest} class="btn w-full md:w-auto">
+					<button onclick={handleRequest} class="btn w-full md:w-auto">
 						Request Service
 					</button>
 				</div>

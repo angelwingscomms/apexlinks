@@ -9,11 +9,14 @@
 		rating: number;
 		image: string;
 		description?: string;
+		price?: number | null;
+		location?: string;
+		type?: string;
 	}
 	
-	let services: Service[] = [];
-	let searchType = '';
-	let searchQuery = '';
+	let services = $state<Service[]>([]);
+	let searchType = $state('');
+	let searchQuery = $state('');
 	let loading = $state(true);
 	let filters = $state({
 		minRating: 0,
@@ -144,8 +147,8 @@
 			</div>
 			
 			<div class="flex gap-2 items-end">
-				<button on:click={applyFilters} class="btn flex-1">Apply Filters</button>
-				<button on:click={clearFilters} class="btn">Clear</button>
+				<button onclick={applyFilters} class="btn flex-1">Apply Filters</button>
+				<button onclick={clearFilters} class="btn">Clear</button>
 			</div>
 		</div>
 	</div>
