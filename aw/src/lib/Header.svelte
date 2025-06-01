@@ -3,6 +3,7 @@
 	
 	let mobileMenuOpen = false;
 	let mounted = false;
+	let searchQuery = '';
 	
 	const navigationItems = [
 		{ href: "/", label: "Home" },
@@ -29,24 +30,49 @@
 	function handleCTA() {
 		window.location.href = "#contact";
 	}
+	
+	function handleSearch(e: Event) {
+		e.preventDefault();
+		// Implement search functionality
+		console.log('Searching for:', searchQuery);
+		searchQuery = '';
+		closeMobileMenu();
+	}
 </script>
 
 <!-- Sticky Navigation Header -->
 <nav class="fixed w-full z-50 top-0 start-0 backdrop-blur-15 motion-preset-slide-down motion-delay-300">
-	<div class="neumorphic border-b border-white/30">
+	<div class="glass border-b border-white/30">
 		<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 			
 			<!-- Logo and Brand -->
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse group">
 				<img 
 					src="/images/logo.jpg" 
-					class="h-10 w-10 rounded-xl neumorphic-sm group-hover:glow-blue transition-all duration-300" 
+					class="h-10 w-10 rounded-xl glass-sm group-hover:glow-blue transition-all duration-300" 
 					alt="AngelWings Logo" 
 				/>
 				<span class="self-center text-2xl font-bold whitespace-nowrap text-primary group-hover:text-glow transition-all duration-300">
 					AngelWings
 				</span>
 			</a>
+			
+			<!-- Search Bar - Desktop -->
+			<form onsubmit={handleSearch} class="hidden desktop:flex desktop:order-1 desktop:ml-8 desktop:flex-1 max-w-md">
+				<div class="relative w-full">
+					<div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+						<svg class="w-4 h-4 text-primary/70" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+						</svg>
+					</div>
+					<input 
+						type="search" 
+						bind:value={searchQuery}
+						class="glass-sm w-full p-2 ps-10 text-sm rounded-lg focus:ring-2 focus:ring-primary/30 transition-all duration-300" 
+						placeholder="Search..." 
+					/>
+				</div>
+			</form>
 			
 			<!-- Mobile menu button and CTA container -->
 			<div class="flex desktop:order-2 space-x-3 desktop:space-x-0 rtl:space-x-reverse">
@@ -62,7 +88,7 @@
 				<!-- Mobile Menu Toggle -->
 				<button 
 					type="button" 
-					class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg desktop:hidden neumorphic-sm hover:neumorphic-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
+					class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg desktop:hidden glass-sm hover:glass-blue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
 					aria-controls="navbar-sticky" 
 					aria-expanded={mobileMenuOpen}
 					onclick={toggleMobileMenu}
@@ -76,14 +102,34 @@
 			</div>
 			
 			<!-- Navigation Menu -->
-			<div class="items-center justify-between {mobileMenuOpen ? 'block' : 'hidden'} w-full desktop:flex desktop:w-auto desktop:order-1" id="navbar-sticky">
-				<ul class="flex flex-col p-4 desktop:p-0 mt-4 font-medium rounded-lg neumorphic-inset desktop:space-x-8 rtl:space-x-reverse desktop:flex-row desktop:mt-0 desktop:border-0 desktop:bg-transparent">
+			<div 
+				class="items-center justify-between w-full desktop:flex desktop:w-auto desktop:order-3 transition-all duration-300 {mobileMenuOpen ? 'block' : 'hidden'}" 
+				id="navbar-sticky"
+			>
+				<!-- Mobile Search Bar -->
+				<form onsubmit={handleSearch} class="my-4 desktop:hidden">
+					<div class="relative">
+						<div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+							<svg class="w-4 h-4 text-primary/70" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+							</svg>
+						</div>
+						<input 
+							type="search" 
+							bind:value={searchQuery}
+							class="glass-sm w-full p-3 ps-10 text-sm rounded-lg focus:ring-2 focus:ring-primary/30 transition-all duration-300" 
+							placeholder="Search..." 
+						/>
+					</div>
+				</form>
+				
+				<ul class="flex flex-col p-4 mt-4 desktop:p-0 desktop:mt-0 desktop:space-x-8 rtl:space-x-reverse desktop:flex-row desktop:border-0 glass-sm desktop:bg-transparent desktop:glass-none rounded-lg">
 					{#each navigationItems as item, index}
 						<li class="motion-preset-slide-down" style="animation-delay: {index * 100}ms;">
 							<a 
 								href={item.href} 
 								class="block py-3 px-4 rounded-xl transition-all duration-300 
-									   {item.href === '/' ? 'text-primary bg-primary/10 neumorphic-sm border-glow' : 'text-slate-700 hover:bg-primary/10 hover:text-primary hover:neumorphic-sm'} 
+									   {item.href === '/' ? 'text-primary bg-primary/10 glass-sm border-glow' : 'text-slate-700 hover:bg-primary/10 hover:text-primary hover:glass-sm'} 
 									   desktop:bg-transparent desktop:p-0 desktop:hover:text-glow group desktop:py-2 desktop:px-3"
 								onclick={closeMobileMenu}
 							>
@@ -124,5 +170,13 @@
 	/* Enhanced logo glow effect */
 	.group:hover img {
 		box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+	}
+	
+	/* Additional mobile-specific styles */
+	@media (max-width: 66.374rem) {
+		#navbar-sticky {
+			max-height: 80vh;
+			overflow-y: auto;
+		}
 	}
 </style> 
