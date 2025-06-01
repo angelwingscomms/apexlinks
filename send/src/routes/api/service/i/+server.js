@@ -74,9 +74,12 @@ const services = [
   }
 ];
 
-export function GET({ params }) {
+export function GET({ url }) {
   try {
-    const { id } = params;
+    const id = url.searchParams.get('i');
+    if (!id) {
+      return json({ error: 'Service ID not provided' }, { status: 400 });
+    }
     
     // Find service by ID
     const service = services.find(s => s.id === id);

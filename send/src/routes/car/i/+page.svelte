@@ -31,6 +31,15 @@
 	let loading = true;
 	
 	onMount(() => {
+		// Get the 'i' parameter from the URL query string
+		const params = new URLSearchParams(window.location.search);
+		const id = params.get('i');
+		if (!id) {
+			console.error('Car ID not found');
+			loading = false;
+			return;
+		}
+
 		// Simulate API fetch
 		setTimeout(() => {
 			loading = false;
@@ -80,8 +89,8 @@
 			</div>
 			
 			<div class="flex gap-4">
-				<a href="/service/maintenance" class="btn flex-1">Maintenance</a>
-				<a href="/service/repair" class="btn flex-1">Repairs</a>
+				<a href="/service/i?i=maintenance" class="btn flex-1">Maintenance</a>
+				<a href="/service/i?i=repair" class="btn flex-1">Repairs</a>
 			</div>
 		</div>
 	{/if}

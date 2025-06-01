@@ -29,7 +29,9 @@
 	
 	onMount(async () => {
 		try {
-			const id = window.location.pathname.split('/').pop();
+			// Get the 'i' parameter from the URL query string
+			const params = new URLSearchParams(window.location.search);
+			const id = params.get('i');
 			if (!id) {
 				error = 'Service ID not found';
 				loading = false;

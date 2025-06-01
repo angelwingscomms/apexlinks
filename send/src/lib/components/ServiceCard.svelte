@@ -43,6 +43,6 @@
         {/if}
       </div>
     </div>
-    <a href="/service/{service.id}" class="btn">Request</a>
+    <a href="/service/i?i={service.id}" class="btn">Request</a>
   </div>
 </div> 
