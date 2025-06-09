@@ -1,6 +1,9 @@
 # Global Routing Convention
 All sites must use the dynamic routing method as used in `site`: `<resource>/i?i=<resource_id>` for resource detail pages.
 
+student type
+
+
 for ./aw
     implement login w google that using 144 backend and 
 
