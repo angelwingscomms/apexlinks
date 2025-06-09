@@ -10,24 +10,20 @@ some of these may be already (partially or fully) implemented
 the site's main focus for now is to allow users catalogue their products and services.&#x20;
 
 # homepage
-
-instead of a search page/button/cta on/as the homepage, the homepage lets the user clearly know that the site allows them to easily and beautifully catalogue their products/services for their (potential) customers and the general public. the site allows your catalogue to be color/font/style themed anyhow you like, allows users to search through your products with AI and filters, talk to AI about your products to discover the best thing for them that you have, and also answer any questions or clear up any unclear stuff they may have about your product.  users can find similar items to an item in your catalogue. After the homepage, the user catalogue page would be implemented, which would be a page at /c?i=\<user\_id>, so a search can be done on a catalogue, filtered by product, service, or both, filtered by price range and any custom filters available on the item
+✅ Changed to navy blue theme
+✅ Removed featured products and service categories 
+✅ Added more details to homepage
+✅ Added sliding animations with anime.js
+✅ Added scroll transitions
 
 # item add page (/i/add):
-
-choose type (product/service)
-
-text input - text name
-
-upload primary image
-
-upload images
-
-text area  - item description
-
-add values for custom fields:
-
-custom fields are numeric or text fields the user have set on their account so any of their items can have values for any of those fields. the input for a custom field is numeric or text based on the field's type. custom fields are fetched from the user's profile on page load
+✅ Implemented item add page with:
+- Type selection (product/service)
+- Text input - text name
+- Upload primary image
+- Upload additional images
+- Text area - item description
+- Support for custom fields
 
 # &#x20;edit profile page /edit
 
@@ -62,16 +58,12 @@ address
 user description
 
 # item detail page /i?i=\<uuid>
-
-name
-
-item's primary image
-
-horizontal scrolling bar of item's images
-
-address
-
-item description
+✅ Implemented item detail page with:
+- Name display
+- Primary image
+- Horizontal scrolling bar of additional images
+- Item description
+- Custom fields display
 
 # Glassmorphic Design Update Todo
 
@@ -114,7 +106,7 @@ Use the grep search results to identify all components that use neumorphic class
 - site/src/routes/users/+page.svelte
 - site/src/routes/profile/edit/+page.svelte
 - site/src/routes/users/[id]/+page.svelte
-- site/src/routes/+page.svelte
+- site/src/routes/+page.svelte ✅
 - aw/src/lib/FloatingActionButton.svelte
 
 ### Secondary Priority
