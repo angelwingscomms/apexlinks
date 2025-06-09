@@ -3,22 +3,53 @@ import axios from 'axios';
 const QDRANT_API_URL = import.meta.env.VITE_QDRANT_API_URL || 'http://localhost:6333';
 const QDRANT_API_KEY = import.meta.env.VITE_QDRANT_API_KEY;
 
+// Type definitions
+export interface SearchFilter {
+  minPrice?: number;
+  maxPrice?: number;
+  category?: string;
+  type?: string;
+  [key: string]: any;
+}
+
+export interface Location {
+  lat: number;
+  lon: number;
+}
+
+export interface SearchOptions {
+  limit?: number;
+  threshold?: number;
+  filter?: SearchFilter;
+  location?: Location;
+}
+
+export interface SearchResult {
+  id: string;
+  payload: {
+    name?: string;
+    description?: string;
+    imageUrl?: string;
+    location?: Location;
+    [key: string]: any;
+  };
+  score: number;
+  distance?: number;
+}
+
 /**
  * Service for interacting with Qdrant vector database
  */
 export const qdrantService = {
   /**
    * Search for similar items based on embedding vector
-   * @param {number[]} embedding - Vector embedding of search query
-   * @param {object} options - Search options
-   * @param {number} options.limit - Max number of results
-   * @param {number} options.threshold - Similarity threshold (0-1)
-   * @param {object} options.filter - Additional filters (price range, category, etc)
-   * @param {object} options.location - User location for geo filtering
-   * @returns {Promise<Array>} - Search results
+   * @param embedding - Vector embedding of search query
+   * @param options - Search options
+   * @returns Search results
    */
-  async searchSimilarItems(embedding, options = {}) {
-    const { limit = 10, threshold = 0.72, filter = {}, location = null } = options;
+  async searchSimilarItems(embedding: number[], options: SearchOptions = {}): Promise<SearchResult[]> {
+    const { limit = 10, threshold = 0.72, filter = {} } = options;
+    const location = options.location || null;
     
     // Build filter conditions
     const mustConditions = [];
@@ -52,7 +83,7 @@ export const qdrantService = {
     }
     
     // Build search request
-    const searchRequest = {
+    const searchRequest: any = {
       vector: embedding,
       limit,
       with_payload: true,
@@ -73,7 +104,7 @@ export const qdrantService = {
     searchRequest.score_threshold = threshold;
     
     try {
-      const headers = {};
+      const headers: Record<string, string> = {};
       if (QDRANT_API_KEY) {
         headers['api-key'] = QDRANT_API_KEY;
       }
@@ -86,7 +117,7 @@ export const qdrantService = {
       );
       
       // Process and sort results
-      let results = response.data.result || [];
+      let results: SearchResult[] = response.data.result || [];
       
       // If location is provided, calculate distance and re-sort
       if (location && location.lat && location.lon) {
@@ -106,7 +137,7 @@ export const qdrantService = {
         });
         
         // Sort by distance
-        results.sort((a, b) => a.distance - b.distance);
+        results.sort((a, b) => (a.distance || 0) - (b.distance || 0));
       }
       
       return results;
@@ -119,13 +150,8 @@ export const qdrantService = {
 
 /**
  * Calculate distance between two points using Haversine formula
- * @param {number} lat1 - Latitude of first point
- * @param {number} lon1 - Longitude of first point
- * @param {number} lat2 - Latitude of second point
- * @param {number} lon2 - Longitude of second point
- * @returns {number} - Distance in kilometers
  */
-function calculateDistance(lat1, lon1, lat2, lon2) {
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371; // Earth's radius in km
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLon = (lon2 - lon1) * Math.PI / 180;

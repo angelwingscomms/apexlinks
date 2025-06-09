@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  import { qdrantService } from '$lib/services/qdrantService.js';
+  import { qdrantService, type SearchResult, type SearchOptions } from '$lib/services/qdrantService';
   import { pulsateEffect, cardEntryAnimation } from '$lib/animations.js';
   import PageTransition from '$lib/components/PageTransition.svelte';
   import AnimatedCard from '$lib/components/AnimatedCard.svelte';
@@ -8,7 +8,7 @@
   // Search state
   let searchQuery = '';
   let loading = false;
-  let results = [];
+  let results: SearchResult[] = [];
   let error = '';
   
   // Filter state
@@ -17,19 +17,19 @@
   let useLocation = false;
   
   /** @type {HTMLElement} */
-  let searchButton;
+  let searchButton: HTMLElement;
   /** @type {HTMLElement} */
-  let resultsContainer;
+  let resultsContainer: HTMLElement;
   
   // Mock embedding generation function (in a real app, this would call your backend API)
-  async function generateEmbedding(text) {
+  async function generateEmbedding(text: string): Promise<number[]> {
     // This is a mock function - in a real app this would call an API to generate embeddings
     // For demo purposes, just return a random 384-dimensional vector
     return Array.from({ length: 384 }, () => Math.random() * 2 - 1);
   }
   
   // Get user's location
-  async function getUserLocation() {
+  async function getUserLocation(): Promise<{lat: number, lon: number}> {
     return new Promise((resolve, reject) => {
       if (!navigator.geolocation) {
         reject(new Error('Geolocation is not supported by your browser'));
@@ -65,7 +65,7 @@
       const embedding = await generateEmbedding(searchQuery);
       
       // Build search options
-      const searchOptions = {
+      const searchOptions: SearchOptions = {
         limit: 20,
         threshold: 0.65,
         filter: {}
@@ -73,12 +73,14 @@
       
       // Add price range filter
       if (priceRange.min > 0 || priceRange.max < 1000) {
+        if (!searchOptions.filter) searchOptions.filter = {};
         searchOptions.filter.minPrice = priceRange.min;
         searchOptions.filter.maxPrice = priceRange.max;
       }
       
       // Add item type filter
       if (itemType !== 'all') {
+        if (!searchOptions.filter) searchOptions.filter = {};
         searchOptions.filter.type = itemType;
       }
       
