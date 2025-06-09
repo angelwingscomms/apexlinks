@@ -22,9 +22,17 @@
   let notificationMessage = $state('');
   let notificationTimeout: any = null;
   
+  // API URL configuration
+  const API_URL = 'http://localhost:8000';
+  
   // Connect to WebSocket when the component mounts
   onMount(async () => {
     connectWebSocket();
+    
+    // If we have a session ID, fetch the message history
+    if (sessionId) {
+      await fetchMessageHistory();
+    }
   });
   
   onDestroy(() => {
@@ -198,6 +206,29 @@
     }
     
     return message.sender_id === $currentUser?.id ? 'sent-message' : 'received-message';
+  }
+  
+  // Add this function to fetch message history
+  async function fetchMessageHistory() {
+    if (!sessionId || !$currentUser) return;
+    
+    try {
+      const response = await fetch(`${API_URL}/chat/messages/${sessionId}`, {
+        headers: {
+          'Authorization': `Bearer ${$currentUser.id}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to fetch messages: ${response.statusText}`);
+      }
+      
+      const data = await response.json();
+      messages = data;
+    } catch (error) {
+      console.error('Error fetching message history:', error);
+      showNotificationMessage('Failed to load message history');
+    }
   }
 </script>
 
