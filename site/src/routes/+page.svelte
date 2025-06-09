@@ -61,13 +61,38 @@
 			});
 			observer.observe(featureSection);
 		}
+		
+		// Add parallax effect to floating elements
+		const handleMouseMove = (e: MouseEvent) => {
+			const floatingElements = document.querySelectorAll('.parallax-element');
+			floatingElements.forEach((el: Element) => {
+				const speed = parseFloat(el.getAttribute('data-speed') || '0.05');
+				const x = (window.innerWidth - e.pageX * speed) / 100;
+				const y = (window.innerHeight - e.pageY * speed) / 100;
+				
+				if (el instanceof HTMLElement) {
+					el.style.transform = `translateX(${x}px) translateY(${y}px)`;
+				}
+			});
+		};
+		
+		document.addEventListener('mousemove', handleMouseMove);
+		
+		return () => {
+			document.removeEventListener('mousemove', handleMouseMove);
+		};
 	});
 </script>
 
 <PageTransition>
-	<div class="relative min-h-screen bg-[#f5f5f7]">
-		<!-- Light subtle background pattern -->
-		<div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iLjAyIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00bTAgLTI0YzAtMi4yIDEuOC00IDQtNHM0IDEuOCA0IDQtMS44IDQtNCA0LTQtMS44LTQtNG0tMjQgMGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTRtMCAyNGMwLTIuMiAxLjgtNCA0LTRzNCAxLjggNCA0LTEuOCA0LTQgNC00LTEuOC00LTQiLz48L2c+PC9nPjwvc3ZnPg==');"></div>
+	<div class="relative min-h-screen bg-gradient-soft">
+		<!-- Subtle background pattern -->
+		<div class="absolute inset-0 bg-subtle-dots"></div>
+		
+		<!-- Floating background elements -->
+		<div class="fixed w-64 h-64 rounded-full bg-[#0a84ff]/5 blur-3xl top-20 -left-20 float-element parallax-element" data-speed="0.02"></div>
+		<div class="fixed w-80 h-80 rounded-full bg-[#54c7fc]/5 blur-3xl bottom-40 -right-20 float-element-delayed parallax-element" data-speed="0.03"></div>
+		<div class="fixed w-40 h-40 rounded-full bg-[#30c8ff]/5 blur-3xl top-1/3 right-1/4 float-element parallax-element" data-speed="0.05"></div>
 		
 		<header class="container mx-auto px-4 pt-28 pb-20">
 			<div class="hero-content max-w-5xl mx-auto text-center">
@@ -102,7 +127,7 @@
 					{/if}
 				</div>
 				
-				<!-- Product showcase mockup -->
+				<!-- Product showcase mockup with refined shadows and highlights -->
 				<div class="relative">
 					<div class="neumorphic overflow-hidden rounded-2xl">
 						<img 
@@ -112,10 +137,10 @@
 						/>
 					</div>
 					<!-- Floating elements -->
-					<div class="absolute -top-10 -right-10 w-32 h-32 glass-sm rounded-2xl flex items-center justify-center animate-[float_4s_ease-in-out_infinite]" style="animation-delay: 0.5s">
+					<div class="absolute -top-10 -right-10 w-32 h-32 glass-sm rounded-2xl flex items-center justify-center animate-[float_4s_ease-in-out_infinite] parallax-element" data-speed="0.08" style="animation-delay: 0.5s">
 						<span class="text-3xl">🔍</span>
 					</div>
-					<div class="absolute -bottom-5 -left-5 w-24 h-24 glass-sm rounded-2xl flex items-center justify-center animate-[float_4s_ease-in-out_infinite]">
+					<div class="absolute -bottom-5 -left-5 w-24 h-24 glass-sm rounded-2xl flex items-center justify-center animate-[float_4s_ease-in-out_infinite] parallax-element" data-speed="0.06">
 						<span class="text-3xl">💫</span>
 					</div>
 				</div>
@@ -123,9 +148,14 @@
 		</header>
 		
 		<main>
-			<!-- Key Features Section -->
-			<section class="py-24 bg-white" bind:this={featureSection}>
-				<div class="container mx-auto px-4">
+			<!-- Key Features Section - Soft gradient background -->
+			<section class="py-24 bg-gradient-cool relative overflow-hidden" bind:this={featureSection}>
+				<div class="absolute inset-0 bg-subtle-grid"></div>
+				<!-- Decorative shapes -->
+				<div class="absolute top-10 left-10 w-40 h-40 rounded-full border border-[#0a84ff]/10 opacity-60"></div>
+				<div class="absolute bottom-10 right-10 w-60 h-60 rounded-full border border-[#0a84ff]/10 opacity-60"></div>
+				
+				<div class="container mx-auto px-4 relative z-10">
 					<h2 class="section-title text-center text-[#1d1d1f] mb-16">
 						Powerful Features for Your Business
 					</h2>
@@ -158,9 +188,13 @@
 				</div>
 			</section>
 			
-			<!-- Benefits Section -->
-			<section class="py-24 bg-[#f5f5f7]" bind:this={benefitSection}>
-				<div class="container mx-auto px-4">
+			<div class="section-divider my-0"></div>
+			
+			<!-- Benefits Section - Soft gradient background -->
+			<section class="py-24 bg-gradient-soft relative" bind:this={benefitSection}>
+				<div class="absolute inset-0 bg-subtle-dots"></div>
+				
+				<div class="container mx-auto px-4 relative z-10">
 					<h2 class="section-title text-center text-[#1d1d1f] mb-16">
 						Elevate Your Business
 					</h2>
@@ -229,30 +263,34 @@
 				</div>
 			</section>
 			
-			<!-- How It Works Section -->
-			<section class="py-24 bg-white">
-				<div class="container mx-auto px-4">
+			<div class="section-divider my-0"></div>
+			
+			<!-- How It Works Section - Cool gradient background -->
+			<section class="py-24 bg-gradient-cool relative">
+				<div class="absolute inset-0 bg-subtle-grid"></div>
+				
+				<div class="container mx-auto px-4 relative z-10">
 					<h2 class="section-title text-center text-[#1d1d1f] mb-16">
 						Simple to Use
 					</h2>
 					
 					<div class="flex flex-col md:flex-row justify-between items-stretch gap-8">
 						<div class="neumorphic p-8 w-full md:w-1/3 text-center example-card flex flex-col">
-							<div class="w-16 h-16 mx-auto rounded-full bg-[#0a84ff] text-white flex items-center justify-center text-xl font-medium mb-6">1</div>
+							<div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-[#0a84ff] to-[#54c7fc] text-white flex items-center justify-center text-xl font-medium mb-6">1</div>
 							<h3 class="text-xl font-semibold mb-3 text-[#1d1d1f]">Create Your Account</h3>
 							<p class="text-[#86868b] flex-grow">Sign up and set up your business profile with your logo and brand colors</p>
 							<img src="https://placehold.co/400x250/e8e8ed/86868b.png?text=Account+Setup" alt="Account setup illustration showing a simple profile creation interface" class="mt-6 rounded-xl w-full" />
 						</div>
 						
 						<div class="neumorphic p-8 w-full md:w-1/3 text-center example-card flex flex-col">
-							<div class="w-16 h-16 mx-auto rounded-full bg-[#0a84ff] text-white flex items-center justify-center text-xl font-medium mb-6">2</div>
+							<div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-[#0a84ff] to-[#54c7fc] text-white flex items-center justify-center text-xl font-medium mb-6">2</div>
 							<h3 class="text-xl font-semibold mb-3 text-[#1d1d1f]">Add Your Products</h3>
 							<p class="text-[#86868b] flex-grow">Upload product details, images, and customize your catalog structure</p>
 							<img src="https://placehold.co/400x250/e8e8ed/86868b.png?text=Product+Management" alt="Product management interface showing a clean dashboard for adding and organizing products" class="mt-6 rounded-xl w-full" />
 						</div>
 						
 						<div class="neumorphic p-8 w-full md:w-1/3 text-center example-card flex flex-col">
-							<div class="w-16 h-16 mx-auto rounded-full bg-[#0a84ff] text-white flex items-center justify-center text-xl font-medium mb-6">3</div>
+							<div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-r from-[#0a84ff] to-[#54c7fc] text-white flex items-center justify-center text-xl font-medium mb-6">3</div>
 							<h3 class="text-xl font-semibold mb-3 text-[#1d1d1f]">Share With Customers</h3>
 							<p class="text-[#86868b] flex-grow">Share your catalog link and let customers explore your offerings</p>
 							<img src="https://placehold.co/400x250/e8e8ed/86868b.png?text=Customer+View" alt="Customer view showing an elegant product catalog with search and filter options" class="mt-6 rounded-xl w-full" />
@@ -261,9 +299,13 @@
 				</div>
 			</section>
 			
-			<!-- Testimonial Section -->
-			<section class="py-24 bg-[#f5f5f7]">
-				<div class="container mx-auto px-4">
+			<div class="section-divider my-0"></div>
+			
+			<!-- Testimonial Section - Soft gradient background -->
+			<section class="py-24 bg-gradient-soft relative">
+				<div class="absolute inset-0 bg-subtle-dots"></div>
+				
+				<div class="container mx-auto px-4 relative z-10">
 					<h2 class="section-title text-center text-[#1d1d1f] mb-16">
 						What Our Users Say
 					</h2>
@@ -289,13 +331,21 @@
 				</div>
 			</section>
 			
-			<!-- CTA Section -->
-			<section class="py-20 bg-gradient-to-br from-[#0a84ff] to-[#54c7fc] text-white">
-				<div class="container mx-auto px-4 text-center">
-					<h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+			<!-- CTA Section - Gradient background with refined presentation -->
+			<section class="py-20 relative overflow-hidden">
+				<div class="absolute inset-0 bg-gradient-to-br from-[#0a84ff] to-[#54c7fc]"></div>
+				
+				<!-- Decorative shapes -->
+				<div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+					<div class="absolute -top-10 -right-10 w-80 h-80 rounded-full bg-white opacity-5 parallax-element" data-speed="0.02"></div>
+					<div class="absolute bottom-0 left-10 w-60 h-60 rounded-full bg-white opacity-5 parallax-element" data-speed="0.03"></div>
+				</div>
+				
+				<div class="container mx-auto px-4 text-center relative z-10">
+					<h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">
 						Ready to Elevate Your Product Catalog?
 					</h2>
-					<p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 opacity-90">
+					<p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-white opacity-90">
 						Join thousands of businesses that use ApexLinks to create stunning product showcases
 					</p>
 					
@@ -376,5 +426,58 @@
 		box-shadow: 0 0 15px rgba(163, 241, 255, 0.5);
 		opacity: 0.5;
 		z-index: -1;
+	}
+	
+	/* Subtle background patterns */
+	.bg-subtle-grid {
+		background-image: 
+			linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+		background-size: 20px 20px;
+	}
+	
+	.bg-subtle-dots {
+		background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+		background-size: 20px 20px;
+	}
+	
+	.bg-gradient-soft {
+		background: linear-gradient(135deg, #f0f5ff 0%, #f5f5f7 50%, #f0f2ff 100%);
+	}
+	
+	.bg-gradient-cool {
+		background: linear-gradient(135deg, #e6f5ff 0%, #f0f0ff 100%);
+	}
+	
+	.section-divider {
+		height: 1px;
+		background: linear-gradient(to right, transparent, rgba(10, 132, 255, 0.2), transparent);
+		margin: 0 auto;
+		width: 80%;
+	}
+	
+	/* Floating elements animation */
+	@keyframes float-slow {
+		0%, 100% {
+			transform: translateY(0) translateX(0);
+		}
+		25% {
+			transform: translateY(-8px) translateX(4px);
+		}
+		50% {
+			transform: translateY(0) translateX(8px);
+		}
+		75% {
+			transform: translateY(8px) translateX(4px);
+		}
+	}
+	
+	.float-element {
+		animation: float-slow 12s ease-in-out infinite;
+	}
+	
+	.float-element-delayed {
+		animation: float-slow 12s ease-in-out infinite;
+		animation-delay: -6s;
 	}
 </style> 
