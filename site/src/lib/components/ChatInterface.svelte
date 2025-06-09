@@ -3,6 +3,7 @@
   import { currentUser } from '$lib/stores/userStore';
   import { fade, fly } from 'svelte/transition';
   import { createEventDispatcher } from 'svelte';
+  import { API_URL } from '$lib/config';
   
   const dispatch = createEventDispatcher<{
     sessionCreated: { sessionId: string, partnerId: string }
@@ -21,9 +22,6 @@
   let showNotification = $state(false);
   let notificationMessage = $state('');
   let notificationTimeout: any = null;
-  
-  // API URL configuration
-  const API_URL = 'http://localhost:8000';
   
   // Connect to WebSocket when the component mounts
   onMount(async () => {

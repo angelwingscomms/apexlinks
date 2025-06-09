@@ -2,9 +2,7 @@
   import { fade, fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { currentUser } from '$lib/stores/userStore';
-  
-  // API URL configuration - assuming localhost:8000 for now
-  const API_URL = 'http://localhost:8000';
+  import { API_URL } from '$lib/config';
   
   let searchQuery = $state('');
   let searchResults = $state<any[]>([]);

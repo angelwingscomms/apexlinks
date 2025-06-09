@@ -3,9 +3,7 @@
   import { fade, fly } from 'svelte/transition';
   import { currentUser } from '$lib/stores/userStore';
   import { goto } from '$app/navigation';
-  
-  // API URL configuration - assuming localhost:8000 for now
-  const API_URL = 'http://localhost:8000';
+  import { API_URL } from '$lib/config';
   
   let unreadMessages = $state<any[]>([]);
   let isLoading = $state(true);
@@ -84,6 +82,8 @@
   }
   
   function navigateToChat(sessionId: string, partnerId: string) {
+    if (!$currentUser) return;
+    
     // Mark all messages from this session as read
     const sessionMessages = unreadMessages.filter(msg => msg.session_id === sessionId);
     if (sessionMessages.length > 0) {
