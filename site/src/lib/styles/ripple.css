@@ -1,0 +1,48 @@
+/* Ripple Effect Animation Styles */
+
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Dark ripple for light backgrounds */
+.ripple-dark .ripple-effect {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Ripple for primary color */
+.ripple-primary .ripple-effect {
+  background-color: rgba(10, 132, 255, 0.3);
+}
+
+/* Ripple for accent color */
+.ripple-accent .ripple-effect {
+  background-color: rgba(0, 102, 204, 0.3);
+}
+
+/* Button styles with ripple */
+.btn-with-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple styles for gradient buttons */
+.btn-gradient .ripple-effect {
+  background-color: rgba(255, 255, 255, 0.5);
+  mix-blend-mode: overlay;
+}
+
+/* Ripple styles for glass elements */
+.glass .ripple-effect {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+} 

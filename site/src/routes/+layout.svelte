@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 	import { userStore } from '$lib/stores/userStore';
 	import { initWebVitals } from '$lib/utils/webVitals';
+	import AnimationInit from '$lib/components/AnimationInit.svelte';
 
 	let { children } = $props();
 	
@@ -19,7 +20,8 @@
 	});
 </script>
 
-<div class="dreamy-bg min-h-screen">
+<div class="site-container">
+	<AnimationInit />
 	<Navbar />
 	<OfflineIndicator />
 	
@@ -47,3 +49,27 @@
 	<UpdateNotification />
 	<InstallPrompt />
 </div>
+
+<style>
+	:global(html, body) {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+		background-image: url('/images/background.jpg');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		color: var(--color-text-primary);
+	}
+
+	:global(body) {
+		transition: background-image 1s ease;
+	}
+
+	.site-container {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+</style>

@@ -3,35 +3,67 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
+  /* Core Colors */
   --color-primary: #0a84ff;
   --color-secondary: #1d1d1f;
   --color-accent: #06c;
   --color-accent-light: #54c7fc;
+  
+  /* Neutral Colors */
   --color-light: #f5f5f7;
   --color-lighter: #e8e8ed;
   --color-lightest: #ffffff;
   --color-dark: #1d1d1f;
   --color-text-primary: #1d1d1f;
   --color-text-secondary: #86868b;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0a84ff, #54c7fc);
+  --gradient-accent: linear-gradient(135deg, #06c, #54c7fc);
+  --gradient-cosmic: linear-gradient(135deg, #5933f2, #c77dff);
+  --gradient-sunset: linear-gradient(135deg, #ff9a8b, #ff6a88);
+  --gradient-ethereal: linear-gradient(135deg, #8bc6ec, #9599e2);
+  
+  /* Glass Effects */
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(255, 255, 255, 0.3);
   --glass-blur: 30px;
   --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --glass-shadow-sm: 0 8px 16px rgba(0, 0, 0, 0.06);
   --glass-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Animations */
   --animation-ease: cubic-bezier(0.42, 0, 0.58, 1);
+  --animation-spring: cubic-bezier(0.25, 0.1, 0.25, 1.5);
+  --animation-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --animation-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Neumorphic Effects */
   --shadow-neumorphic: 10px 10px 20px rgba(0, 0, 0, 0.03), -10px -10px 20px rgba(255, 255, 255, 0.7);
   --shadow-neumorphic-pressed: inset 4px 4px 8px rgba(0, 0, 0, 0.03), inset -4px -4px 8px rgba(255, 255, 255, 0.7);
-  --animation-spring: cubic-bezier(0.25, 0.1, 0.25, 1.5);
+  
+  /* Borders */
+  --border-gradient-width: 3px;
+  --border-radius-pill: 9999px;
+}
+
+/* Global styles for full-page background */
+html, body {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 @layer utilities {
+  /* Glass Effects */
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     border-radius: 1.25rem;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
+    transition: all 0.4s var(--animation-spring);
   }
   
   .glass-sm {
@@ -40,6 +72,7 @@
     border-radius: 1rem;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow-sm);
+    transition: all 0.4s var(--animation-spring);
   }
   
   .glass-lg {
@@ -48,6 +81,7 @@
     border-radius: 1.5rem;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow-lg);
+    transition: all 0.4s var(--animation-spring);
   }
   
   .glass-button {
@@ -65,6 +99,7 @@
     box-shadow: var(--glass-shadow);
   }
   
+  /* Neumorphic Styles */
   .neumorphic {
     background: var(--color-lighter);
     box-shadow: var(--shadow-neumorphic);
@@ -99,6 +134,7 @@
     border: 1px solid rgba(255, 255, 255, 0.7);
   }
   
+  /* Text Styles */
   .dreamy-text {
     color: var(--color-text-primary);
     font-weight: 500;
@@ -113,8 +149,34 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-fill-color: transparent;
   }
   
+  .text-gradient-cosmic {
+    background: var(--gradient-cosmic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  .text-gradient-sunset {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  .text-gradient-ethereal {
+    background: var(--gradient-ethereal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  
+  /* Interactive Elements */
   .interactive-highlight {
     transition: all 0.3s var(--animation-spring);
   }
@@ -123,9 +185,90 @@
     transform: scale(1.03);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
+  
+  /* Gradient Borders */
+  .gradient-border {
+    position: relative;
+    border-radius: 1.25rem;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: var(--border-gradient-width);
+    background: var(--gradient-primary);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+  
+  .gradient-border-cosmic::before {
+    background: var(--gradient-cosmic);
+  }
+  
+  .gradient-border-sunset::before {
+    background: var(--gradient-sunset);
+  }
+  
+  .gradient-border-ethereal::before {
+    background: var(--gradient-ethereal);
+  }
+  
+  /* Card Backgrounds */
+  .card-gradient {
+    background: var(--gradient-primary);
+    border-radius: 1.5rem;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .card-gradient-cosmic {
+    background: var(--gradient-cosmic);
+    border-radius: 1.5rem;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .card-gradient-sunset {
+    background: var(--gradient-sunset);
+    border-radius: 1.5rem;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .card-gradient-ethereal {
+    background: var(--gradient-ethereal);
+    border-radius: 1.5rem;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Animated Elements */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  .animate-scale {
+    animation: scale-pulse 3s var(--animation-spring) infinite;
+  }
 }
 
 @layer components {
+  /* Buttons */
   .btn-primary {
     background-color: var(--color-primary);
     color: var(--color-lightest);
@@ -168,6 +311,54 @@
     background-color: #e5e5ea;
   }
   
+  /* New Gradient Buttons */
+  .btn-gradient {
+    background: var(--gradient-primary);
+    color: var(--color-lightest);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s var(--animation-ease);
+    border: none;
+    box-shadow: 0 4px 10px rgba(10, 132, 255, 0.3);
+  }
+  
+  .btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(10, 132, 255, 0.4);
+    filter: brightness(1.05);
+  }
+  
+  .btn-gradient:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(10, 132, 255, 0.2);
+  }
+  
+  .btn-gradient-cosmic {
+    background: var(--gradient-cosmic);
+    box-shadow: 0 4px 10px rgba(89, 51, 242, 0.3);
+  }
+  
+  .btn-gradient-cosmic:hover {
+    box-shadow: 0 8px 15px rgba(89, 51, 242, 0.4);
+  }
+  
+  .btn-gradient-sunset {
+    background: var(--gradient-sunset);
+    box-shadow: 0 4px 10px rgba(255, 106, 136, 0.3);
+  }
+  
+  .btn-gradient-sunset:hover {
+    box-shadow: 0 8px 15px rgba(255, 106, 136, 0.4);
+  }
+  
+  /* Pill Buttons */
+  .btn-pill {
+    border-radius: var(--border-radius-pill);
+    padding: 0.75rem 2rem;
+  }
+  
+  /* Glass Cards */
   .input-glass {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(15px);
@@ -200,6 +391,7 @@
     box-shadow: var(--glass-shadow-lg);
   }
   
+  /* Section Titles */
   .section-title {
     font-size: 2.5rem;
     font-weight: 600;
@@ -278,6 +470,7 @@
   }
 }
 
+/* Animations and Keyframes */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -311,5 +504,43 @@
   }
   50% {
     transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(10, 132, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(10, 132, 255, 0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

@@ -10,7 +10,7 @@ These rules cover the backend subdir and every sveltekit static site subdir
 Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
 
 always a lot of neumorphic styles throughout using tailwind and flowbite
-always use transitions for all navigation and actions, using rombo for tailwind (tailwindcss-motion)
+always use transitions for all navigation and actions, using animejs
 
 create with a lot of freedom, and if you have any idea for anything that will go well with an image that doesn't exist, create the ui for the image, with the dimensions so it's like a placeholder in the ui, and make the alt of the placeholder a prompt for an image to be created with AI, and also tell me every image to be created in your response
 
