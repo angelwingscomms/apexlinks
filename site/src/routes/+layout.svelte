@@ -30,7 +30,7 @@
 	<footer class="py-8 px-4 bg-transparent">
 		<div class="container mx-auto flex flex-col items-center">
 			<div class="mb-4">
-				<a href="/" class="text-2xl font-bold dreamy-text">RedMoon</a>
+				<a href="/" class="text-2xl font-bold dreamy-text">ApexLinks</a>
 			</div>
 			<nav class="mb-4">
 				<ul class="flex flex-wrap justify-center gap-6">
@@ -40,7 +40,7 @@
 					<li><a href="/contact" class="text-gray-700 hover:text-primary">Contact</a></li>
 				</ul>
 			</nav>
-			<p class="text-gray-600 mb-2">© {new Date().getFullYear()} RedMoon - Connect with like-minded individuals</p>
+			<p class="text-gray-600 mb-2">© {new Date().getFullYear()} ApexLinks - Connect with like-minded individuals</p>
 		</div>
 	</footer>
 	

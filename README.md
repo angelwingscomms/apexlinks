@@ -1,6 +1,6 @@
-# RedMoon - AI-Powered Anonymous Chat
+# ApexLinks - AI-Powered Anonymous Chat
 
-RedMoon is an Omegle-style anonymous chat application that uses AI-powered matching to connect users based on their interests and descriptions. The system uses Google's Gemini embedding model to create semantic embeddings of user descriptions and stores them in Qdrant vector database for intelligent matching.
+ApexLinks is an Omegle-style anonymous chat application that uses AI-powered matching to connect users based on their interests and descriptions. The system uses Google's Gemini embedding model to create semantic embeddings of user descriptions and stores them in Qdrant vector database for intelligent matching.
 
 ## Features
 
@@ -20,7 +20,7 @@ RedMoon is an Omegle-style anonymous chat application that uses AI-powered match
 - **AI**: Google Gemini embedding model
 - **WebSockets**: Real-time chat communication
 
-### Frontend (redmoon/)
+### Frontend (apexlinks/)
 - **Framework**: SvelteKit
 - **Styling**: Tailwind CSS v4 + Flowbite with Glassmorphic design
 - **HTTP Client**: Axios
@@ -74,7 +74,7 @@ The backend will start on `http://localhost:8000` (Shuttle's default local port)
 
 1. Navigate to the frontend directory:
    ```bash
-   cd redmoon
+   cd apexlinks
    ```
 
 2. Install dependencies:
@@ -172,7 +172,7 @@ shuttle run  # Starts the server locally on port 8000
 
 ### Frontend Structure
 ```
-redmoon/src/
+apexlinks/src/
 ├── routes/
 │   ├── +layout.svelte      # Layout component
 │   └── +page.svelte        # Main chat interface

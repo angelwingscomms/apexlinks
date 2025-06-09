@@ -1,6 +1,6 @@
 {
-  "name": "RedMoon - Connect with Like-Minded People",
-  "short_name": "RedMoon",
+  "name": "ApexLinks - Connect with Like-Minded People",
+  "short_name": "ApexLinks",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fef2f2",
@@ -76,13 +76,13 @@
       "src": "/screenshots/screenshot1.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "label": "RedMoon home screen"
+      "label": "ApexLinks home screen"
     },
     {
       "src": "/screenshots/screenshot2.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "label": "Find users on RedMoon"
+      "label": "Find users on ApexLinks"
     }
   ],
   "related_applications": [],
@@ -91,7 +91,7 @@
     {
       "name": "Home",
       "short_name": "Home",
-      "description": "Return to the RedMoon home screen",
+      "description": "Return to the ApexLinks home screen",
       "url": "/",
       "icons": [
         {
@@ -103,7 +103,7 @@
     {
       "name": "Find Users",
       "short_name": "Users",
-      "description": "Find users on RedMoon",
+      "description": "Find users on ApexLinks",
       "url": "/users",
       "icons": [
         {

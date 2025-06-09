@@ -36,7 +36,7 @@
     <!-- Logo -->
     <div>
       <a href="/" class="flex items-center">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dreamy-text">RedMoon</span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dreamy-text">ApexLinks</span>
       </a>
     </div>
     

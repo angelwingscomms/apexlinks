@@ -1,4 +1,4 @@
-const CACHE_NAME = 'redmoon-v2';
+const CACHE_NAME = 'apexlinks-v2';
 const STATIC_ASSETS = [
   '/',
   '/app.css',

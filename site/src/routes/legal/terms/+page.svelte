@@ -6,7 +6,7 @@
     
     <h2>1. Agreement to Terms</h2>
     <p>
-      By accessing or using RedMoon ("the Service"), you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the Service.
+      By accessing or using ApexLinks ("the Service"), you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the Service.
     </p>
     
     <h2>2. User Accounts</h2>
@@ -34,14 +34,14 @@
     <ul>
       <li>In any way that violates any applicable national or international law or regulation.</li>
       <li>To impersonate or attempt to impersonate any person or entity.</li>
-      <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Service, or which may harm RedMoon or users of the Service.</li>
+      <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Service, or which may harm ApexLinks or users of the Service.</li>
       <li>To harass, abuse, or harm another person.</li>
       <li>To distribute unsolicited promotional or commercial content, or to spam, phish, or pharm other users.</li>
     </ul>
     
     <h2>5. Intellectual Property</h2>
     <p>
-      The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of RedMoon and its licensors.
+      The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of ApexLinks and its licensors.
     </p>
     
     <h2>6. Termination</h2>
@@ -54,7 +54,7 @@
     
     <h2>7. Limitation of Liability</h2>
     <p>
-      In no event shall RedMoon, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+      In no event shall ApexLinks, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
     </p>
     <ul>
       <li>Your access to or use of or inability to access or use the Service;</li>
@@ -70,7 +70,7 @@
     
     <h2>9. Contact Us</h2>
     <p>
-      If you have any questions about these Terms, please contact us at terms@redmoon.com.
+      If you have any questions about these Terms, please contact us at terms@apexlinks.com.
     </p>
   </div>
 </div> 

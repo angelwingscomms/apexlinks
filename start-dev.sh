@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# RedMoon Development Startup Script
+# ApexLinks Development Startup Script
 
-echo "🌙 Starting RedMoon Development Environment..."
+echo "🌙 Starting ApexLinks Development Environment..."
 
 # Check if Shuttle CLI is installed
 if ! command -v shuttle &> /dev/null; then
@@ -33,12 +33,12 @@ sleep 3
 
 # Start frontend
 echo "⚡ Starting SvelteKit frontend..."
-cd redmoon
+cd apexlinks
 npm run dev &
 FRONTEND_PID=$!
 cd ..
 
-echo "🚀 RedMoon is starting up!"
+echo "🚀 ApexLinks is starting up!"
 echo "📱 Frontend: http://localhost:5173"
 echo "🔧 Backend: http://localhost:8000"
 echo ""

@@ -6,7 +6,7 @@
     
     <h2>1. Introduction</h2>
     <p>
-      RedMoon ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application.
+      ApexLinks ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application.
     </p>
     
     <h2>2. Information We Collect</h2>
@@ -61,7 +61,7 @@
     
     <h2 class="text-xl font-semibold mt-6 mb-2">Contact Us</h2>
     <p class="mb-4">
-      If you have any questions about this Privacy Policy, please contact us at privacy@redmoon.com.
+      If you have any questions about this Privacy Policy, please contact us at privacy@apexlinks.com.
     </p>
   </div>
 </div> 
