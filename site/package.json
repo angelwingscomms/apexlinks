@@ -18,6 +18,7 @@
 		"validate-pwa": "node scripts/validate-pwa.js"
 	},
 	"dependencies": {
+		"animejs": "^4.0.2",
 		"axios": "^1.9.0",
 		"web-vitals": "^5.0.1"
 	},

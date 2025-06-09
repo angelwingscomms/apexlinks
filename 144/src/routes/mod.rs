@@ -13,3 +13,4 @@ pub mod auth;
 pub mod product;
 pub mod service;
 pub mod chatgroup;
+pub mod item;

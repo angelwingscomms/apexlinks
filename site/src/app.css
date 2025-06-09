@@ -3,19 +3,19 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --color-primary: #ef4444;
-  --color-secondary: #b91c1c;
-  --color-accent: #f97316;
-  --color-light: #fef2f2;
-  --color-lighter: #fee2e2;
-  --color-lightest: #fecaca;
-  --color-dark: #0f172a;
-  --glass-bg: rgba(255, 255, 255, 0.08);
+  --color-primary: #1C1F4A;
+  --color-secondary: #2A2E6E;
+  --color-accent: #A3F1FF;
+  --color-light: #F4E6FF;
+  --color-lighter: #E5D9FF;
+  --color-lightest: #FDFDFF;
+  --color-dark: #151A33;
+  --glass-bg: rgba(28, 31, 74, 0.08);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: 20px;
-  --glass-shadow: 0 12px 40px rgba(239, 68, 68, 0.25);
-  --glass-shadow-sm: 0 8px 24px rgba(239, 68, 68, 0.20);
-  --glass-shadow-lg: 0 16px 56px rgba(239, 68, 68, 0.30);
+  --glass-shadow: 0 12px 40px rgba(28, 31, 74, 0.25);
+  --glass-shadow-sm: 0 8px 24px rgba(28, 31, 74, 0.20);
+  --glass-shadow-lg: 0 16px 56px rgba(28, 31, 74, 0.30);
 }
 
 @layer utilities {
@@ -44,30 +44,30 @@
   }
   
   .glass-button {
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(42, 46, 110, 0.15);
     backdrop-filter: blur(12px);
     border-radius: 1rem;
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(42, 46, 110, 0.2);
     box-shadow: var(--glass-shadow-sm);
     transition: all 0.3s ease;
   }
   
   .glass-button:hover {
-    background: rgba(239, 68, 68, 0.25);
+    background: rgba(42, 46, 110, 0.25);
     transform: translateY(-2px);
     box-shadow: var(--glass-shadow);
   }
   
   .dreamy-text {
-    color: var(--color-primary);
+    color: var(--color-light);
   }
   
   .dreamy-bg {
-    background: linear-gradient(120deg, var(--color-light) 0%, var(--color-lightest) 100%);
+    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   }
   
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(28, 31, 74, 0.08);
     backdrop-filter: blur(20px);
     border-radius: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -77,24 +77,24 @@
 
 @layer components {
   .btn-primary {
-    background-color: rgba(239, 68, 68, 0.85);
-    color: white;
+    background-color: rgba(42, 46, 110, 0.85);
+    color: var(--color-lightest);
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
     font-weight: 600;
     transition: all 0.3s ease;
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(42, 46, 110, 0.3);
+    box-shadow: 0 4px 15px rgba(28, 31, 74, 0.25);
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35);
+    box-shadow: 0 8px 25px rgba(28, 31, 74, 0.35);
   }
   
   .input-glass {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(28, 31, 74, 0.08);
     backdrop-filter: blur(15px);
     border-radius: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,12 +104,12 @@
   
   .input-glass:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+    background: rgba(28, 31, 74, 0.12);
+    box-shadow: 0 0 15px rgba(163, 241, 255, 0.2);
   }
   
   .card-glass {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(28, 31, 74, 0.08);
     backdrop-filter: blur(20px);
     border-radius: 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -135,9 +135,9 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 0 10px rgba(163, 241, 255, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+    box-shadow: 0 0 20px rgba(163, 241, 255, 0.6);
   }
 }

@@ -98,6 +98,7 @@ async fn warp(
         .or(routes::auth::routes().with(cors.clone()))
         .or(routes::product::routes().with(cors.clone()))
         .or(routes::service::routes().with(cors.clone()))
+        .or(routes::item::routes().with(cors.clone()))
         .or(routes::chatgroup::routes().with(cors.clone()))
         .boxed()
         .into())
