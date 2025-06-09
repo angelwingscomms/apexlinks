@@ -2,6 +2,7 @@
   import { userStore, isAuthenticated, currentUser } from '../stores/userStore';
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
   
   // Handle navigation bar animation
   let scrolled = $state(false);
@@ -29,6 +30,11 @@
   function handleLogout() {
     userStore.logout();
   }
+  
+  // Navigate to profile page
+  function goToProfile() {
+    goto('/profile');
+  }
 </script>
 
 <nav class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 p-4 ${scrolled ? 'bg-white/30 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
@@ -42,12 +48,7 @@
     
     <!-- Navigation Links -->
     <div class="hidden md:flex space-x-8">
-      <a href="/" class={`dreamy-text font-medium ${$page.url.pathname === '/' ? 'border-b-2 border-primary' : ''}`}>Home</a>
       <a href="/users" class={`dreamy-text font-medium ${$page.url.pathname === '/users' ? 'border-b-2 border-primary' : ''}`}>Find Users</a>
-      {#if $isAuthenticated}
-        <a href="/chat" class={`dreamy-text font-medium ${$page.url.pathname === '/chat' ? 'border-b-2 border-primary' : ''}`}>Chat</a>
-        <a href="/profile" class={`dreamy-text font-medium ${$page.url.pathname === '/profile' ? 'border-b-2 border-primary' : ''}`}>My Profile</a>
-      {/if}
     </div>
     
     <!-- Auth Buttons -->
@@ -62,7 +63,7 @@
             </span>
           </a>
           
-          <div class="glass-sm flex items-center px-3 py-2">
+          <div class="glass-sm flex items-center px-3 py-2 cursor-pointer" on:click={goToProfile}>
             <img src={$currentUser.picture} alt="Profile" class="w-8 h-8 rounded-full mr-2" />
             <span class="text-sm font-medium text-gray-700">{$currentUser.name}</span>
           </div>
