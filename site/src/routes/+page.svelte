@@ -16,12 +16,9 @@
 	let selectedCategory = $state('');
 	let searchQuery = $state('');
 	
-	/** @type {HTMLElement} */
-	let heroHeading;
-	/** @type {HTMLElement} */
-	let ctaButton;
-	/** @type {HTMLElement} */
-	let backgroundElement;
+	let heroHeading: any;
+	let ctaButton: any;
+	let backgroundElement: any;
 	
 	// Sample product data for demonstration
 	const featuredProducts = [
