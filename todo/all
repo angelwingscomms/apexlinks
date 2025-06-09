@@ -1,11 +1,77 @@
 # Global Routing Convention
 All sites must use the dynamic routing method as used in `site`: `<resource>/i?i=<resource_id>` for resource detail pages.
 
-student type
+edits to be made to ./site
 
+some of these may be already (partially or fully) implemented
 
-for ./aw
-    implement login w google that using 144 backend and 
+---
+
+the site's main focus for now is to allow users catalogue their products and services.&#x20;
+
+# homepage
+
+instead of a search page/button/cta on/as the homepage, the homepage lets the user clearly know that the site allows them to easily and beautifully catalogue their products/services for their (potential) customers and the general public. the site allows your catalogue to be color/font/style themed anyhow you like, allows users to search through your products with AI and filters, talk to AI about your products to discover the best thing for them that you have, and also answer any questions or clear up any unclear stuff they may have about your product.  users can find similar items to an item in your catalogue. After the homepage, the user catalogue page would be implemented, which would be a page at /c?i=\<user\_id>, so a search can be done on a catalogue, filtered by product, service, or both, filtered by price range and any custom filters available on the item
+
+# item add page (/i/add):
+
+choose type (product/service)
+
+text input - text name
+
+upload primary image
+
+upload images
+
+text area  - item description
+
+add values for custom fields:
+
+custom fields are numeric or text fields the user have set on their account so any of their items can have values for any of those fields. the input for a custom field is numeric or text based on the field's type. custom fields are fetched from the user's profile on page load
+
+# &#x20;edit profile page /edit
+
+username text input
+
+description text area
+
+primary image
+
+images
+
+address input: address, state, country
+
+location input: select location w/ pin from Google Maps embed
+
+add/edit/delete custom fields
+
+custom fields have a label and type\:number/text
+
+in the db, custom fields are stored as JSON in the \`cf\` field of the user db object
+
+# user detail page /u?i=\<uuid>
+
+name
+
+user's primary image
+
+horizontal scrolling bar of user's images
+
+address
+
+user description
+
+# item detail page /i?i=\<uuid>
+
+name
+
+item's primary image
+
+horizontal scrolling bar of item's images
+
+address
+
+item description
 
 # Glassmorphic Design Update Todo
 
