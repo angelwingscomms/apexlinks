@@ -1,0 +1,11 @@
+/home/x/z/angelwingscomms/apexlinks/144/google_auth_test/target/debug/deps/libserial_test-8c37420676d85e08.rmeta: /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/lib.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/parallel_code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/rwlock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/serial_code_lock.rs
+
+/home/x/z/angelwingscomms/apexlinks/144/google_auth_test/target/debug/deps/libserial_test-8c37420676d85e08.rlib: /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/lib.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/parallel_code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/rwlock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/serial_code_lock.rs
+
+/home/x/z/angelwingscomms/apexlinks/144/google_auth_test/target/debug/deps/serial_test-8c37420676d85e08.d: /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/lib.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/parallel_code_lock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/rwlock.rs /home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/serial_code_lock.rs
+
+/home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/lib.rs:
+/home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/code_lock.rs:
+/home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/parallel_code_lock.rs:
+/home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/rwlock.rs:
+/home/x/.cargo/registry/src/index.crates.io-6f17d22bba15001f/serial_test-2.0.0/src/serial_code_lock.rs:
