@@ -8,6 +8,7 @@
   export let imageUrl = '';
   export let altText = '';
   export let href = '';
+  export let badge = '';
   
   /** @type {HTMLElement} */
   let card;
@@ -37,47 +38,51 @@
 
 <a 
   {href}
-  class="block glass transition-all" 
+  class="block neumorphic overflow-hidden transition-all duration-300 hover:translate-y-[-5px]" 
   bind:this={card}
+  on:mouseenter={handleMouseEnter}
+  on:mouseleave={handleMouseLeave}
 >
   <div class="relative overflow-hidden rounded-2xl">
     <img 
       src={imageUrl} 
       alt={altText} 
-      class="w-full h-48 object-cover transition-transform"
+      class="w-full h-52 object-cover transition-transform duration-500"
       bind:this={image}
-      on:mouseenter={handleMouseEnter}
-      on:mouseleave={handleMouseLeave}
+      style="transform: scale({isHovering ? 1.05 : 1});"
     />
     
-    <div class="p-4">
-      <h3 class="text-lg font-semibold text-sky-900 mb-2">{title}</h3>
-      <p class="text-sm text-sky-800">{description}</p>
-    </div>
+    {#if badge}
+      <div class="absolute top-3 right-3 bg-[#0a84ff] text-white text-xs px-2 py-1 rounded-full">
+        {badge}
+      </div>
+    {/if}
     
-    <div 
-      class="absolute inset-0 bg-gradient-to-t from-sky-100/50 to-transparent opacity-0 transition-opacity"
-      class:opacity-70={isHovering}
-    ></div>
+    <div class="p-6">
+      <h3 class="text-lg font-semibold text-[#1d1d1f] mb-3">{title}</h3>
+      <p class="text-[#86868b] text-sm leading-relaxed">{description}</p>
+      
+      <div class="mt-4 flex items-center text-[#0a84ff] text-sm font-medium">
+        <span>Learn more</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="m9 6 6 6-6 6"></path></svg>
+      </div>
+    </div>
   </div>
 </a>
 
 <style>
-  @theme {
-    --glass-opacity: 0.2;
-    --glass-blur: 15px;
-    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 32px rgba(14, 165, 233, 0.2);
+  .neumorphic {
+    background: var(--color-lighter, #e8e8ed);
+    border-radius: 1.25rem;
+    box-shadow: 
+      10px 10px 20px rgba(0, 0, 0, 0.05),
+      -10px -10px 20px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
   }
   
-  @layer utilities {
-    .glass {
-      background: rgba(255, 255, 255, var(--glass-opacity));
-      backdrop-filter: blur(var(--glass-blur));
-      border: var(--glass-border);
-      box-shadow: var(--glass-shadow);
-      border-radius: 1.5rem;
-      transition: all 0.3s ease;
-    }
+  .neumorphic:hover {
+    box-shadow: 
+      15px 15px 30px rgba(0, 0, 0, 0.07),
+      -15px -15px 30px rgba(255, 255, 255, 0.9);
   }
 </style> 

@@ -3,26 +3,31 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --color-primary: #1C1F4A;
-  --color-secondary: #2A2E6E;
-  --color-accent: #A3F1FF;
-  --color-light: #F4E6FF;
-  --color-lighter: #E5D9FF;
-  --color-lightest: #FDFDFF;
-  --color-dark: #151A33;
-  --glass-bg: rgba(28, 31, 74, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: 20px;
-  --glass-shadow: 0 12px 40px rgba(28, 31, 74, 0.25);
-  --glass-shadow-sm: 0 8px 24px rgba(28, 31, 74, 0.20);
-  --glass-shadow-lg: 0 16px 56px rgba(28, 31, 74, 0.30);
+  --color-primary: #0a84ff;
+  --color-secondary: #1d1d1f;
+  --color-accent: #06c;
+  --color-accent-light: #54c7fc;
+  --color-light: #f5f5f7;
+  --color-lighter: #e8e8ed;
+  --color-lightest: #ffffff;
+  --color-dark: #1d1d1f;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #86868b;
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 30px;
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --glass-shadow-sm: 0 8px 16px rgba(0, 0, 0, 0.06);
+  --glass-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --animation-ease: cubic-bezier(0.42, 0, 0.58, 1);
+  --shadow-neumorphic: 10px 10px 20px rgba(0, 0, 0, 0.05), -10px -10px 20px rgba(255, 255, 255, 0.8);
 }
 
 @layer utilities {
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
@@ -44,83 +49,126 @@
   }
   
   .glass-button {
-    background: rgba(42, 46, 110, 0.15);
-    backdrop-filter: blur(12px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
     border-radius: 1rem;
-    border: 1px solid rgba(42, 46, 110, 0.2);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow-sm);
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--animation-ease);
   }
   
   .glass-button:hover {
-    background: rgba(42, 46, 110, 0.25);
+    background: rgba(255, 255, 255, 0.8);
     transform: translateY(-2px);
     box-shadow: var(--glass-shadow);
   }
   
+  .neumorphic {
+    background: var(--color-lighter);
+    box-shadow: var(--shadow-neumorphic);
+    border-radius: 1.25rem;
+  }
+  
   .dreamy-text {
-    color: var(--color-light);
+    color: var(--color-text-primary);
+    font-weight: 500;
   }
   
   .dreamy-bg {
-    background: linear-gradient(120deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent-light));
   }
   
-  .glassmorphism {
-    background: rgba(28, 31, 74, 0.08);
-    backdrop-filter: blur(20px);
-    border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--glass-shadow);
+  .text-gradient {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
 @layer components {
   .btn-primary {
-    background-color: rgba(42, 46, 110, 0.85);
+    background-color: var(--color-primary);
     color: var(--color-lightest);
     padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(42, 46, 110, 0.3);
-    box-shadow: 0 4px 15px rgba(28, 31, 74, 0.25);
+    border-radius: 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s var(--animation-ease);
+    border: none;
+    box-shadow: 0 4px 10px rgba(10, 132, 255, 0.3);
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(28, 31, 74, 0.35);
+    box-shadow: 0 8px 15px rgba(10, 132, 255, 0.4);
+    background-color: #0071e3;
+  }
+  
+  .btn-secondary {
+    background-color: var(--color-lighter);
+    color: var(--color-text-primary);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.25rem;
+    font-weight: 500;
+    transition: all 0.3s var(--animation-ease);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-light);
+    transform: translateY(-2px);
   }
   
   .input-glass {
-    background: rgba(28, 31, 74, 0.08);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(15px);
     border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     padding: 0.75rem 1.25rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--animation-ease);
+    color: var(--color-text-primary);
   }
   
   .input-glass:focus {
     outline: none;
-    background: rgba(28, 31, 74, 0.12);
-    box-shadow: 0 0 15px rgba(163, 241, 255, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.3);
+    border-color: var(--color-primary);
   }
   
   .card-glass {
-    background: rgba(28, 31, 74, 0.08);
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--animation-ease);
   }
   
   .card-glass:hover {
     transform: translateY(-5px);
     box-shadow: var(--glass-shadow-lg);
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  
+  .feature-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    font-size: 1.75rem;
   }
 }
 
@@ -135,9 +183,18 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(163, 241, 255, 0.3);
+    box-shadow: 0 0 10px rgba(10, 132, 255, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(163, 241, 255, 0.6);
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }
