@@ -14,6 +14,10 @@
 		staggeredElementsOnScroll,
 		glowEffect
 	} from '$lib/animations.js';
+	import GlassCard from '$lib/components/GlassCard.svelte';
+	import GradientButton from '$lib/components/GradientButton.svelte';
+	import GradientText from '$lib/components/GradientText.svelte';
+	import GradientCard from '$lib/components/GradientCard.svelte';
 	
 	let searchQuery = $state('');
 	
