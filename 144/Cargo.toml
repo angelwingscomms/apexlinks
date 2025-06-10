@@ -34,6 +34,9 @@ qdrant-client = "1.14.0"
 tokio-tungstenite = "0.26.2"
 lazy_static = "1.5.0"
 
+[patch.crates-io]
+onig_sys = { git = "https://github.com/rust-onig/rust-onig", package = "onig_sys" }
+
 [dev-dependencies]
 mockall = "0.12.1"
 pretty_assertions = "1.4.0"
