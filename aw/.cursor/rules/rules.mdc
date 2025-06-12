@@ -3,9 +3,17 @@ description:
 globs: 
 alwaysApply: true
 ---
-Always think like a professional creative designer that works in a professional highend design studio that does work for fortune 500 companies like Apple and Nike
+This is a sveltekit app using adapter-static and is run with deno
 
-always a lot of neumorphic styles throughout using tailwind and flowbite
+- **Database**: Qdrant vector database for all data storage
+- **Multitenancy**: Differentiate data using `s` field for tenant ids in payloads
+- **Identifiers**: UUID v7 for unique identifiers
+
+Always use best practices and recommended practices for site architecture according to the SvelteKit docs
+Always think and write code and create styles like a professional creative designer that works at Apple
+
+always a lotta liquid glass glassmorphic styles throughout using tailwind and flowbite
+elements have frosted glass backgrounds where main page abstract element art backgrounds softly show through
 always use a lotta animations and transitions using animejs
 dreamy ethereal styles
 
@@ -53,16 +61,5 @@ extracurriculars
     coding
         making software with AI
     making them proficientt in AI use accross various domains
-
-classes
-    foundation
-    prenursery
-    nursery 1
-    nursery 2
-    grade 1
-    grade 2
-    grade 3
-    grade 4
-    grade 5
 
 

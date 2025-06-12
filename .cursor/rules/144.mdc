@@ -15,7 +15,6 @@ Rust server using warp framework serving as backend for all SvelteKit sites.
 - **Identifiers**: UUID v7 for unique identifiers via `util::id()`
 - **Background Tasks**: Use `tokio::task::spawn` for async operations
 - **Server Startup**: Use `shuttle run` to start the server
-- **Deployment Platform**: Shuttle.rs for hosting
 
 ## Error Handling
 
@@ -423,9 +422,7 @@ pub fn routes() -> impl Filter<Extract = (impl warp::Reply,), Error = warp::Reje
 }
 ```
 
-## Enhanced Security Practices
-
-### API Key Security
+### Getting API Keys
 
 ```rust
 // CRITICAL: Never commit Secrets.toml to version control
@@ -511,21 +508,6 @@ async fn check_rate_limit(client_id: &str) -> AppResult<()> {
     }
     Ok(())
 }
-```
-
-### Enhanced CORS Configuration
-
-```rust
-// Production CORS configuration
-let cors = warp::cors()
-    .allow_origins(vec![
-        "https://yourdomain.com",
-        "https://app.yourdomain.com"
-    ])
-    .allow_methods(vec!["GET", "POST", "PUT", "DELETE"])
-    .allow_headers(vec!["Content-Type", "Authorization"])
-    .allow_credentials(true)
-    .max_age(3600);
 ```
 
 ### Authentication Middleware
@@ -768,17 +750,12 @@ pub async fn batch_upsert_points(
 ## Production Deployment Checklist
 
 1. **Environment Variables**: Never commit `Secrets.toml` to version control
-2. **HTTPS Only**: Configure TLS certificates for all endpoints
 3. **Rate Limiting**: Implement on all public endpoints
 4. **Monitoring**: Set up logging aggregation and alerts
-5. **Backups**: Regular Qdrant snapshots
 6. **Access Control**: Implement proper authentication and authorization
 7. **Input Validation**: Sanitize and validate all user inputs
 8. **Error Handling**: Never expose internal error details to clients
 9. **Audit Logging**: Track all data modifications and access attempts
-10. **Performance**: Monitor and optimize slow queries
 11. **Security Headers**: Apply to all HTTP responses
 12. **Connection Limits**: Implement for WebSockets and concurrent requests
 13. **Timeout Protection**: Add to all external service calls
-14. **Dependency Updates**: Regularly update all dependencies for security patches
-15. **Secret Rotation**: Implement regular rotation of API keys and credentials

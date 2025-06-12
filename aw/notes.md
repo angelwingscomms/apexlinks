@@ -1,3 +1,9 @@
+- Update layout components to use new elegant gold frosted glass design
+- Add animated golden gradient background to hero section
+- Implement refined floating particles with blue and gold accents
+- Update all buttons and UI components to use glass-blue and glass-gold styles
+- Ensure consistent golden accents throughout all pages
+
 # AngelWings Comprehensive College - Todo List
 
 ## Site-Wide Requirements
@@ -85,10 +91,7 @@
 
 ## New Theme Requirements
 
-- Update layout components to use new elegant gold glassmorphism design
-- Add animated golden gradient background to hero section
-- Implement refined floating particles with blue and gold accents
-- Update all buttons and UI components to use glass-blue and glass-gold styles
 - Create sophisticated imagery with warm gold tones and blue accents
 - Add premium font pairings for an upscale feel
-- Ensure consistent golden accents throughout all pages
+
+
