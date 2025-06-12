@@ -69,7 +69,7 @@
         when year is added, use value of `next_key` for the new year's key
     request access
       user requests access to the school portal as a student or teacher or admin role
-      it shows the user's Google account name, telling them that the school wants to use their full name, asking them if to continue with that name or if to use a different name, if yes, it shows an input box for a different name
+      it shows the user's Google account name, telling them that the school wants to use their full name, asking them if to  continue with that name or if to use a different name, if yes, it shows an input box for a different name
       on the db, an access request object is created, if a different name was provided by the user, that name is used in the access request object
     view access requests
       only loads if user is admin
