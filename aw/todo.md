@@ -53,7 +53,6 @@
     r: boolean // rejected
 
 
-
 ## todo
   login w/ google
     if user doesn't exist, stores user name and email and google id
@@ -79,10 +78,11 @@
         delete access request object from db
       reject
         set access request object r field to true
-    add score
-      only loads if user is admin
-      combobox school search by name, enter key runs search, search runs on server, returns 3 closest results
-      combobox school_user search by name (filter by tenant id `s` = `sch_usr`), enter key runs search, search runs on server, returns 3 closest results
+    add score /s/a
+      only loads if user is admin or teacher
+      search for student button
+        combobox school search by name, enter key runs search, search runs on server, returns 3 closest results
+        combobox school_user search by name (filter by tenant id `s` = `sch_usr`), enter key runs search, search runs on server, returns 3 closest results
       keys to input: t (select from 1, 2 or 3), y (select from), y_, j - required; 1, 2, 3, p, e - optional
     score detail
       shows school user name
